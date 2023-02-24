@@ -1,0 +1,27 @@
+<div>
+  <table>
+    <thead>
+    <th>Id</th>
+    <th>Titel</th>
+    <th>Name</th>
+    <th>Vorname</th>
+    <th>Strasse</th>
+    <th>Ort</th>
+    <th>Email</th>
+    <th>Telefon</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of persons">
+      <td>{{person.id}}</td>
+      <td>{{person.titel}}</td>
+      <td>{{person.name}}</td>
+      <td>{{person.vorname}}</td>
+      <td>{{person.strasse}}</td>
+      <td>{{person.ort}}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.telefon}}</td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
