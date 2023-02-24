@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {PersonStoreService} from "../shared/person-store.service";
 
 @Component({
   selector: 'app-person-list',
@@ -8,10 +9,10 @@ import {HttpClient} from "@angular/common/http";
 })
 export class PersonListComponent {
   persons:any;
-  constructor(private http:HttpClient) {
+  constructor(private storeService:PersonStoreService) {
   }
   ngOnInit(){
-    let response=this.http.get("http://localhost:8080/person/all");
+    let response=this.storeService.getAll()
     response.subscribe((data)=>this.persons=data);
   }
 
