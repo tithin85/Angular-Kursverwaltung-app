@@ -1,0 +1,30 @@
+
+<div>
+  <table>
+    <thead>
+    <th>Id</th>
+    <th>Kursname</th>
+    <th>Startdatum</th>
+    <th>Enddatum</th>
+    <th>AnzFreiePlaetze</th>
+    <th>Anzahl Teilnehmer</th>
+    <th>Status</th>
+    <th>Teilnehmer</th>
+    <th>Interessent</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let kurs of kurse">
+      <td>{{kurs.id}}</td>
+      <td>{{kurs.name}}</td>
+      <td>{{kurs.startDatum}}</td>
+      <td>{{kurs.endeDatum}}</td>
+      <td>{{kurs.freiePlaetze}}</td>
+      <td>doit</td>
+      <td>{{kurs.status}}</td>
+      <td>doit</td>
+      <td>doit</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
