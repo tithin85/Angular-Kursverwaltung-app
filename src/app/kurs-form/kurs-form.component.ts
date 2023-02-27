@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {KursStoreService} from "../shared/kurs-store.service";
 
 @Component({
   selector: 'app-kurs-form',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./kurs-form.component.css']
 })
 export class KursFormComponent {
+
+ constructor(private  storeService:KursStoreService) {
+ }
+  ngOnInit(){
+    let response=this.storeService.add();
+ }
 
 }
