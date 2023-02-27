@@ -11,8 +11,7 @@ import { KursListComponent } from './kurs-list/kurs-list.component';
   declarations: [
     AppComponent,
     PersonListComponent,
-    PersonDetailsComponent
-    PersonListComponent,
+    PersonDetailsComponent,
     KursListComponent,
 
   ],
