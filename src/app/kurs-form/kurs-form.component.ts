@@ -15,16 +15,16 @@ export class KursFormComponent {
  constructor(private  service:KursStoreService) {
    this.kurs = {
 
-     name: "",
-     anzahlTage: 0,
-     wieOftinWoche: 0,
-     startDatum: new Date(),
-     minTnZahl: 0,
-     maxTnZahl: 0,
-     gebuehrBrutto: 0,
-     mwstProzent:0,
-     kursBeschreibung: "",
-     status: ""
+     //name: "",
+     //anzahlTage: 0,
+     //wieOftinWoche: 0,
+     //startDatum: new Date(),
+     //minTnZahl: 0,
+    // maxTnZahl: 0,
+     //gebuehrBrutto: 0,
+    // mwstProzent:0,
+    // kursBeschreibung: "",
+     //status: ""
    }
  }
   ngOnInit(){

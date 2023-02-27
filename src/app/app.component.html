@@ -1,10 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="home">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
 
-<div class="ui-menu">
-  <a routerLink="home" routerLinkActive="active" class="item">Home</a>
-  <a routerLink="PersonForm" routerLinkActive="active" class ="item">PersonForm</a>
-  <a routerLink="PersonList" routerLinkActive="active" class="item">PersonList</a>
-  <a routerLink="KursForm" routerLinkActive="active" class="item">KursForm</a>
-  <a routerLink="KursList" routerLinkActive="active" class = "item">KursList</a>
-</div>
+      <a class="nav-item nav-link" routerLink="PersonForm">PersonFormular</a>
+      <a class="nav-item nav-link" routerLink="PersonList">PersonenList</a>
+      <a class="nav-item nav-link"  routerLink="KursForm" > KursFormular</a>
+      <a class="nav-item nav-link"  routerLink="KursList" > KursList</a>
+    </div>
+  </div>
+</nav>
+<!--<div >-->
+<!--  <a routerLink="home" routerLinkActive="active" class="item">Home</a>-->
+<!--  <a routerLink="PersonForm" routerLinkActive="active" class ="item">PersonForm</a>-->
+<!--  <a routerLink="PersonList" routerLinkActive="active" class="item">PersonList</a>-->
+<!--  <a routerLink="KursForm" routerLinkActive="active" class="item">KursForm</a>-->
+<!--  <a routerLink="KursList" routerLinkActive="active" class = "item">KursList</a>-->
+<!--</div>-->
+
 <router-outlet></router-outlet>
 
