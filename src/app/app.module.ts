@@ -9,6 +9,10 @@ import { PersonFormularComponent } from './person-formular/person-formular.compo
 import {PersonDetailsComponent} from "./person-details/person-details.component";
 import { KursListComponent } from './kurs-list/kurs-list.component';
 import {FormsModule} from "@angular/forms";
+import {KursFormComponent} from "./kurs-form/kurs-form.component";
+import {CreateKursComponent} from "./create-kurs/create-kurs.component";
+import {KursItemComponent} from "./kurs-item/kurs-item.component";
+import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +21,6 @@ import {FormsModule} from "@angular/forms";
     PersonFormularComponent,
     PersonListComponent,
     PersonDetailsComponent,
-    PersonListComponent,
     KursListComponent,
     KursItemComponent,
     KursDetailsComponent,
