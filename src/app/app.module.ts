@@ -19,6 +19,10 @@ import {FormsModule} from "@angular/forms";
     PersonDetailsComponent,
     PersonListComponent,
     KursListComponent,
+    KursItemComponent,
+    KursDetailsComponent,
+    KursFormComponent,
+    CreateKursComponent,
 
   ],
   imports: [
