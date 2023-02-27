@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { PersonListComponent } from './person-list/person-list.component';
+<<<<<<<<< Temporary merge branch 1
+import { KursListComponent } from './kurs-list/kurs-list.component';
+=========
 import {PersonDetailsComponent} from "./person-details/person-details.component";
 import { KursListComponent } from './kurs-list/kurs-list.component';
 import { KursItemComponent } from './kurs-item/kurs-item.component';
@@ -22,6 +25,9 @@ import { CreateKursComponent } from './create-kurs/create-kurs.component';
     KursFormComponent,
     CreateKursComponent,
 
+=========
+    PersonDetailsComponent
+>>>>>>>>> Temporary merge branch 2
   ],
   imports: [
     BrowserModule,
