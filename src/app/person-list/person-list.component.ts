@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {PersonStoreService} from "../shared/person-store.service";
 
+
 @Component({
   selector: 'app-person-list',
   templateUrl: './person-list.component.html',
