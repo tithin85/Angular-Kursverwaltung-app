@@ -4,6 +4,7 @@ import {PersonListComponent} from "./person-list/person-list.component";
 import {KursListComponent} from "./kurs-list/kurs-list.component";
 import {PersonFormularComponent} from "./person-formular/person-formular.component";
 import {HomeComponent} from "./home/home.component";
+import {KursFormComponent} from "./kurs-form/kurs-form.component";
 const routes: Routes = [ {
     path: '',
     redirectTo: 'home',
@@ -14,6 +15,7 @@ const routes: Routes = [ {
     component: HomeComponent
   },
   {
+
   path: 'PersonList',
   component:PersonListComponent
 },
@@ -25,6 +27,10 @@ const routes: Routes = [ {
   {
     path: 'PersonForm',
     component: PersonFormularComponent
+  },
+  {
+    path: 'KursForm',
+    component: KursFormComponent
   }
 
 ];
