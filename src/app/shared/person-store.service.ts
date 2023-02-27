@@ -14,6 +14,9 @@ constructor(private http:HttpClient){
   getAll(){
     return this.http.get("http://localhost:8080/person/all");
   }
+  addPerson(person:Person){
+  return this.http.post("http://localhost:8080/person/add",person)
+  }
 
 }
 
