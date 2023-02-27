@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import {PersonListComponent} from "./person-list/person-list.component";
 import {KursListComponent} from "./kurs-list/kurs-list.component";
 import {PersonFormularComponent} from "./person-formular/person-formular.component";
-import {KursFormComponent} from "./kurs-form/kurs-form.component";
-const routes: Routes = [
+import {HomeComponent} from "./home/home.component";
+const routes: Routes = [ {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
   {
-    path: 'KursForm',
-    component:KursFormComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
   path: 'PersonList',
@@ -17,6 +21,7 @@ const routes: Routes = [
     path: 'KursList',
     component:KursListComponent
   },
+
   {
     path: 'PersonForm',
     component: PersonFormularComponent
