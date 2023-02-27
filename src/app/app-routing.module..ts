@@ -21,6 +21,7 @@ const routes: Routes = [
     path: 'PersonForm',
     component: PersonFormularComponent
   }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
