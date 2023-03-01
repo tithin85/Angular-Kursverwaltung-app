@@ -1,0 +1,11 @@
+#outer-div {
+  width: 100%;
+  text-align: center;
+}
+
+#inner-div {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 3px;
+  margin-top: 50px;
+}
