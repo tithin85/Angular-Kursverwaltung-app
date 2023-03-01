@@ -7,10 +7,9 @@
     <th>Startdatum</th>
     <th>Enddatum</th>
     <th>AnzFreiePlaetze</th>
-    <th>Anzahl Teilnehmer</th>
     <th>Status</th>
-    <th>Teilnehmer</th>
-    <th>Interessent</th>
+    <th>Action</th>
+
     </thead>
     <tbody>
     <tr *ngFor="let kurs of kurse">
@@ -19,10 +18,16 @@
       <td>{{kurs.startDatum}}</td>
       <td>{{kurs.endeDatum}}</td>
       <td>{{kurs.freiePlaetze}}</td>
-      <td>doit</td>
       <td>{{kurs.status}}</td>
-      <td>doit</td>
-      <td>doit</td>
+      <td >
+        <button class="btn btn-sm btn-info">
+          <i class="fa fa-search"></i> Details</button>
+        <button class="btn btn-sm btn-warning">
+          <i class="fa fa-edit"></i>Edit</button>
+        <button class="btn btn-sm btn-danger" >
+          <i class="fa fa-remove"></i>Delete</button>
+      </td>
+
     </tr>
     </tbody>
   </table>

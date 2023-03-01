@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {PersonStoreService} from "../shared/person-store.service";
+import {Person} from "../shared/Person";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -9,12 +11,35 @@ import {PersonStoreService} from "../shared/person-store.service";
   styleUrls: ['./person-list.component.css']
 })
 export class PersonListComponent {
+  public personList!:Person[];
   persons:any;
-  constructor(private storeService:PersonStoreService) {
+  constructor(private storeService:PersonStoreService) {}
+
+  public getPerson():void{
+      this.storeService.getAll().subscribe((response: Person[]) => {
+          this.personList = response;
+        }
+      )
+
   }
   ngOnInit(){
-    let response=this.storeService.getAll()
-    response.subscribe((data)=>this.persons=data);
+    this.getPerson()
+
+
+
+
   }
+  delete(id?:number) {
+    if (id !== undefined) {
+
+      this.storeService.deletePerson(id).subscribe((response: Person[]) => {
+          this.personList = response;
+        }
+      )
+
+
+    }
+  }
+
 
 }
