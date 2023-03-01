@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {PersonStoreService} from "../shared/person-store.service";
 import {Person} from "../shared/Person";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,7 +14,7 @@ import {Observable} from "rxjs";
 export class PersonListComponent {
   public personList!:Person[];
   persons:any;
-  constructor(private storeService:PersonStoreService) {}
+  constructor(private storeService:PersonStoreService, private router :Router) {}
 
   public getPerson():void{
       this.storeService.getAll().subscribe((response: Person[]) => {
@@ -39,6 +40,10 @@ export class PersonListComponent {
 
 
     }
+  }
+  updatePerson(person:Person){
+    this.storeService.setter(person);
+    this.router.navigateByUrl('PersonList/UpdatingPerson')
   }
 
 

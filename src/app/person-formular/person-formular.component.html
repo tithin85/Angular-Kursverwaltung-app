@@ -1,52 +1,5 @@
 <form #PersonForm>
-<!--  <div class="form-row">-->
-<!--    <div class="col-md-1 mb-3">-->
-<!--      <label for="select">Anrede</label>-->
-<!--      <select type="text" class="form-control" id="select" >-->
-<!--        <option></option>-->
-<!--        <option>Herr</option>-->
-<!--        <option>Frau</option>-->
-<!--        <option>Divers</option>-->
-<!--      </select>-->
-<!--    </div>-->
-<!--    <div class="col-md-1 mb-3">-->
-<!--      <label for="titel">Titel</label>-->
-<!--      <input type="text" class="form-control" id="titel" placeholder="Titel"  >-->
-<!--    </div>-->
-<!--    <div class="col-md-3 mb-3">-->
-<!--      <label for="validationDefault01">Vorname</label>-->
-<!--      <input type="text" class="form-control" id="validationDefault01" placeholder="Vorname"  >-->
-<!--    </div>-->
-<!--    <div class="col-md-3 mb-3">-->
-<!--      <label for="validationDefault02">Nachname</label>-->
-<!--      <input type="text" class="form-control" id="validationDefault02" placeholder="Nachname" >-->
-<!--    </div>-->
-<!--    <div class="col-md-4 mb-3">-->
-<!--      <label for="validationDefaultUsername">Email</label>-->
-<!--      <div class="input-group">-->
-<!--        <div class="input-group-prepend">-->
-<!--          <span class="input-group-text" id="inputGroupPrepend2">@</span>-->
-<!--        </div>-->
-<!--        <input type="text" class="form-control" id="validationDefaultUsername" placeholder="abc@muster.com" aria-describedby="inputGroupPrepend2" required>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="form-row">-->
-<!--    <div class="col-md-6 mb-3">-->
-<!--      <label for="validationDefault03">Strasse & Hausnummer</label>-->
-<!--      <input type="text" class="form-control" id="validationDefault03" placeholder="Muster strasse 8" >-->
-<!--    </div>-->
-<!--    <div class="col-md-3 mb-3">-->
-<!--      <label for="validationDefault04">Ort</label>-->
-<!--      <input type="text" class="form-control" id="validationDefault04" placeholder="Bremen" >-->
-<!--    </div>-->
-<!--    <div class="col-md-3 mb-3">-->
-<!--      <label for="validationDefault05">PLZ</label>-->
-<!--      <input type="text" class="form-control" id="validationDefault05" placeholder="28325" >-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  -->
-<!--  <button class="btn btn-primary" type="submit">Submit form</button>-->
+
   <section class="h-50 bg-light">
     <div class="container py-5 h-50">
       <div class="row d-flex justify-content-center align-items-center h-50">
@@ -60,7 +13,8 @@
               </div>
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
-                  <h3 class="mb-5 ">Anmeldeformular</h3>
+                  <h3 *ngIf="person.id==undefined;else updating" class="mb-5 ">Anmeldeformular</h3>
+                  <ng-template #updating><h3 class="mb-5">Update Person</h3></ng-template>
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
@@ -128,10 +82,19 @@
                     <label class="form-label" for="form3Example97">Email ID</label>
                   </div>
 
-                  <div class="d-flex justify-content-end pt-3">
+                  <div *ngIf="person.id==undefined;else updatingButton"class="d-flex justify-content-end pt-3">
                     <button type="button" (click)="PersonForm.reset()" class="btn btn-light btn-lg m-sm-2">Reset all</button><br><br>
                     <button type="submit" class="btn btn-warning btn-lg ms-2" (click)="anmeldung();PersonForm.reset()">Submit form</button>
                   </div>
+                  <ng-template #updatingButton>
+                    <div class="d-flex justify-content-end pt-3">
+
+                      <button type="submit" class="btn btn-warning btn-lg ms-2" (click)="anmeldung();PersonForm.reset()">Update Person</button>
+                    </div>
+
+
+
+                  </ng-template>
 
 
                 </div>
