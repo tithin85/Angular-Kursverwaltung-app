@@ -1,21 +1,22 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http";
-import { PersonListComponent } from './person-list/person-list.component';
-import {AppRoutingModule} from "./app-routing.module.";
-import { PersonFormularComponent } from './person-formular/person-formular.component';
-import {PersonDetailsComponent} from "./person-details/person-details.component";
-import { KursListComponent } from './kurs-list/kurs-list.component';
 import {FormsModule} from "@angular/forms";
-import {KursFormComponent} from "./kurs-form/kurs-form.component";
 
-import {KursItemComponent} from "./kurs-item/kurs-item.component";
-import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
+import {AppRoutingModule} from "./app-routing.module.";
+import {AppComponent} from './app.component';
 import {HomeComponent} from "./home/home.component";
 
+import {PersonListComponent} from './person-list/person-list.component';
+import {PersonFormularComponent} from './person-formular/person-formular.component';
+import {PersonDetailsComponent} from "./person-details/person-details.component";
 
+import {KursListComponent} from './kurs-list/kurs-list.component';
+import {KursFormComponent} from "./kurs-form/kurs-form.component";
+import {KursItemComponent} from "./kurs-item/kurs-item.component";
+import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
+
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {HomeComponent} from "./home/home.component";
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

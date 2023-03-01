@@ -6,33 +6,23 @@ import {PersonFormularComponent} from "./person-formular/person-formular.compone
 import {HomeComponent} from "./home/home.component";
 import {KursFormComponent} from "./kurs-form/kurs-form.component";
 import {PersonDetailsComponent} from "./person-details/person-details.component";
-const routes: Routes = [ {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
 
-  path: 'PersonList',
-  component:PersonListComponent
-},
-  {
-    path: 'KursList',
-    component:KursListComponent
-  },
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'PersonList', component: PersonListComponent },
+  { path: 'KursList', component: KursListComponent },
+  { path: 'PersonForm', component: PersonFormularComponent },
+  { path: 'KursForm', component: KursFormComponent }, /*,
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'user', component: BoardUserComponent },
+  { path: 'mod', component: BoardModeratorComponent },
+  { path: 'admin', component: BoardAdminComponent }*/
 
-  {
-    path: 'PersonForm',
-    component: PersonFormularComponent
-  },
-  {
-    path: 'KursForm',
-    component: KursFormComponent
-  },
+
+
   {
     path: 'PersonDetails',
     component: PersonDetailsComponent
