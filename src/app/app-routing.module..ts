@@ -12,7 +12,13 @@ const routes: Routes = [
   { path: 'PersonList', component: PersonListComponent },
   { path: 'KursList', component: KursListComponent },
   { path: 'PersonForm', component: PersonFormularComponent },
-  { path: 'KursForm', component: KursFormComponent }
+  { path: 'KursForm', component: KursFormComponent } /*,
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'user', component: BoardUserComponent },
+  { path: 'mod', component: BoardModeratorComponent },
+  { path: 'admin', component: BoardAdminComponent }*/
 ];
 
 @NgModule({
