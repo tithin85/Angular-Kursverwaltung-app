@@ -10,4 +10,8 @@ export interface Kurs{
   mwstProzent?:number;
   kursBeschreibung?: string;
   status?: string;
+
+  endeDatum?: Date;
+  freiePlaetze?: number;
+
 }

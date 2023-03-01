@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {KursStoreService} from "../shared/kurs-store.service";
+import {Kurs} from "../shared/Kurs";
 
 @Component({
   selector: 'app-kurs-list',
@@ -8,12 +9,29 @@ import {KursStoreService} from "../shared/kurs-store.service";
   styleUrls: ['./kurs-list.component.css']
 })
 export class KursListComponent {
-  kurse:any;
-  constructor(private storeService:KursStoreService) {
+  public kursList!: Kurs[];
+  kurse: any;
+
+  constructor(private storeService: KursStoreService) {
   }
-  ngOnInit(){
-    let response=this.storeService.getAll();
-    response.subscribe((data)=>this.kurse=data);
+
+  public getKurs(): void {
+    this.storeService.getAll().subscribe((response: Kurs[]) => {
+        this.kursList = response;
+      }
+    )
+  }
+
+  ngOnInit() {
+    this.getKurs()
+  }
+
+  delete(id?: number) {
+    if (id !== undefined) {
+      this.storeService.deleteKurs(id).subscribe((response: Kurs[]) => {
+        this.kursList = response;
+      })
+    }
   }
 
 }
