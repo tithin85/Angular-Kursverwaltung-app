@@ -10,10 +10,12 @@ import {PersonDetailsComponent} from "./person-details/person-details.component"
 import { KursListComponent } from './kurs-list/kurs-list.component';
 import {FormsModule} from "@angular/forms";
 import {KursFormComponent} from "./kurs-form/kurs-form.component";
-import {CreateKursComponent} from "./create-kurs/create-kurs.component";
+
 import {KursItemComponent} from "./kurs-item/kurs-item.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 import {HomeComponent} from "./home/home.component";
+
+
 
 @NgModule({
   declarations: [
@@ -26,8 +28,7 @@ import {HomeComponent} from "./home/home.component";
     KursItemComponent,
     KursDetailsComponent,
     KursFormComponent,
-    CreateKursComponent,
-    HomeComponent
+    HomeComponent,
 
   ],
   imports: [
