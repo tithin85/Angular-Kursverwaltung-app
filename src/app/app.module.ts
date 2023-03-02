@@ -5,13 +5,12 @@ import {FormsModule} from "@angular/forms";
 
 import {AppRoutingModule} from "./app-routing.module.";
 import {AppComponent} from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
 
 import {PersonListComponent} from './person-list/person-list.component';
-import {PersonFormularComponent} from './person-formular/person-formular.component';
+import {PersonFormComponent} from './person-form/person-form.component';
 import {PersonDetailsComponent} from "./person-details/person-details.component";
 
 import {KursListComponent} from './kurs-list/kurs-list.component';
@@ -24,12 +23,11 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
     HomeComponent,
-    ProfileComponent,
     PersonListComponent,
-    PersonFormularComponent,
+    PersonFormComponent,
     PersonListComponent,
     PersonDetailsComponent,
     KursListComponent,

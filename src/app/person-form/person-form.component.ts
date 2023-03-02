@@ -4,11 +4,11 @@ import {PersonStoreService} from "../shared/person-store.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-person-formular',
-  templateUrl: './person-formular.component.html',
-  styleUrls: ['./person-formular.component.css']
+  selector: 'app-person-form',
+  templateUrl: './person-form.component.html',
+  styleUrls: ['./person-form.component.css']
 })
-export class PersonFormularComponent {
+export class PersonFormComponent {
   person:Person;
   return:any
   emptyPerson:Person;

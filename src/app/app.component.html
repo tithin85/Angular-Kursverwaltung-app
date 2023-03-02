@@ -6,6 +6,9 @@
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="personform">Person anlegen</a>
       </li>
       <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="persondetails">Person Details</a>
+      </li>
+      <li class="nav-item">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="personlist">Personenliste</a>
       </li>
       <li class="nav-item">
@@ -18,17 +21,14 @@
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        <a href="/register" class="nav-link" routerLink="register">Registrieren</a>
       </li>
       <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
+        <a href="/login" class="nav-link" routerLink="login">LogIn</a>
       </li>
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
       <li class="nav-item">
         <a href class="nav-link" (click)="logout()">LogOut</a>
       </li>
