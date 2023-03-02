@@ -15,12 +15,8 @@ export class PersonFormComponent {
   constructor(private service:PersonStoreService,private router:Router) {
     this.person=service.getPersonEntity();
     this.emptyPerson={};
-
-
-
   }
   ngOnInit(){
-
   }
   anmeldung(){
     if(this.service.getPersonEntity().id==undefined){
@@ -31,10 +27,6 @@ export class PersonFormComponent {
       response.subscribe((data)=>this.return=data)
       this.service.setter(this.emptyPerson);
       this.router.navigateByUrl('personlist');
-
     }
-
   }
-
-
 }
