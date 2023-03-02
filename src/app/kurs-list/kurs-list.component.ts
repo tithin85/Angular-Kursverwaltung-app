@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { UserService } from '../_services/user.service';
 import {HttpClient} from "@angular/common/http";
 import {KursStoreService} from "../shared/kurs-store.service";
 import {Kurs} from "../shared/Kurs";
@@ -11,9 +12,9 @@ import {Kurs} from "../shared/Kurs";
 export class KursListComponent {
   public kursList!: Kurs[];
   kurse: any;
+  content?: string;
 
-  constructor(private storeService: KursStoreService) {
-  }
+  constructor(private storeService: KursStoreService, private userService: UserService) {  }
 
   public getKurs(): void {
     this.storeService.getAll().subscribe((response: Kurs[]) => {
@@ -22,8 +23,16 @@ export class KursListComponent {
     )
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getKurs()
+    this.userService.getPublicContent().subscribe({
+      next: data => {
+        this.content = data;
+      },
+      error: err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    });
   }
 
   delete(id?: number) {
