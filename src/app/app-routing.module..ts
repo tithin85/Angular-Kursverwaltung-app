@@ -9,16 +9,17 @@ import {KursListComponent} from "./kurs-list/kurs-list.component";
 import {UserLoginComponent} from "./user-login/user-login.component";
 import {UserRegisterComponent} from "./user-register/user-register.component";
 
+// ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'personform', component: PersonFormComponent },
   { path: 'personlist', component: PersonListComponent },
   { path: 'persondetails', component: PersonDetailsComponent },
-  { path: 'personlist/UpdatingPerson', component: PersonFormComponent },
+  { path: 'personlist/personupdate', component: PersonFormComponent },
   { path: 'kursform', component: KursFormComponent },
   { path: 'kurslist', component: KursListComponent },
-  { path: 'kurslist/UpdatingKurs', component: KursFormComponent },
+  { path: 'kurslist/kursupdate', component: KursFormComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent }
 ];

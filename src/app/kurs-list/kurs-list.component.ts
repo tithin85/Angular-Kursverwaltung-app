@@ -45,7 +45,7 @@ export class KursListComponent {
   }
   updateKurs(kurs:Kurs){
     this.storeService.setter(kurs);
-    this.router.navigateByUrl("KursList/UpdatingKurs")
+    this.router.navigateByUrl("kurslist/kursupdate")
   }
 
 }

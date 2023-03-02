@@ -30,7 +30,7 @@ export class PersonFormComponent {
       let response=this.service.updatePerson(this.person);
       response.subscribe((data)=>this.return=data)
       this.service.setter(this.emptyPerson);
-      this.router.navigateByUrl('PersonList');
+      this.router.navigateByUrl('personlist');
 
     }
 
