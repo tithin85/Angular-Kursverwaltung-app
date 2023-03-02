@@ -43,4 +43,8 @@ export class PersonListComponent {
   }
 
 
+  details(person: Person) {
+    this.router.navigateByUrl("PersonDetails")
+
+  }
 }

@@ -20,7 +20,7 @@
       <td>{{person.vorname}}</td>
       <td>{{person.email}}</td>
       <td >
-        <button class="btn btn-sm btn-info">
+        <button class="btn btn-sm btn-info" (click) = "details(person)">
           <i class="fa fa-search"></i> Details</button>
         <button class="btn btn-sm btn-warning" (click)="updatePerson(person)">
           <i class="fa fa-edit"></i>Edit</button>
