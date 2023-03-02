@@ -70,7 +70,10 @@
               </div>
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
-                  <h3 class="mb-5 ">Neu Kurs </h3>
+                  <h3 *ngIf="kurs.id == undefined; else updatingHeadline" class="mb-5 ">Neuen Kurs anlegen</h3>
+                  <ng-template #updatingHeadline>
+                      <h3 class="mb-5 ">Diesen Kurs ändern</h3>
+                  </ng-template>
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example8">Kurs Name</label>
@@ -160,17 +163,26 @@
                     <div class="invalid-feedback">Bitte die Kursbeschreibung eingeben</div>
                   </div>
 
-                  <div class="d-flex justify-content-end pt-3">
-                    <div *ngIf="kurs.id == undefined; else updatingButton" class="btn btn-light btn-lg m-sm-2">
-                      <button type="button" (click)="KursForm.reset()" class="btn btn-light btn-lg m-sm-2">Reset all </button>
-                      <button type="submit" class="btn btn-warning btn-lg ms-2" (click)="addKurs();KursForm.reset()"> Submit form </button>
+                    <div *ngIf="kurs.id == undefined; else updatingButton" class="d-flex justify-content-end pt-3">
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <button type="button" (click)="KursForm.reset()" class="btn btn-danger btn-lg sm-2">
+                            Zurücksetzen
+                          </button>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <button type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">
+                            Speichern
+                          </button>
+                        </div>
+                        </div>
                     </div>
                     <ng-template #updatingButton>
                       <div class="d-flex justify-content-end pt-3">
-                        <button type="submit" class="btn btn-warning btn-lg ms-2" (click)="addKurs();KursForm.reset()">Update Kurs</button>
+                        <button type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">Update Kurs</button>
                       </div>
                     </ng-template>
-                  </div>
+
                 </div>
               </div>
             </div>
