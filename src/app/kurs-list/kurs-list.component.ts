@@ -15,9 +15,7 @@ export class KursListComponent {
   kurse: any;
   content?: string;
 
-  constructor(private storeService: KursStoreService, private router: Router) {
-  }
-  constructor(private storeService: KursStoreService, private userService: UserService) {  }
+  constructor(private storeService: KursStoreService, private userService: UserService, private router: Router) {  }
 
   public getKurs(): void {
     this.storeService.getAll().subscribe((response: Kurs[]) => {
