@@ -52,11 +52,11 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</section>-->
-
 <!--</form>-->
 <!--</div>-->
 <!--</body>-->
-<form #KursForm class="was-validated">
+
+<form #KursForm novalidate>
   <section class="h-50 bg-light">
     <div class="container py-5 h-50">
       <div class="row d-flex justify-content-center align-items-center h-50">
@@ -71,20 +71,19 @@
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
                   <h3 class="mb-5 ">Neu Kurs </h3>
+
                   <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example8">Kurs Name</label>
                     <input type="text" id="form3Example8" [(ngModel)]="kurs.name" [ngModelOptions]="{standalone: true}"
                            class="form-control form-control-lg" name="kurs.name" required/>
-                    <label class="form-label" for="form3Example8">Kurs Name</label>
-                    <div class="valid-feedback">Valid</div>
-                    <div class="invalid-feedback">Bitte einen Kursnamen eingeben</div>
                   </div>
+
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
+                        <label class="form-label" for="date">Start Datum</label>
                         <input type="date" id="date" [(ngModel)]="kurs.startDatum" [ngModelOptions]="{standalone: true}"
                                class="form-control form-control-lg" name="kurs.startdatum" required/>
-                        <label class="form-label" for="date">Start Datum</label>
-                        <div class="valid-feedback">Valid</div>
                         <div class="invalid-feedback">Bitte ein Startdatum eingeben</div>
                       </div>
                     </div>
@@ -93,21 +92,16 @@
                         <input type="text" id="status" [(ngModel)]="kurs.status" [ngModelOptions]="{standalone: true}"
                                class="form-control form-control-lg" name="kurs.status" required/>
                         <label class="form-label" for="status">Status</label>
-                        <div class="valid-feedback">Valid</div>
                         <div class="invalid-feedback">Bitte einen Kursstatus eingeben</div>
                       </div>
                     </div>
                   </div>
 
-
                   <div class="row">
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
-                        <input type="number" id="anzahltage" [(ngModel)]="kurs.anzahlTage"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                               name="kurs.anzahlTage" required/>
+                        <input type="number" id="anzahltage" [(ngModel)]="kurs.anzahlTage" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" name="kurs.anzahlTage" required/>
                         <label class="form-label" for="anzahltage">Anzahl des Tages</label>
-                        <div class="valid-feedback">Valid</div>
                         <div class="invalid-feedback">Bitte Anzahl der Kurstage eingeben</div>
                       </div>
                     </div>
@@ -117,7 +111,6 @@
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
                                name="kurs.wieOftinWoche" required/>
                         <label class="form-label" for="wieoft">Wie oft in Woche</label>
-                        <div class="valid-feedback">Valid</div>
                         <div class="invalid-feedback">Bitte eingeben, wie oft der Kurs in der Woche stattfindet</div>
                       </div>
                     </div>
@@ -127,7 +120,6 @@
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
                                name="kurs.minTnZahl" required/>
                         <label class="form-label" for="minTeilnehmer">Min Teilnehmer Zahl</label>
-                        <div class="valid-feedback">Valid</div>
                         <div class="invalid-feedback">Bitte das Minimum der Teilnehmer eingeben</div>
                       </div>
                     </div>
@@ -139,7 +131,6 @@
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
                                name="kurs.maxTnZahl" required/>
                         <label class="form-label" for="maxTeilZahl">Max Teilnehmer Zahl</label>
-                        <div class="valid-feedback">Valid</div>
                         <div class="invalid-feedback">Bitte das Maximum der Teilnehmer eingeben</div>
                       </div>
                     </div>
@@ -147,19 +138,16 @@
                       <div class="form-outline">
                         <input type="number" id="gebuerenBrutto" [(ngModel)]="kurs.gebuehrBrutto"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                               name="kurs.gebuehrBrutto" required/>
+                                name="kurs.gebuehrBrutto" required/>
                         <label class="form-label" for="gebuerenBrutto">Gebuehr Brutto</label>
-                        <div class="valid-feedback">Valid</div>
                         <div class="invalid-feedback">Bitte die Gebuehr des Kurses eingeben</div>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
                         <input type="number" id="mwt" [(ngModel)]="kurs.mwstProzent"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                               name="kurs.mwstProzent" required/>
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" name="kurs.mwstProzent" required/>
                         <label class="form-label" for="mwt">Mehrwertsteuer Prozent</label>
-                        <div class="valid-feedback">Valid</div>
                         <div class="invalid-feedback">Bitte die Mehrwertsteuer in Prozent eingeben</div>
                       </div>
                     </div>
@@ -169,19 +157,20 @@
                               class="form-control form-control-lg" rows="4" name="kurs.kursBeschreibung"
                               required></textarea>
                     <label class="form-label" for="description">Kurs Beschreibung</label>
-                    <div class="valid-feedback">Valid</div>
                     <div class="invalid-feedback">Bitte die Kursbeschreibung eingeben</div>
                   </div>
 
                   <div class="d-flex justify-content-end pt-3">
-                    <button type="button" (click)="KursForm.reset()" class="btn btn-light btn-lg m-sm-2">Reset all
-                    </button>
-                    <br><br>
-                    <button type="submit" class="btn btn-warning btn-lg ms-2" (click)="addKurs();KursForm.reset()">
-                      Submit form
-                    </button>
+                    <div *ngIf="kurs.id == undefined; else updatingButton" class="btn btn-light btn-lg m-sm-2">
+                      <button type="button" (click)="KursForm.reset()" class="btn btn-light btn-lg m-sm-2">Reset all </button>
+                      <button type="submit" class="btn btn-warning btn-lg ms-2" (click)="addKurs();KursForm.reset()"> Submit form </button>
+                    </div>
+                    <ng-template #updatingButton>
+                      <div class="d-flex justify-content-end pt-3">
+                        <button type="submit" class="btn btn-warning btn-lg ms-2" (click)="addKurs();KursForm.reset()">Update Kurs</button>
+                      </div>
+                    </ng-template>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -191,3 +180,4 @@
     </div>
   </section>
 </form>
+

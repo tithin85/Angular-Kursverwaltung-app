@@ -8,9 +8,11 @@ import {Observable} from "rxjs";
 })
 
 export class KursStoreService {
+  private kursEntity:Kurs;
   kursList:Observable<Kurs[]>;
   constructor(private http: HttpClient) {
-    this.kursList= this.getAll()
+    this.kursList= this.getAll();
+    this.kursEntity = {};
   }
   getAll():Observable<Kurs[]> {
     return this.http.get<Kurs[]>("http://localhost:8080/kurs/all");
@@ -22,5 +24,15 @@ export class KursStoreService {
   deleteKurs(kursId: number):Observable<Kurs[]>
   {
     return this.http.delete<Kurs[]>("http://localhost:8080/kurs/delete/" +kursId)
+  }
+  updateKurs(kurs:Kurs):Observable<Kurs[]>{
+    return this.http.put<Kurs[]>("http://localhost:8080/kurs/update",kurs);
+  }
+  setter(kurs:Kurs)
+  {
+    this.kursEntity=kurs;
+  }
+  getKursEntity():Kurs{
+    return this.kursEntity;
   }
 }

@@ -22,7 +22,6 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent }*/
 
 
-
   {
     path: 'PersonDetails',
     component: PersonDetailsComponent
@@ -30,8 +29,12 @@ const routes: Routes = [
   {
     path: 'PersonList/UpdatingPerson',
     component: PersonFormularComponent
-  }
+  },
 
+  {
+    path: 'KursList/UpdatingKurs',
+    component: KursFormComponent
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

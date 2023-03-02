@@ -21,13 +21,9 @@ export class PersonListComponent {
           this.personList = response;
         }
       )
-
   }
   ngOnInit(){
     this.getPerson()
-
-
-
 
   }
   delete(id?:number) {

@@ -4,3 +4,12 @@
 .ng-untouched {
   border-left: 4px solid red;
 }
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 1.15;
+  padding-left: .75em;
+  padding-right: .75em;
+}
+.card-registration .select-arrow {
+  top: 2px;
+}

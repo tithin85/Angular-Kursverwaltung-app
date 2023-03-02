@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {KursStoreService} from "../shared/kurs-store.service";
 import {Kurs} from "../shared/Kurs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-kurs-list',
@@ -12,7 +13,7 @@ export class KursListComponent {
   public kursList!: Kurs[];
   kurse: any;
 
-  constructor(private storeService: KursStoreService) {
+  constructor(private storeService: KursStoreService, private router: Router) {
   }
 
   public getKurs(): void {
@@ -32,6 +33,10 @@ export class KursListComponent {
         this.kursList = response;
       })
     }
+  }
+  updateKurs(kurs:Kurs){
+    this.storeService.setter(kurs);
+    this.router.navigateByUrl("KursList/UpdatingKurs")
   }
 
 }
