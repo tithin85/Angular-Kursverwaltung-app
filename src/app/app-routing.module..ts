@@ -9,8 +9,6 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {ProfileComponent} from "./profile/profile.component";
 
-import { BoardUserComponent } from './board-user/board-user.component';
-
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -20,10 +18,7 @@ const routes: Routes = [
   { path: 'kursform', component: KursFormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'user', component: BoardUserComponent }/*,
-  { path: 'mod', component: BoardModeratorComponent },
-  { path: 'admin', component: BoardAdminComponent }*/
+  { path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({
