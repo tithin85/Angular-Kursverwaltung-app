@@ -15,6 +15,7 @@ export class PersonStoreService{
   personList:Observable<Person[]>;
 
 
+
 constructor(private http:HttpClient){
   this.personList=this.getAll();
   this.personEntity={};
@@ -39,6 +40,15 @@ constructor(private http:HttpClient){
   getPersonEntity():Person{
   return this.personEntity;
   }
+
+  //
+  // updatePerson(updatedPerson: Person): Observable<Person> {
+  //   // const url = `http://localhost:8080/person/${id}`; // Replace with your API endpoint
+  //
+  //   return this.http.put<Person>("http://localhost:8080/person/update/", updatedPerson)
+  //
+  // }
+
 
 }
 
