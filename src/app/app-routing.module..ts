@@ -5,6 +5,9 @@ import {KursListComponent} from "./kurs-list/kurs-list.component";
 import {PersonFormularComponent} from "./person-formular/person-formular.component";
 import {HomeComponent} from "./home/home.component";
 import {KursFormComponent} from "./kurs-form/kurs-form.component";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
+import {ProfileComponent} from "./profile/profile.component";
 import {PersonDetailsComponent} from "./person-details/person-details.component";
 
 const routes: Routes = [
@@ -14,8 +17,14 @@ const routes: Routes = [
   { path: 'KursList', component: KursListComponent },
   { path: 'PersonForm', component: PersonFormularComponent },
   { path: 'KursForm', component: KursFormComponent }, /*,
+  { path: 'personlist', component: PersonListComponent },
+  { path: 'kurslist', component: KursListComponent },
+  { path: 'personform', component: PersonFormularComponent },
+  { path: 'kursform', component: KursFormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent }
+];
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
