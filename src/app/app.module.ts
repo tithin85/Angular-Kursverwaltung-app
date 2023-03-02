@@ -19,6 +19,8 @@ import {KursFormComponent} from "./kurs-form/kurs-form.component";
 import {KursItemComponent} from "./kurs-item/kurs-item.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 
+import { BoardUserComponent } from './board-user/board-user.component';
+
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 @NgModule({
@@ -36,6 +38,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     KursItemComponent,
     KursDetailsComponent,
     KursFormComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,
