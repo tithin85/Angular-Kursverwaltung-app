@@ -56,7 +56,7 @@
 <!--</div>-->
 <!--</body>-->
 
-<form #KursForm novalidate>
+<form #KursForm  >
   <section class="h-50 bg-light">
     <div class="container py-5 h-50">
       <div class="row d-flex justify-content-center align-items-center h-50">
@@ -76,26 +76,26 @@
                   </ng-template>
 
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example8">Kurs Name</label>
+
                     <input type="text" id="form3Example8" [(ngModel)]="kurs.name" [ngModelOptions]="{standalone: true}"
-                           class="form-control form-control-lg" name="kurs.name" required/>
+                           class="form-control form-control-lg"  />
+                    <label class="form-label" for="form3Example8">Kurs Name</label>
                   </div>
 
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <label class="form-label" for="date">Start Datum</label>
+
                         <input type="date" id="date" [(ngModel)]="kurs.startDatum" [ngModelOptions]="{standalone: true}"
-                               class="form-control form-control-lg" name="kurs.startdatum" required/>
-                        <div class="invalid-feedback">Bitte ein Startdatum eingeben</div>
+                               class="form-control form-control-lg" />
+                        <label class="form-label" for="date">Start Datum</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
                         <input type="text" id="status" [(ngModel)]="kurs.status" [ngModelOptions]="{standalone: true}"
-                               class="form-control form-control-lg" name="kurs.status" required/>
+                               class="form-control form-control-lg" />
                         <label class="form-label" for="status">Status</label>
-                        <div class="invalid-feedback">Bitte einen Kursstatus eingeben</div>
                       </div>
                     </div>
                   </div>
@@ -103,27 +103,24 @@
                   <div class="row">
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
-                        <input type="number" id="anzahltage" [(ngModel)]="kurs.anzahlTage" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" name="kurs.anzahlTage" required/>
+                        <input type="number" id="anzahltage" [(ngModel)]="kurs.anzahlTage" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"  />
                         <label class="form-label" for="anzahltage">Anzahl des Tages</label>
-                        <div class="invalid-feedback">Bitte Anzahl der Kurstage eingeben</div>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
                         <input type="number" id="wieoft" [(ngModel)]="kurs.wieOftinWoche"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                               name="kurs.wieOftinWoche" required/>
+                                />
                         <label class="form-label" for="wieoft">Wie oft in Woche</label>
-                        <div class="invalid-feedback">Bitte eingeben, wie oft der Kurs in der Woche stattfindet</div>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
                         <input type="number" id="minTeilnehmer" [(ngModel)]="kurs.minTnZahl"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                               name="kurs.minTnZahl" required/>
+                                />
                         <label class="form-label" for="minTeilnehmer">Min Teilnehmer Zahl</label>
-                        <div class="invalid-feedback">Bitte das Minimum der Teilnehmer eingeben</div>
                       </div>
                     </div>
                   </div>
@@ -132,35 +129,32 @@
                       <div class="form-outline">
                         <input type="number" id="maxTeilZahl" [(ngModel)]="kurs.maxTnZahl"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                               name="kurs.maxTnZahl" required/>
+                                />
                         <label class="form-label" for="maxTeilZahl">Max Teilnehmer Zahl</label>
-                        <div class="invalid-feedback">Bitte das Maximum der Teilnehmer eingeben</div>
+
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
                         <input type="number" id="gebuerenBrutto" [(ngModel)]="kurs.gebuehrBrutto"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                                name="kurs.gebuehrBrutto" required/>
+                                 />
                         <label class="form-label" for="gebuerenBrutto">Gebuehr Brutto</label>
-                        <div class="invalid-feedback">Bitte die Gebuehr des Kurses eingeben</div>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
                         <input type="number" id="mwt" [(ngModel)]="kurs.mwstProzent"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" name="kurs.mwstProzent" required/>
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"  />
                         <label class="form-label" for="mwt">Mehrwertsteuer Prozent</label>
-                        <div class="invalid-feedback">Bitte die Mehrwertsteuer in Prozent eingeben</div>
                       </div>
                     </div>
                   </div>
                   <div class="form-outline mb-4">
                     <textarea id="description" [(ngModel)]="kurs.kursBeschreibung" [ngModelOptions]="{standalone: true}"
-                              class="form-control form-control-lg" rows="4" name="kurs.kursBeschreibung"
-                              required></textarea>
+                              class="form-control form-control-lg" rows="4"
+                              ></textarea>
                     <label class="form-label" for="description">Kurs Beschreibung</label>
-                    <div class="invalid-feedback">Bitte die Kursbeschreibung eingeben</div>
                   </div>
 
                     <div *ngIf="kurs.id == undefined; else updatingButton" class="d-flex justify-content-end pt-3">

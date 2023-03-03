@@ -39,13 +39,13 @@ export class PersonListComponent {
   }
   updatePerson(person:Person){
     this.storeService.setter(person);
-    this.router.navigateByUrl('PersonList/UpdatingPerson');
+    this.router.navigateByUrl("personform");
   }
 
 
   details(person: Person) {
     this.storeService.setPersonDetailEntity(person);
-    this.router.navigateByUrl("PersonDetails");
+    this.router.navigateByUrl("persondetails");
 
   }
 }

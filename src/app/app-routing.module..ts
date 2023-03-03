@@ -16,10 +16,8 @@ const routes: Routes = [
   { path: 'personform', component: PersonFormComponent },
   { path: 'personlist', component: PersonListComponent },
   { path: 'persondetails', component: PersonDetailsComponent },
-  { path: 'personlist/personupdate', component: PersonFormComponent },
   { path: 'kursform', component: KursFormComponent },
   { path: 'kurslist', component: KursListComponent },
-  { path: 'kurslist/kursupdate', component: KursFormComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent }
 ];
