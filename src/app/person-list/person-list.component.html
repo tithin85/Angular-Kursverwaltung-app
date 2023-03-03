@@ -1,5 +1,14 @@
 <div class="card bg-light mb-3" >
-  <div class="card-header">Person List </div>
+  <div class="card-header">Person List
+    <div class ="card-header">
+<!--    <div class="col-xl-4">-->
+    <div class="search-name">
+<!--      <div class="search-email">-->
+      <input  class = "form-control py-2 border rounded-pill" type = "text" name = "Suchen" [(ngModel)]="searchText" placeholder=" Suchen " >
+
+    </div>
+    </div>
+<!--  </div>-->
 <!--  <h5 class="card-title ">Person List View</h5>-->
 
   <table class="table table-striped">
@@ -13,7 +22,7 @@
     <th>Action</th>
     </thead>
     <tbody>
-    <tr *ngFor="let person of personList" >
+    <tr *ngFor="let person of personList | filter: searchText" >
       <td>{{person.id}}</td>
       <td>{{person.anrede}}</td>
       <td>{{person.titel}}</td>

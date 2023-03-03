@@ -19,6 +19,8 @@ import {KursItemComponent} from "./kurs-item/kurs-item.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+//import {SearchPersonComponent} from "./searchPerson/searchPerson.component";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
   declarations: [
@@ -34,12 +36,14 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     KursItemComponent,
     KursDetailsComponent,
     KursFormComponent
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
