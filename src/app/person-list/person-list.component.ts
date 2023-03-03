@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {PersonStoreService} from "../shared/person-store.service";
 import {Person} from "../shared/Person";
@@ -47,4 +47,13 @@ export class PersonListComponent {
     this.router.navigateByUrl("persondetails")
 
   }
+
+  searchText : string ="";
+
+ //  onSearchTextEntered(searchValue:string){
+ //    this.searchText = searchValue;
+ //
+ //
+ // }
+
 }
