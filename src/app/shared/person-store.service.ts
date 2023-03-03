@@ -13,12 +13,14 @@ export class PersonStoreService{
 
   private personEntity:Person;
   personList:Observable<Person[]>;
+  private personDetailEntity:Person;
 
 
 
 constructor(private http:HttpClient){
   this.personList=this.getAll();
   this.personEntity={};
+  this.personDetailEntity={};
 }
   getAll():Observable<Person[]>{
     return this.http.get<Person[]>("http://localhost:8080/person/all");
@@ -39,6 +41,12 @@ constructor(private http:HttpClient){
   }
   getPersonEntity():Person{
   return this.personEntity;
+  }
+  setPersonDetailEntity(peraon:Person){
+  this.personDetailEntity=peraon;
+  }
+  getPersonDetailEntity():Person{
+  return this.personDetailEntity;
   }
 
   //

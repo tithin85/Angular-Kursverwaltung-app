@@ -11,6 +11,11 @@ import {PersonStoreService} from "../shared/person-store.service";
 })
 
 export class PersonDetailsComponent implements OnInit{
+  personDetail:Person;
+  constructor(private storeService:PersonStoreService) {
+    this.personDetail=storeService.getPersonDetailEntity();
+  }
+
   ngOnInit(): void {
   }
 
