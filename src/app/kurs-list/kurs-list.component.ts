@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { UserService } from '../_services/user.service';
 import {HttpClient} from "@angular/common/http";
 import {KursStoreService} from "../shared/kurs-store.service";
 import {Kurs} from "../shared/Kurs";
@@ -12,9 +13,9 @@ import {Router} from "@angular/router";
 export class KursListComponent {
   public kursList!: Kurs[];
   kurse: any;
+  content?: string;
 
-  constructor(private storeService: KursStoreService, private router: Router) {
-  }
+  constructor(private storeService: KursStoreService, private userService: UserService, private router: Router) {  }
 
   public getKurs(): void {
     this.storeService.getAll().subscribe((response: Kurs[]) => {
@@ -25,6 +26,14 @@ export class KursListComponent {
 
   ngOnInit() {
     this.getKurs()
+    this.userService.getPublicContent().subscribe({
+      next: data => {
+        this.content = data;
+      },
+      error: err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    });
   }
 
   delete(id?: number) {
@@ -36,7 +45,7 @@ export class KursListComponent {
   }
   updateKurs(kurs:Kurs){
     this.storeService.setter(kurs);
-    this.router.navigateByUrl("KursList/UpdatingKurs")
+    this.router.navigateByUrl("kurslist/kursupdate")
   }
 
 }

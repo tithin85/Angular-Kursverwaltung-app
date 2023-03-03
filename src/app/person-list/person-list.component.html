@@ -2,10 +2,10 @@
   <div class="card-header">Person List </div>
 <!--  <h5 class="card-title ">Person List View</h5>-->
 
-
   <table class="table table-striped">
     <thead>
     <th>Id</th>
+    <th>Anrede</th>
     <th>Titel</th>
     <th>Name</th>
     <th>Vorname</th>
@@ -15,6 +15,7 @@
     <tbody>
     <tr *ngFor="let person of personList" >
       <td>{{person.id}}</td>
+      <td>{{person.anrede}}</td>
       <td>{{person.titel}}</td>
       <td>{{person.name}}</td>
       <td>{{person.vorname}}</td>

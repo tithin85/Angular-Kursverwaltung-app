@@ -1,5 +1,6 @@
 export interface Person{
   id?:number;
+  anrede?: string,
   titel?: string;
   name?: string;
   vorname?: string,
