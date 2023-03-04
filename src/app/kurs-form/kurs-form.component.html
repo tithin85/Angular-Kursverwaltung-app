@@ -76,10 +76,11 @@
                   </ng-template>
 
                   <div class="form-outline mb-4">
-
+                    <small class = "text-danger" [class.d-none] ="kursname.valid || kursname.untouched"> Bitte Kursnamen eingeben </small>
                     <input type="text" id="form3Example8" [(ngModel)]="kurs.name" [ngModelOptions]="{standalone: true}"
-                           class="form-control form-control-lg"  />
+                           class="form-control form-control-lg" required minlength="1" #kursname="ngModel" [class.is-invalid]="kursname.invalid && kursname.touched" class ="form-control" ngModel />
                     <label class="form-label" for="form3Example8">Kurs Name</label>
+
                   </div>
 
                   <div class="row">
@@ -103,23 +104,26 @@
                   <div class="row">
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
-                        <input type="number" id="anzahltage" [(ngModel)]="kurs.anzahlTage" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"  />
-                        <label class="form-label" for="anzahltage">Anzahl des Tages</label>
+                        <small class = "text-danger" [class.d-none] ="anztage.valid || anztage.untouched"> Bitte Anzahl der Kurstage eingeben </small>
+                        <input type="number" id="anzahltage" [(ngModel)]="kurs.anzahlTage" [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" required min="1" #anztage="ngModel" [class.is-invalid]="anztage.invalid && anztage.touched" class ="form-control" ngModel />
+                        <label class="form-label" for="anzahltage">Anzahl der Tage</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
+                        <small class = "text-danger" [class.d-none] ="wieoftwoche.valid || wieoftwoche.untouched"> Bitte eingeben, wie oft Kurs in Woche stattfindet </small>
                         <input type="number" id="wieoft" [(ngModel)]="kurs.wieOftinWoche"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                                />
+                               required min="1" #wieoftwoche="ngModel" [class.is-invalid]="wieoftwoche.invalid && wieoftwoche.touched" class ="form-control" ngModel/>
                         <label class="form-label" for="wieoft">Wie oft in Woche</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
+                        <small class = "text-danger" [class.d-none] ="mintn.valid || mintn.untouched"> Bitte Anzahl der wenigsten Teilnehmer eingeben </small>
                         <input type="number" id="minTeilnehmer" [(ngModel)]="kurs.minTnZahl"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                                />
+                               required min="1" #mintn="ngModel" [class.is-invalid]="mintn.invalid && wieoftwoche.touched" class ="form-control" ngModel/>
                         <label class="form-label" for="minTeilnehmer">Min Teilnehmer Zahl</label>
                       </div>
                     </div>
@@ -127,25 +131,29 @@
                   <div class="row">
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
+                        <small class = "text-danger" [class.d-none] ="maxtn.valid || maxtn.untouched"> Bitte Anzahl der max Teilnehmer eingeben </small>
                         <input type="number" id="maxTeilZahl" [(ngModel)]="kurs.maxTnZahl"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                                />
+                               required min="1" #maxtn="ngModel" [class.is-invalid]="maxtn.invalid && maxtn.touched" class ="form-control" ngModel/>
                         <label class="form-label" for="maxTeilZahl">Max Teilnehmer Zahl</label>
 
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
+                        <small class = "text-danger" [class.d-none] ="gebuehr.valid || gebuehr.untouched"> Bitte die Kursgebuehr für Kurs eingeben </small>
                         <input type="number" id="gebuerenBrutto" [(ngModel)]="kurs.gebuehrBrutto"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                                 />
+                               required min="1" #gebuehr="ngModel" [class.is-invalid]="gebuehr.invalid && gebuehr.touched" class ="form-control" ngModel />
                         <label class="form-label" for="gebuerenBrutto">Gebuehr Brutto</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
+                        <small class = "text-danger" [class.d-none] ="mwst.valid || mwst.untouched"> Bitte Mehrwertsteuersatz für Kurs eingeben </small>
                         <input type="number" id="mwt" [(ngModel)]="kurs.mwstProzent"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"  />
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
+                               required min="1" #mwst="ngModel" [class.is-invalid]="mwst.invalid && mwst.touched" class ="form-control" ngModel/>
                         <label class="form-label" for="mwt">Mehrwertsteuer Prozent</label>
                       </div>
                     </div>
