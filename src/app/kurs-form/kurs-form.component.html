@@ -76,10 +76,11 @@
                   </ng-template>
 
                   <div class="form-outline mb-4">
-
+                    <small class = "text-danger" [class.d-none] ="kursname.valid || kursname.untouched"> Bitte Kursname eingeben </small>
                     <input type="text" id="form3Example8" [(ngModel)]="kurs.name" [ngModelOptions]="{standalone: true}"
-                           class="form-control form-control-lg"  />
+                           class="form-control form-control-lg" required minlength="1" #kursname="ngModel" [class.is-invalid]="kursname.invalid && kursname.touched" class ="form-control" ngModel />
                     <label class="form-label" for="form3Example8">Kurs Name</label>
+
                   </div>
 
                   <div class="row">
