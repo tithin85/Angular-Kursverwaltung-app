@@ -96,8 +96,12 @@
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="status" [(ngModel)]="kurs.status" [ngModelOptions]="{standalone: true}"
-                               class="form-control form-control-lg" />
+                        <select id="status" [(ngModel)]="kurs.status" [ngModelOptions]="{standalone: true}"
+                               class="form-control form-control-lg" >
+                        <option value="Geplant">Geplant</option>
+                        <option value="Aktiv">Aktiv</option>
+                        <option value="Abgesagt">Abgesagt</option>
+                        </select>
                         <label class="form-label" for="status">Status</label>
                       </div>
                     </div>

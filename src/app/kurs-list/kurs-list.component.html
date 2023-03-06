@@ -1,5 +1,13 @@
 <div class="card bg-light mb-3">
   <div class="card-header">Kursliste</div>
+  <div class = "card-header">
+  <div class = "search-name">
+    <input class = "form-control py-2 border rounded-pill" type = "text" name = "Suchen" [(ngModel)] = "searchText"
+           placeholder="Suchen">
+  </div>
+
+  </div>
+
   <table class="table table-striped">
     <thead>
     <th>Id</th>
@@ -11,7 +19,7 @@
     <th>Action</th>
     </thead>
     <tbody>
-    <tr *ngFor="let kurs of kursList">
+    <tr *ngFor="let kurs of kursList |filter: searchText">
       <td>{{kurs.id}}</td>
       <td>{{kurs.name}}</td>
       <td>{{kurs.startDatum}}</td>

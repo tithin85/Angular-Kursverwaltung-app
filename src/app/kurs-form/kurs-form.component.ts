@@ -33,5 +33,6 @@ export class KursFormComponent {
      this.router.navigateByUrl("kurslist");
    }
   }
+
 }
 

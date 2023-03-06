@@ -50,4 +50,5 @@ export class KursListComponent {
     this.router.navigateByUrl("kursform");
   }
 
+  searchText : string ="";
 }
