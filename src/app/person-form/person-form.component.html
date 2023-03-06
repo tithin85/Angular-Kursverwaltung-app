@@ -20,8 +20,12 @@
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="anrede" [(ngModel)]="person.anrede" [ngModelOptions]="{standalone: true}"
-                               class="form-control form-control-lg"/>
+                        <select  id="anrede" [(ngModel)]="person.anrede" [ngModelOptions]="{standalone: true}"
+                               class="form-control form-control-lg" >
+                        <option value="Herr">Herr</option>
+                        <option value="Frau">Frau</option>
+                        <option value="Divers">Divers</option>
+                        </select>
                         <label class="form-label" for="anrede">Anrede</label>
                       </div>
                     </div>
@@ -78,6 +82,11 @@
                     <input type="text" id="form3Example97" [(ngModel)]="person.email"
                            [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
                     <label class="form-label" for="form3Example97">Email-Adresse</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="telefon" [(ngModel)]="person.telefon"
+                           [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                    <label class="form-label" for="telefon">Telefon</label>
                   </div>
 
                   <div *ngIf="person.id==undefined;else updatingButton" class="d-flex justify-content-end pt-3">

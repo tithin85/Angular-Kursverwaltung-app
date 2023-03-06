@@ -8,6 +8,7 @@ import {KursFormComponent} from "./kurs-form/kurs-form.component";
 import {KursListComponent} from "./kurs-list/kurs-list.component";
 import {UserLoginComponent} from "./user-login/user-login.component";
 import {UserRegisterComponent} from "./user-register/user-register.component";
+import {ZuordnungComponent} from "./zuordnung/zuordnung.component";
 
 // ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'kursform', component: KursFormComponent },
   { path: 'kurslist', component: KursListComponent },
   { path: 'login', component: UserLoginComponent },
-  { path: 'register', component: UserRegisterComponent }
+  { path: 'register', component: UserRegisterComponent },
+  {path: 'zuordnung', component: ZuordnungComponent}
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 //import {SearchPersonComponent} from "./searchPerson/searchPerson.component";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { ZuordnungComponent } from './zuordnung/zuordnung.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     KursListComponent,
     KursItemComponent,
     KursDetailsComponent,
-    KursFormComponent
+    KursFormComponent,
+    ZuordnungComponent
 
   ],
   imports: [
