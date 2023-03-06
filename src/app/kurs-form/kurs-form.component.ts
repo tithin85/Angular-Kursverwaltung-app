@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import {} from '@angular/forms'
 import {KursStoreService} from "../shared/kurs-store.service";
 import {Kurs} from "../shared/Kurs";
@@ -10,6 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./kurs-form.component.css']
 })
 export class KursFormComponent {
+  currentDate: string;
   kurs: Kurs;
   return: any;
   emptyKurs: Kurs;
@@ -18,6 +20,7 @@ export class KursFormComponent {
  constructor(private  service:KursStoreService,private router:Router) {
    this.kurs = service.getKursEntity();
    this.emptyKurs = {};
+   this.currentDate = new Date().toISOString().slice(0, 10);
  }
   ngOnInit(){
 
