@@ -18,7 +18,7 @@ export class PersonFormComponent {
   }
   ngOnInit(){
   }
-  anmeldung(){
+  personNeuUpdate(){
     if(this.service.getPersonEntity().id==undefined){
     let response=this.service.addPerson(this.person);
     response.subscribe((data)=>this.return=data)
