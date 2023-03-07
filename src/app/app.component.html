@@ -1,40 +1,43 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-light bg-light">
-    <a class="navbar-brand" routerLink="home"><img src="../assets/images/logo_nav.png" height="20" width="125" alt="online Kursverwaltung"/></a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+    <a class="navbar-brand" routerLink="home"><img alt="online Kursverwaltung" height="20" src="../assets/images/logo_nav.png"
+                                                   width="125"/></a>
+    <ul *ngIf="isLoggedIn" class="nav nav-tabs">
       <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="personform">Person anlegen</a>
-      </li>
-
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="personlist">Personenliste</a>
+        <a routerLink="personform" routerLinkActive="active" class="nav-link">
+          Person anlegen</a>
       </li>
       <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="kursform">Kurs anlegen</a>
+        <a routerLink="personlist" routerLinkActive="active" class="nav-link">
+          Personenliste</a>
       </li>
       <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="kurslist">Kursliste</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Registrieren</a>
+        <a routerLink="kursform" routerLinkActive="active" class="nav-link">
+          Kurs anlegen</a>
       </li>
       <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">LogIn</a>
+        <a routerLink="kurslist" routerLinkActive="active" class="nav-link">
+          Kursliste</a>
       </li>
     </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <ul *ngIf="!isLoggedIn" class="nav nav-tabs ml-auto">
       <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
+        <a routerLink="register" routerLinkActive="active" class="nav-link">Registrieren</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="login" routerLinkActive="active" class="nav-link">LogIn</a>
+      </li>
+    </ul>
+
+    <ul *ngIf="isLoggedIn" class="nav nav-tabs ml-auto">
+      <li class="nav-item">
+        <a href="#" (click)="logout()" routerLinkActive="active" class="nav-link">LogOut</a>
       </li>
     </ul>
   </nav>
 
-
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
 </div>
 
