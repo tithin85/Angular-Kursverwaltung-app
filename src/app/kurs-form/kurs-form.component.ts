@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import {} from '@angular/forms'
+import {FormControl, FormGroup, Validators} from '@angular/forms'
 import {KursStoreService} from "../shared/kurs-store.service";
 import {Kurs} from "../shared/Kurs";
 import {Router} from "@angular/router";
@@ -15,6 +15,9 @@ export class KursFormComponent {
   kurs: Kurs;
   return: any;
   emptyKurs: Kurs;
+
+  options = ["Aktiv", "Geplant", "Abgesagt"]
+  ngSelect = this.options[0];
 
 
  constructor(private  service:KursStoreService,private router:Router) {

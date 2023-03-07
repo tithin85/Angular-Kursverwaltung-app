@@ -99,16 +99,17 @@
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
+
                       <div class="form-outline">
-<!--                      <small class="text-danger" [class.d-none]="kursstatus.valid || kursstatus.untouched"> Bitte Kursstatus eingeben </small>-->
-                        <select class="custom-select" id="status" [(ngModel)]="kurs.status" [ngModelOptions]="{standalone: true}"
-                                class="form-control form-control-lg">
-                          <option value="geplant">Geplant</option>
-                          <option value="aktiv">Aktiv</option>
-                          <option value="abgesagt">Abgesagt</option>
-                          required #kursstatus="ngModel" [class.is-invalid]="kursstatus.invalid && kursstatus.touched" class="form-control" ngModel
+                        <select class="form-control" id="selectOptions">
+                          <option
+                            *ngFor="let opt of options"
+                            [selected]="opt === ngSelect"
+                            [value]="opt"
+                          >
+                            {{ opt }}
+                          </option>
                         </select>
-                        <label class="form-label" for="status">Status</label>
                       </div>
                     </div>
                   </div>
@@ -131,7 +132,7 @@
                           eingeben, wie oft Kurs in Woche stattfindet </small>
                         <input type="number" id="wieoft" [(ngModel)]="kurs.wieOftinWoche"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                               required min="1" max="7"  #wieoftwoche="ngModel"
+                               required min="1" max="7" #wieoftwoche="ngModel"
                                [class.is-invalid]="wieoftwoche.invalid && wieoftwoche.touched" class="form-control"
                                ngModel/>
                         <label class="form-label" for="wieoft">Wie oft in Woche</label>
@@ -201,6 +202,7 @@
                       </div>
                       <div class="col-md-6 mb-4">
                         <button type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">
+                          <!--                        <button [disabled]="KursForm.form.invalid" type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">-->
                           Speichern
                         </button>
                       </div>
