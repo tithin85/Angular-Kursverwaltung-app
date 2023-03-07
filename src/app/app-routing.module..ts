@@ -9,6 +9,7 @@ import {KursListComponent} from "./kurs-list/kurs-list.component";
 import {UserLoginComponent} from "./user-login/user-login.component";
 import {UserRegisterComponent} from "./user-register/user-register.component";
 import {ZuordnungComponent} from "./zuordnung/zuordnung.component";
+import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 
 // ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'persondetails', component: PersonDetailsComponent },
   { path: 'kursform', component: KursFormComponent },
   { path: 'kurslist', component: KursListComponent },
+  { path: 'kursdetails', component: KursDetailsComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent },
   {path: 'zuordnung', component: ZuordnungComponent}

@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
-import { UserService } from '../_services/user.service';
+import {UserService} from '../_services/user.service';
 import {HttpClient} from "@angular/common/http";
 import {KursStoreService} from "../shared/kurs-store.service";
 import {Kurs} from "../shared/Kurs";
 import {Router} from "@angular/router";
+import {Person} from "../shared/Person";
 
 @Component({
   selector: 'app-kurs-list',
@@ -50,5 +51,11 @@ export class KursListComponent {
     this.router.navigateByUrl("kursform");
   }
 
-  searchText : string ="";
+  searchText: string = "";
+
+  details(kurs: Kurs) {
+    this.storeService.setKursDetailEntity(kurs);
+    this.router.navigateByUrl("kursdetails");
+
+  }
 }
