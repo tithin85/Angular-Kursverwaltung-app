@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Kurs} from "./Kurs";
 import {Observable} from "rxjs";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,9 +11,11 @@ import {Observable} from "rxjs";
 export class KursStoreService {
   private kursEntity:Kurs;
   kursList:Observable<Kurs[]>;
+  private kursDetailEntity:Kurs;
   constructor(private http: HttpClient) {
     this.kursList= this.getAll();
     this.kursEntity = {};
+    this.kursDetailEntity={};
   }
   getAll():Observable<Kurs[]> {
     return this.http.get<Kurs[]>("http://localhost:8080/kurs/all");
@@ -34,5 +37,11 @@ export class KursStoreService {
   }
   getKursEntity():Kurs{
     return this.kursEntity;
+  }
+  setKursDetailEntity(kurs:Kurs){
+    this.kursDetailEntity=kurs;
+  }
+  getKursDetailEntity():Kurs{
+    return this.kursDetailEntity;
   }
 }

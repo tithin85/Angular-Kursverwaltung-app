@@ -19,7 +19,6 @@ export class KursFormComponent {
   options = ["Aktiv", "Geplant", "Abgesagt"]
   ngSelect = this.options[0];
 
-
  constructor(private  service:KursStoreService,private router:Router) {
    this.kurs = service.getKursEntity();
    this.emptyKurs = {};

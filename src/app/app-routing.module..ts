@@ -1,4 +1,4 @@
-import {inject, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {PersonFormComponent} from "./person-form/person-form.component";
@@ -10,15 +10,18 @@ import {UserLoginComponent} from "./user-login/user-login.component";
 import {UserRegisterComponent} from "./user-register/user-register.component";
 import {ZuordnungComponent} from "./zuordnung/zuordnung.component";
 import {PageNotFoundComponentComponent} from "./page-not-found-component/page-not-found-component.component";
+import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 
 // ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'personform', component: PersonFormComponent },
   { path: 'personlist', component: PersonListComponent },
   { path: 'persondetails', component: PersonDetailsComponent },
   { path: 'kursform', component: KursFormComponent },
   { path: 'kurslist', component: KursListComponent },
+  { path: 'kursdetails', component: KursDetailsComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent },
   { path: 'zuordnung', component: ZuordnungComponent },
