@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Kurs} from "./Kurs";
 import {Observable} from "rxjs";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,11 +38,11 @@ export class KursStoreService {
   getKursEntity():Kurs{
     return this.kursEntity;
   }
+
   setKursDetailEntity(kurs:Kurs){
-    this.kursdetailEntity=kurs;
+    this.kursDetailEntity=kurs;
   }
-  getKursDetailEntity():Kurs
-  {
-    return this.kursdetailEntity
+  getKursDetailEntity():Kurs{
+    return this.kursDetailEntity;
   }
 }

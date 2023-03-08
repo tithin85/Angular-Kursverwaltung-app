@@ -1,4 +1,4 @@
-export interface Kurs{
+export interface Kurs {
   id?: number;
   name?: string;
   anzahlTage?: number;
@@ -7,10 +7,9 @@ export interface Kurs{
   minTnZahl?: number;
   maxTnZahl?: number;
   gebuehrBrutto?: number;
-  mwstProzent?:number;
+  mwstProzent?: number;
   kursBeschreibung?: string;
   status?: string;
-
   endeDatum?: Date;
   freiePlaetze?: number;
 
