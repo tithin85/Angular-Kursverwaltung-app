@@ -2,6 +2,8 @@
   <nav class="navbar navbar-expand navbar-light bg-light">
     <a class="navbar-brand" routerLink="home">
       <img alt="online Kursverwaltung" height="23" src="../assets/images/logo_nav.png" width="125"/></a>
+
+    <!-- Navigation wenn eingeloggt -->
     <ul *ngIf="isLoggedIn" class="nav nav-tabs">
       <li class="nav-item">
         <a routerLink="personform" routerLinkActive="active" class="nav-link">
@@ -21,18 +23,23 @@
       </li>
     </ul>
 
+    <!-- Registrieren und Login wenn ausgeloggt -->
     <ul *ngIf="!isLoggedIn" class="nav nav-tabs ml-auto">
       <li class="nav-item">
-        <a routerLink="register" routerLinkActive="active" class="nav-link">Registrieren</a>
+        <a routerLink="register" routerLinkActive="active" class="nav-link">
+          <span class="glyphicon glyphicon-user"></span> Registrieren</a>
       </li>
       <li class="nav-item">
-        <a routerLink="login" routerLinkActive="active" class="nav-link">LogIn</a>
+        <a routerLink="login" routerLinkActive="active" class="nav-link ">
+          <span class="glyphicon glyphicon-log-in"></span> LogIn</a>
       </li>
     </ul>
 
+    <!-- Logout wenn eingeloggt -->
     <ul *ngIf="isLoggedIn" class="nav nav-tabs ml-auto">
       <li class="nav-item">
-        <a href="#" (click)="logout()" routerLinkActive="active" class="nav-link">LogOut</a>
+        <a href="#" (click)="logout()" routerLinkActive="active" class="nav-link">
+          <span class="glyphicon glyphicon-log-out"></span> LogOut</a>
       </li>
     </ul>
   </nav>
