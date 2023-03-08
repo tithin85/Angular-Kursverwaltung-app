@@ -85,24 +85,27 @@ export class ZuordnungComponent implements OnInit{
 
   }
   zuTeilnahme(personId?:number,kursId?:number){
-let response=this.zuordnunsstore.addAlsTeilnehmer(personId,kursId)
-    response.subscribe((data)=>this.return=data);
-    this.zuordnunsstore.getRemainingKurs(personId).subscribe((response:Kurs[])=>{
-      this.remainingKursList=response;
-
-    })
-this.teilnahmeKurse(personId);
-//this.interessierteKurse(personId);
-//this.remainingKurse(personId);
-
+    let response=this.zuordnunsstore.addAlsTeilnehmer(personId,kursId)
+    response.subscribe((data)=>{
+      this.return=data;
+      this.teilnahmeKurse(personId);
+      this.remainingKurse(personId)
+      this.interessierteKurse(personId)
+    });
+    //this.zuordnunsstore.getRemainingKurs(personId).subscribe((response:Kurs[])=>{
+     // this.remainingKursList=response;
+   // });
   }
-  zuInteresse(personId?:number,kursId?:number){
-    let response=this.zuordnunsstore.addAlsInteressanter(personId,kursId)
-    response.subscribe((data)=>this.return=data);
-    //this.teilnahmeKurse(personId);
-    this.interessierteKurse(personId);
-    this.remainingKurse(personId);
+  zuInteresse(personId?:number,kursId?:number) {
+    let response = this.zuordnunsstore.addAlsInteressanter(personId, kursId)
+    response.subscribe((data) => {
+      this.return = data;
+      //this.teilnahmeKurse(personId);
+      this.interessierteKurse(personId);
+      this.remainingKurse(personId);
+      this.teilnahmeKurse(personId)
 
+    });
   }
   deleteZuordnung(personId?:number,kursId?:number){
     this.zuordnunsstore.deleteTeilnahmeStatus(personId,kursId).subscribe((data)=>this.return=data)
