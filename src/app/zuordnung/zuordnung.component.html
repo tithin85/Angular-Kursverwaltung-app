@@ -1,9 +1,11 @@
 <div class="container">
+  <h3 *ngIf="personZuordnung">Person Id lautet: {{personZuordnung.id}}</h3>
   <section class="h-50 bg-light">
     <div class="row d-flex justify-content-center align-items-center h-50">
+
       <div class="col">
         <div class="container">
-          <h3>Kurs Teilnahme</h3>
+          <h3 *ngIf="personZuordnung">{{personZuordnung.anrede}}&nbsp;{{personZuordnung.name}}&nbsp;nimmt die folgenden Kurse teil</h3>
           <table class="table table-striped table-bordered">
             <thead>
             <th>Id</th>
@@ -34,7 +36,7 @@
 
         </div>
         <div class="container">
-          <h3>Kurs interessiert sich</h3>
+          <h3 *ngIf="personZuordnung">{{personZuordnung.anrede}}&nbsp;{{personZuordnung.name}}&nbsp;interessiert sich die folgenden kurse</h3>
           <table class="table table-striped table-bordered">
             <thead>
             <th>Id</th>

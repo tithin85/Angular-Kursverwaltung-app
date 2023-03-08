@@ -48,6 +48,13 @@ export class PersonListComponent {
     this.router.navigateByUrl("persondetails");
 
   }
+  manageFromPerson(personId:number){
+
+    this.router.navigateByUrl("zuordnung/"+personId);
+
+
+  }
+
 
   searchText : string ="";
 
