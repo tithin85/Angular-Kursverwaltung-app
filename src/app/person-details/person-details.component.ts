@@ -4,6 +4,8 @@ import{Person} from "../shared/Person";
 import {PersonStoreService} from "../shared/person-store.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {Kurs} from "../shared/Kurs";
+import {ZuordnungService} from "../shared/zuordnung.service";
 
 
 @Component({
@@ -15,8 +17,8 @@ import {Router} from "@angular/router";
 export class PersonDetailsComponent implements OnInit{
   personDetail:Person;
   return:any;
-  constructor(private storeService:PersonStoreService,private router:Router) {
-    this.personDetail={};
+  constructor(private storeService:PersonStoreService,private router:Router,private zuordnungsStore:ZuordnungService) {
+    this.personDetail=this.storeService.getPersonDetailEntity();
 
   }
 
@@ -27,6 +29,13 @@ export class PersonDetailsComponent implements OnInit{
     this.router.navigateByUrl("personlist")
 
   }
+  fromperson(personId:number){
+
+    this.router.navigateByUrl("zuordnung/"+personId);
+
+
+  }
+
   // setWerbung(){
   //   this.personDetail.werbung=true;
   //   let response=this.storeService.updatePerson(this.personDetail);

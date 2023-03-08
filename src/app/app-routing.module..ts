@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'kurslist', component: KursListComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent },
-  {path: 'zuordnung', component: ZuordnungComponent}
+  {path: 'zuordnung/:personId', component: ZuordnungComponent,}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 
-import {Injectable} from "@angular/core";
+import {Injectable, OnInit} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Person} from "./Person";
 import {BehaviorSubject, Observable} from "rxjs";
@@ -9,19 +9,36 @@ import {List} from 'immutable';
   providedIn: 'root'
 })
 
-export class PersonStoreService{
+export class PersonStoreService implements OnInit{
 
   private personEntity:Person;
-  personList:Observable<Person[]>;
-  private personDetailEntity:Person;
+  //personList:Observable<Person[]>;
+  private personDetailEntity?:Person;
+  private zuordnungsPerson:Person;
+ public personEntityList:Person[];
+
 
 
 
 constructor(private http:HttpClient){
-  this.personList=this.getAll();
+  //this.personList=this.getAll();
   this.personEntity={};
-  this.personDetailEntity={};
+  //this.personDetailEntity={};
+  this.zuordnungsPerson={};
+  this.personEntityList=[];
+   this.getAll().subscribe((response:Person[])=>{this.personEntityList=response
+
+  })
+
 }
+ngOnInit() {
+
+  // this.getAll().subscribe((response:Person[])=>{this.personEntityList=response
+  //
+  // })
+
+}
+
   getAll():Observable<Person[]>{
     return this.http.get<Person[]>("http://localhost:8080/person/all");
   }
@@ -46,7 +63,16 @@ constructor(private http:HttpClient){
   this.personDetailEntity=peraon;
   }
   getPersonDetailEntity():Person{
-  return this.personDetailEntity;
+  if(this.personDetailEntity!=undefined){
+    return this.personDetailEntity;
+
+  }
+  return {};
+
+  }
+  getPersonById(number:number):Observable<Person>{
+  //let num=Number.parseInt(number);
+  return this.http.get<Person>("http://localhost:8080/person/find/"+number);
   }
 
   //

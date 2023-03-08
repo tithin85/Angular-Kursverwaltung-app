@@ -3,34 +3,94 @@
     <div class="row d-flex justify-content-center align-items-center h-50">
       <div class="col">
         <div class="container">
-          <table class="table table-striped">
+          <h3>Kurs Teilnahme</h3>
+          <table class="table table-striped table-bordered">
             <thead>
             <th>Id</th>
             <th>Kursname</th>
             <th>Startdatum</th>
+            <th>Action</th>
             </thead>
+            <tbody>
+            <tr *ngFor="let kurs of teilnahmeKursListe" >
+              <td>{{kurs.id}}</td>
+
+              <td>{{kurs.name}}</td>
+              <td>{{kurs.startDatum}}</td>
+              <td >
+
+                <button class="btn btn-sm btn-warning" (click)="zuInteresse(personId,kurs.id)" >
+                  Zu Interesse</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(personId,kurs.id)" >
+                  <i class="fa fa-remove"></i>Delete</button>
+              </td>
+
+
+
+            </tr>
+            </tbody>
           </table>
 
 
         </div>
         <div class="container">
-          <table class="table table-striped">
+          <h3>Kurs interessiert sich</h3>
+          <table class="table table-striped table-bordered">
             <thead>
             <th>Id</th>
             <th>Kursname</th>
             <th>Startdatum</th>
+            <th>Action</th>
             </thead>
+            <tbody>
+            <tr *ngFor="let kurs of interessierteKursListe" >
+              <td>{{kurs.id}}</td>
+
+              <td>{{kurs.name}}</td>
+              <td>{{kurs.startDatum}}</td>
+              <td >
+                <button class="btn btn-sm btn-info" (click)="zuTeilnahme(personId,kurs.id)" >
+                  Zu Teilnahme</button>
+
+                <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(personId,kurs.id)" >
+                  <i class="fa fa-remove"></i>Delete</button>
+              </td>
+
+
+
+            </tr>
+            </tbody>
           </table>
 
         </div>
       </div>
       <div class="col">
-        <table class="table table-striped">
+        <h3>Remaining kurses</h3>
+        <table class="table table-bordered">
           <thead>
           <th>Id</th>
           <th>Kursname</th>
           <th>Startdatum</th>
+          <th>Action</th>
           </thead>
+          <tbody>
+          <tr *ngFor="let kurs of remainingKursList" >
+            <td>{{kurs.id}}</td>
+
+            <td>{{kurs.name}}</td>
+            <td>{{kurs.startDatum}}</td>
+            <td >
+              <button class="btn btn-sm btn-info"(click)="zuTeilnahme(personId,kurs.id)" >
+                Zu Teilnahme</button>
+              <button class="btn btn-sm btn-warning" (click)="zuInteresse(personId,kurs.id)">
+                Zu Interesse</button>
+
+            </td>
+
+
+
+          </tr>
+          </tbody>
         </table>
       </div>
 
