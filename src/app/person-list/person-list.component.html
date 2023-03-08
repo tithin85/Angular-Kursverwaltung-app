@@ -1,49 +1,54 @@
-<div class="card bg-light mb-3" >
-  <div class="card-header">Person List
-    <div class ="card-header">
-<!--    <div class="col-xl-4">-->
-    <div class="search-name">
-<!--      <div class="search-email">-->
-      <input  class = "form-control py-2 border rounded-pill" type = "text" name = "Suchen" [(ngModel)]="searchText" placeholder=" Suchen " >
+<div class="card bg-light mb-3">
+  <div class="card-header">Personenliste
+    <div class="card-header">
+      <!--    <div class="col-xl-4">-->
+      <div class="search-name col-sm-2">
+        <!--      <div class="search-email">-->
+        <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
+               placeholder=" Suchen ">
 
+      </div>
     </div>
-    </div>
-<!--  </div>-->
-<!--  <h5 class="card-title ">Person List View</h5>-->
+    <!--  </div>-->
+    <!--  <h5 class="card-title ">Person List View</h5>-->
 
-  <table class="table table-striped">
-    <thead>
-    <th>Id</th>
-    <th>Anrede</th>
-    <th>Titel</th>
-    <th>Name</th>
-    <th>Vorname</th>
-    <th>Email</th>
-    <th>Action</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let person of personList | filter: searchText" >
-      <td>{{person.id}}</td>
-      <td>{{person.anrede}}</td>
-      <td>{{person.titel}}</td>
-      <td>{{person.name}}</td>
-      <td>{{person.vorname}}</td>
-      <td>{{person.email}}</td>
-      <td >
-        <button class="btn btn-sm btn-info" (click) = "details(person)">
-          <i class="fa fa-search"></i> Details</button>
-        <button class="btn btn-sm btn-warning" (click)="updatePerson(person)">
-          <i class="fa fa-edit"></i>Edit</button>
-        <button class="btn btn-sm btn-danger" (click)="delete(person.id)">
-          <i class="fa fa-remove"></i>Delete</button>
-        <button class="btn btn-sm btn-dark "(click)="manageFromPerson(person.id)" >
-           Manage</button>
-      </td>
+    <table class="table table-striped">
+      <thead>
+      <th>Id</th>
+      <th>Anrede</th>
+      <th>Titel</th>
+      <th>Name</th>
+      <th>Vorname</th>
+      <th>Email</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let person of personList | filter: searchText">
+        <td>{{person.id}}</td>
+        <td>{{person.anrede}}</td>
+        <td>{{person.titel}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.vorname}}</td>
+        <td>{{person.email}}</td>
+        <td>
+          <button class="btn btn-sm btn-info" (click)="details(person)">
+            <i class="fa fa-search"></i> Details
+          </button>
+          <button class="btn btn-sm btn-warning" (click)="updatePerson(person)">
+            <i class="fa fa-edit"></i>Edit
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="delete(person.id)">
+            <i class="fa fa-remove"></i>Delete
+          </button>
+          <button class="btn btn-sm btn-dark " (click)="manageFromPerson(person.id)">
+            Manage
+          </button>
+        </td>
 
-    </tr>
-    </tbody>
-  </table>
+      </tr>
+      </tbody>
+    </table>
 
-</div>
+  </div>
 </div>
 
