@@ -1,11 +1,15 @@
-<div class="container">
-  <h3 *ngIf="personZuordnung">Person Id lautet: {{personZuordnung.id}}</h3>
+<div class="container" >
+  <button class="btn btn-sm btn-info" (click)="back()" >
+    Back</button>&nbsp;
+  <h6 *ngIf="personZuordnung">Person Id : {{personZuordnung.id}}</h6>
+  <h6  *ngIf="personZuordnung">Name : {{personZuordnung.vorname}}&nbsp;&nbsp;{{personZuordnung.name}}</h6>
+  <h6 *ngIf="personZuordnung">Email : {{personZuordnung.email}}</h6>
   <section class="h-50 bg-light">
     <div class="row d-flex justify-content-center align-items-center h-50">
 
       <div class="col">
-        <div class="container">
-          <h3 *ngIf="personZuordnung">{{personZuordnung.anrede}}&nbsp;{{personZuordnung.name}}&nbsp;nimmt die folgenden Kurse teil</h3>
+        <div class="container"*ngIf="teilnahmeKursListe!=undefined&&teilnahmeKursListe.length>0; else list">
+          <h3 >Teilnahme List</h3>
           <table class="table table-striped table-bordered">
             <thead>
             <th>Id</th>
@@ -35,8 +39,8 @@
 
 
         </div>
-        <div class="container">
-          <h3 *ngIf="personZuordnung">{{personZuordnung.anrede}}&nbsp;{{personZuordnung.name}}&nbsp;interessiert sich die folgenden kurse</h3>
+        <div class="container" *ngIf="interessierteKursListe!=undefined&&interessierteKursListe.length>0; else interessiertelist ">
+          <h3 >Interessierte List</h3>
           <table class="table table-striped table-bordered">
             <thead>
             <th>Id</th>
@@ -66,9 +70,10 @@
 
         </div>
       </div>
-      <div class="col">
+      <div class="col" *ngIf="remainingKursList!=undefined&&remainingKursList.length>0; else remainingKurs ">
+
         <h3>Remaining kurses</h3>
-        <table class="table table-bordered">
+        <table class="table table-bordered" >
           <thead>
           <th>Id</th>
           <th>Kursname</th>
@@ -95,6 +100,24 @@
           </tbody>
         </table>
       </div>
+      <ng-template #remainingKurs>
+        <div class="col">
+          <h3>Remaining KursList ist Leer</h3>
+        </div>
+
+      </ng-template>
+      <ng-template #interessiertelist>
+        <div class="col">
+          <h3>Interessierte kurslist ist Leer</h3>
+        </div>
+
+      </ng-template>
+      <ng-template #list>
+        <div class="col">
+          <h3>Teilnahme kurslist ist Leer</h3>
+        </div>
+
+      </ng-template>
 
     </div>
   </section>

@@ -22,18 +22,6 @@ export class ZuordnungComponent implements OnInit{
   id:any;
 
   constructor(private zuordnunsstore:ZuordnungService, private personStore:PersonStoreService,private kursStore:KursStoreService,private router:Router,private route:ActivatedRoute) {
-    //this.id=this.route.snapshot.paramMap.get('personId')
-    //this.personZuordnung=this.personStore.personEntityList.find(x=>x.id==this.id)
-    //this.personId=this.personZuordnung?.id;
-    //this.personZuordnung={}
-    //this.kursZuordnung={};
-
-      //this.personId=this.personStore.getPersonDetailEntity().id;
-
-
-
-    //this.remainingKursList=this.zuordnunsstore.getRemainingKursList();
-
 
   }
   ngOnInit(){
@@ -48,19 +36,7 @@ export class ZuordnungComponent implements OnInit{
     this.teilnahmeKurse(this.personZuordnung?.id);
     this.interessierteKurse(this.personZuordnung?.id);
 
-
-
-    //  this.zuordnunsstore.Refreschrequired.subscribe(response=>{
-    //    this.remainingKurse(this.personId);
-    // //   this.teilnahmeKurse(this.personId);
-    // //   this.interessierteKurse(this.personId);
-    //  })
-
   }
-
-
-
-
 
 
   remainingKurse(personId?:number){
@@ -92,9 +68,7 @@ export class ZuordnungComponent implements OnInit{
       this.remainingKurse(personId)
       this.interessierteKurse(personId)
     });
-    //this.zuordnunsstore.getRemainingKurs(personId).subscribe((response:Kurs[])=>{
-     // this.remainingKursList=response;
-   // });
+
   }
   zuInteresse(personId?:number,kursId?:number) {
     let response = this.zuordnunsstore.addAlsInteressanter(personId, kursId)
@@ -116,20 +90,14 @@ export class ZuordnungComponent implements OnInit{
       this.remainingKurse(personId);
     });
   }
-  setztAlsInteressanter(personId?:number,kursId?:number){
-    let response=this.zuordnunsstore.addAlsInteressanter(personId,kursId)
-    response.subscribe((data)=>this.return=data);
+
+  back(){
+    this.router.navigateByUrl("personlist")
   }
 
 
 
 
-    // this.personZuordnung=this.personStore.getPersonDetailEntity();
-    // if(this.personZuordnung.id!=undefined&&this.kursZuordnung.id!=undefined){
-    //   let response=this.zuordnunsstore.addAlsTeilnehmer(this.personZuordnung.id,this.kursZuordnung.id)
-    //   response.subscribe((data)=>this.return=data)
-
-   // }
 
 
 
