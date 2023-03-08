@@ -57,7 +57,7 @@
 <!--</body>-->
 
 
-<form #KursForm>
+<form #KursForm="ngForm" >
   <section class="h-50 bg-light">
     <div class="container py-5 h-50">
       <div class="row d-flex justify-content-center align-items-center h-50">
@@ -163,6 +163,8 @@
 
                       </div>
                     </div>
+<!--                    <div *ngIf="kurs.maxTnZahl < kurs.minTnZahl" class = "alert">  MaxTeilnehmerzahl sollte groesser als MinTeilnehmerzahl sein</div>-->
+
                     <div class="col-md-4 mb-4">
                       <div class="form-outline">
                         <small class="text-danger" [class.d-none]="gebuehr.valid || gebuehr.untouched"> Bitte die
@@ -201,8 +203,8 @@
                         </button>
                       </div>
                       <div class="col-md-6 mb-4">
-                        <button type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">
-                          <!--                        <button [disabled]="KursForm.form.invalid" type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">-->
+<!--                        <button type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">-->
+                                                  <button [disabled]="!KursForm.valid" type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">
                           Speichern
                         </button>
                       </div>
