@@ -108,11 +108,13 @@ export class ZuordnungComponent implements OnInit{
     });
   }
   deleteZuordnung(personId?:number,kursId?:number){
-    this.zuordnunsstore.deleteTeilnahmeStatus(personId,kursId).subscribe((data)=>this.return=data)
-    this.teilnahmeKurse(personId);
-    this.interessierteKurse(personId);
-    this.remainingKurse(personId);
-
+    let response =this.zuordnunsstore.deleteTeilnahmeStatus(personId,kursId)
+    response.subscribe((data)=> {
+      this.return = data;
+      this.teilnahmeKurse(personId);
+      this.interessierteKurse(personId);
+      this.remainingKurse(personId);
+    });
   }
   setztAlsInteressanter(personId?:number,kursId?:number){
     let response=this.zuordnunsstore.addAlsInteressanter(personId,kursId)
