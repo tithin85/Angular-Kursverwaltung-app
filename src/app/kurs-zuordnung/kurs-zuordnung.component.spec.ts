@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZuordnungKursComponent } from './zuordnung-kurs.component';
+import { KursZuordnungComponent } from './kurs-zuordnung.component';
 
 describe('ZuordnungKursComponent', () => {
-  let component: ZuordnungKursComponent;
-  let fixture: ComponentFixture<ZuordnungKursComponent>;
+  let component: KursZuordnungComponent;
+  let fixture: ComponentFixture<KursZuordnungComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ZuordnungKursComponent ]
+      declarations: [ KursZuordnungComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ZuordnungKursComponent);
+    fixture = TestBed.createComponent(KursZuordnungComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

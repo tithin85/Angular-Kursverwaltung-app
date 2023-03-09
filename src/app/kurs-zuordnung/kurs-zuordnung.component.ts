@@ -9,10 +9,10 @@ import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-person-kurs-zuordnung',
-  templateUrl: './zuordnung-kurs.component.html',
-  styleUrls: ['./zuordnung-kurs.component.css']
+  templateUrl: './kurs-zuordnung.component.html',
+  styleUrls: ['./kurs-zuordnung.component.css']
 })
-export class ZuordnungKursComponent {
+export class KursZuordnungComponent {
   return:any;
   kursZuordnung?:Kurs;
   public remainingPersonList?:Person[]

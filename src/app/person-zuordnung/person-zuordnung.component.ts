@@ -9,10 +9,10 @@ import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-person-zuordnung',
-  templateUrl: './zuordnung.component.html',
-  styleUrls: ['./zuordnung.component.css']
+  templateUrl: './person-zuordnung.component.html',
+  styleUrls: ['./person-zuordnung.component.css']
 })
-export class ZuordnungComponent implements OnInit{
+export class PersonZuordnungComponent implements OnInit{
   return:any;
   personZuordnung?:Person;
   kursZuordnung?:Kurs;
