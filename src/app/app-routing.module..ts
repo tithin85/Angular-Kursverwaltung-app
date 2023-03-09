@@ -10,10 +10,10 @@ import {KursFormComponent} from "./kurs-form/kurs-form.component";
 import {KursListComponent} from "./kurs-list/kurs-list.component";
 import {UserLoginComponent} from "./user-login/user-login.component";
 import {UserRegisterComponent} from "./user-register/user-register.component";
-import {ZuordnungComponent} from "./person-zuordnung/zuordnung.component";
+import {PersonZuordnungComponent} from "./person-zuordnung/person-zuordnung.component";
 import {PageNotFoundComponentComponent} from "./page-not-found-component/page-not-found-component.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
-import {ZuordnungKursComponent} from "./kurs-zuordnung/zuordnung-kurs.component";
+import {KursZuordnungComponent} from "./kurs-zuordnung/kurs-zuordnung.component";
 
 // ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
@@ -27,8 +27,8 @@ const routes: Routes = [
   { path: 'kursdetails', component: KursDetailsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent },
-  { path: 'zuordnung/person/:personId', component: ZuordnungComponent, canActivate: [AuthGuard] },
-  { path: 'zuordnung/kurs/:kursId', component: ZuordnungKursComponent, canActivate: [AuthGuard] },
+  { path: 'zuordnung/person/:personId', component: PersonZuordnungComponent, canActivate: [AuthGuard] },
+  { path: 'zuordnung/kurs/:kursId', component: KursZuordnungComponent, canActivate: [AuthGuard] },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponentComponent }
