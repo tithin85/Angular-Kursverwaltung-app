@@ -32,6 +32,10 @@
         <!-- Registrieren und Login wenn ausgeloggt -->
         <ul *ngIf="!isLoggedIn" class="nav nav-tabs me-auto">
           <li>
+            <a routerLink="home" routerLinkActive="active" class="nav-link">
+              Home</a>
+          </li>
+          <li>
             <a routerLink="homekurslist" routerLinkActive="active" class="nav-link">
               aktuelle Kurse</a>
           </li>

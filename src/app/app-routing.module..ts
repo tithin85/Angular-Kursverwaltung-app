@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'homekurslist', component: HomeKurslistComponent },
-  { path: 'homekursdetails', component: HomeKursdetailsComponent },
+  { path: 'homekursdetails/:kursId', component: HomeKursdetailsComponent },
 
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent },
