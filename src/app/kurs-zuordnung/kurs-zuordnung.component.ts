@@ -23,7 +23,7 @@ export class KursZuordnungComponent {
   //public personEntityList:Person[];
   freiplaetze?:number;
 
-  constructor(private zuordnunsstore:ZuordnungService, private kursStore:KursStorageService, private router:Router, private route:ActivatedRoute) {
+  constructor(private zuordnunsstore:ZuordnungService, private kursStore:KursStorageService, private router:Router, private route:ActivatedRoute, private location:Location) {
 
 
     this.kursId=this.kursStore.getKursDetailEntity().id;
