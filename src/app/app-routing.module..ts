@@ -13,6 +13,7 @@ import {UserRegisterComponent} from "./user-register/user-register.component";
 import {ZuordnungComponent} from "./zuordnung/zuordnung.component";
 import {PageNotFoundComponentComponent} from "./page-not-found-component/page-not-found-component.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
+import {ZuordnungKursComponent} from "./zuordnung-kurs/zuordnung-kurs.component";
 
 // ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
