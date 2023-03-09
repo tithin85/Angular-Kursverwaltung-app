@@ -59,7 +59,7 @@
               <td>{{person.name}}</td>
               <td>{{person.email}}</td>
               <td>
-                <button class="btn btn-sm btn-info" (click)="zuTeilnehmer(person.id,kursId)">
+                <button class="btn btn-sm btn-info" *ngIf="freiplaetze!=undefined&&freiplaetze>0" (click)="zuTeilnehmer(person.id,kursId)">
                   Zu Teilnehmer
                 </button>
                 <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(person.id,kursId)">
@@ -88,8 +88,8 @@
             <td>{{person.vorname}}</td>
             <td>{{person.name}}</td>
             <td>{{person.email}}</td>
-            <td>
-              <button class="btn btn-sm btn-info" (click)="zuTeilnehmer(person.id,kursId)">
+            <td *ngIf="kursZuordnung">
+              <button class="btn btn-sm btn-info" *ngIf="freiplaetze!=undefined&&freiplaetze>0" (click)="zuTeilnehmer(person.id,kursId)">
                 Zu Teilnehmer
               </button>
               <button class="btn btn-sm btn-warning" (click)="zuInteressesanter(person.id,kursId)">

@@ -13,38 +13,33 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ZuordnungKursComponent {
   return:any;
-  kursZuordnung?:Kurs;
+  kursZuordnung:Kurs;
   public remainingPersonList?:Person[]
   public teilnehmerListe?:Person[]
   public interessanterListe?:Person[]
   public kursId?:number;
   id:any;
   //public personEntityList:Person[];
+  freiplaetze?:number;
 
   constructor(private zuordnunsstore:ZuordnungService, private kursStore:KursStorageService, private router:Router, private route:ActivatedRoute) {
-    // this.personEntityList=[];
-    // this.personStore.getAll().subscribe((response: Person[]) => {
-    //     this.personEntityList = response;
-    //   }
-    // )
+
+
     this.kursId=this.kursStore.getKursDetailEntity().id;
     this.kursZuordnung=this.kursStore.getKursDetailEntity();
+
   }
   ngOnInit(){
     this.kursId=this.kursStore.getKursDetailEntity().id;
     this.kursZuordnung=this.kursStore.getKursDetailEntity();
 
-// this.personStore.getAll().subscribe((response: Person[]) => {
-//     this.personEntityList = response;
-//   }
-// )
-//
 //
 //    this.id=this.route.snapshot.paramMap.get('personId')
 //     this.personZuordnung=this.personEntityList.find(x=>x.id==this.id)
     this.remainingPersonen(this.kursId);
     this.teilnehmer(this.kursId);
     this.interessanter(this.kursId);
+    this.getfreiplatz(this.kursId);
 
   }
 
@@ -70,6 +65,11 @@ export class ZuordnungKursComponent {
     })
 
   }
+  getfreiplatz(kursId?:number){
+    this.kursStore.getKursFromId(kursId).subscribe((response:Kurs)=>{
+      this.freiplaetze=response.freiePlaetze;
+    })
+  }
   zuTeilnehmer(personId?:number,kursId?:number){
     let response=this.zuordnunsstore.addAlsTeilnehmer(personId,kursId)
     response.subscribe((data)=>{
@@ -77,6 +77,7 @@ export class ZuordnungKursComponent {
       this.teilnehmer(kursId);
       this.remainingPersonen(kursId)
       this.interessanter(kursId)
+      this.getfreiplatz(this.kursId)
     });
 
   }
@@ -87,6 +88,7 @@ export class ZuordnungKursComponent {
       this.interessanter(kursId);
       this.remainingPersonen(kursId);
       this.teilnehmer(kursId);
+      this.getfreiplatz(this.kursId)
 
     });
   }
@@ -97,6 +99,7 @@ export class ZuordnungKursComponent {
       this.teilnehmer(kursId);
       this.interessanter(kursId);
       this.remainingPersonen(kursId);
+      this.getfreiplatz(this.kursId)
     });
   }
 

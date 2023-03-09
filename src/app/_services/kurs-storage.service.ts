@@ -45,4 +45,7 @@ export class KursStorageService {
   getKursDetailEntity():Kurs{
     return this.kursDetailEntity;
   }
+  getKursFromId(kursId?:number):Observable<Kurs>{
+    return this.http.get<Kurs>("http://localhost:8080/kurs/find/"+kursId)
+  }
 }

@@ -55,7 +55,7 @@
               <td>{{kurs.name}}</td>
               <td>{{kurs.startDatum}}</td>
               <td>
-                <button class="btn btn-sm btn-info" (click)="zuTeilnahme(personId,kurs.id)">
+                <button class="btn btn-sm btn-info" *ngIf="kurs.freiePlaetze!=undefined&&kurs.freiePlaetze>0" (click)="zuTeilnahme(personId,kurs.id)">
                   Zu Teilnahme
                 </button>
                 <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(personId,kurs.id)">
@@ -84,7 +84,7 @@
             <td>{{kurs.name}}</td>
             <td>{{kurs.startDatum}}</td>
             <td>
-              <button class="btn btn-sm btn-info" (click)="zuTeilnahme(personId,kurs.id)">
+              <button class="btn btn-sm btn-info" *ngIf="kurs.freiePlaetze!=undefined&& kurs.freiePlaetze>0" (click)="zuTeilnahme(personId,kurs.id)">
                 Zu Teilnahme
               </button>
               <button class="btn btn-sm btn-warning" (click)="zuInteresse(personId,kurs.id)">
