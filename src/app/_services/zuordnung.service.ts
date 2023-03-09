@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject, tap} from "rxjs";
-import {Zuordnung} from "./zuordnung";
+import {Zuordnung} from "../_shared/zuordnung";
 import {HttpClient} from "@angular/common/http";
-import {PersonStoreService} from "./person-store.service";
-import {KursStoreService} from "./kurs-store.service";
+import {PersonStorageService} from "./person-storage.service";
+import {KursStorageService} from "./kurs-storage.service";
 import {List} from "immutable";
-import {Kurs} from "./Kurs";
+import {Kurs} from "../_shared/Kurs";
 import {ActivatedRoute} from "@angular/router";
-import {Person} from "./Person";
+import {Person} from "../_shared/Person";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class ZuordnungService {
 
 
 
-  constructor(private http:HttpClient,private personStore:PersonStoreService,private kursStore:KursStoreService) { }
+  constructor(private http:HttpClient, private personStore:PersonStorageService, private kursStore:KursStorageService) { }
   // get Refreschrequired(){
   //   return this._refreschrequired;
   // }

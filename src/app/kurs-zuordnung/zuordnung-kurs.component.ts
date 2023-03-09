@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import {Person} from "../shared/Person";
-import {Kurs} from "../shared/Kurs";
-import {ZuordnungService} from "../shared/zuordnung.service";
-import {PersonStoreService} from "../shared/person-store.service";
-import {KursStoreService} from "../shared/kurs-store.service";
+import {Person} from "../_shared/Person";
+import {Kurs} from "../_shared/Kurs";
+import {ZuordnungService} from "../_services/zuordnung.service";
+import {PersonStorageService} from "../_services/person-storage.service";
+import {KursStorageService} from "../_services/kurs-storage.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-zuordnung-kurs',
+  selector: 'app-person-kurs-zuordnung',
   templateUrl: './zuordnung-kurs.component.html',
   styleUrls: ['./zuordnung-kurs.component.css']
 })
@@ -21,7 +21,7 @@ export class ZuordnungKursComponent {
   id:any;
   //public personEntityList:Person[];
 
-  constructor(private zuordnunsstore:ZuordnungService, private kursStore:KursStoreService,private router:Router,private route:ActivatedRoute) {
+  constructor(private zuordnunsstore:ZuordnungService, private kursStore:KursStorageService, private router:Router, private route:ActivatedRoute) {
     // this.personEntityList=[];
     // this.personStore.getAll().subscribe((response: Person[]) => {
     //     this.personEntityList = response;

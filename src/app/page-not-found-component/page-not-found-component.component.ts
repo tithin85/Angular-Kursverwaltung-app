@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
-import {PersonStoreService} from "../shared/person-store.service";
+import {PersonStorageService} from "../_services/person-storage.service";
 
 @Component({
   selector: 'app-page-not-found-component',

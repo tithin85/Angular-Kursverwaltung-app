@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Kurs} from "./Kurs";
+import {Kurs} from "../_shared/Kurs";
 import {Observable} from "rxjs";
 
 
@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 
-export class KursStoreService {
+export class KursStorageService {
   private kursEntity:Kurs;
   kursList:Observable<Kurs[]>;
   private kursDetailEntity:Kurs

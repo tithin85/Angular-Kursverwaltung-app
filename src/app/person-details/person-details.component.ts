@@ -1,11 +1,11 @@
 // @ts-ignore
 import { Component, OnInit } from '@angular/core';
-import{Person} from "../shared/Person";
-import {PersonStoreService} from "../shared/person-store.service";
+import{Person} from "../_shared/Person";
+import {PersonStorageService} from "../_services/person-storage.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
-import {Kurs} from "../shared/Kurs";
-import {ZuordnungService} from "../shared/zuordnung.service";
+import {Kurs} from "../_shared/Kurs";
+import {ZuordnungService} from "../_services/zuordnung.service";
 
 
 @Component({
@@ -17,7 +17,7 @@ import {ZuordnungService} from "../shared/zuordnung.service";
 export class PersonDetailsComponent implements OnInit{
   personDetail:Person;
   return:any;
-  constructor(private storeService:PersonStoreService,private router:Router,private zuordnungsStore:ZuordnungService) {
+  constructor(private storeService:PersonStorageService, private router:Router, private zuordnungsStore:ZuordnungService) {
     this.personDetail=this.storeService.getPersonDetailEntity();
 
   }

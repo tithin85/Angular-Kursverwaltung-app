@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {KursStoreService} from "../shared/kurs-store.service";
+import {KursStorageService} from "../_services/kurs-storage.service";
 import {Router} from "@angular/router";
-import {Kurs} from "../shared/Kurs";
+import {Kurs} from "../_shared/Kurs";
 
 @Component({
   selector: 'app-kurs-details',
@@ -11,7 +11,7 @@ import {Kurs} from "../shared/Kurs";
 export class KursDetailsComponent implements OnInit{
   kursDetail: Kurs;
   return: any;
-  constructor(private storeService: KursStoreService, private router: Router) {
+  constructor(private storeService: KursStorageService, private router: Router) {
   this.kursDetail={};
   }
   ngOnInit() :void{

@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 import {FormControl, FormGroup, Validators} from '@angular/forms'
-import {KursStoreService} from "../shared/kurs-store.service";
-import {Kurs} from "../shared/Kurs";
+import {KursStorageService} from "../_services/kurs-storage.service";
+import {Kurs} from "../_shared/Kurs";
 import {Router} from "@angular/router";
 
 @Component({
@@ -19,7 +19,7 @@ export class KursFormComponent {
   /*options = ["Aktiv", "Geplant", "Abgesagt"]
   ngSelect = this.options[0];*/
 
- constructor(private  service:KursStoreService,private router:Router) {
+ constructor(private  service:KursStorageService, private router:Router) {
    this.kurs = service.getKursEntity();
    this.emptyKurs = {};
    // this.currentDate = new Date().toISOString().slice(0, 10);

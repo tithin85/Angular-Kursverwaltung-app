@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {PersonStoreService} from "../shared/person-store.service";
-import {Person} from "../shared/Person";
+import {PersonStorageService} from "../_services/person-storage.service";
+import {Person} from "../_shared/Person";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 
@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
 export class PersonListComponent {
   public personList!:Person[];
   persons:any;
-  constructor(private storeService:PersonStoreService, private router :Router) {}
+  constructor(private storeService:PersonStorageService, private router :Router) {}
 
   public getPerson():void{
       this.storeService.getAll().subscribe((response: Person[]) => {

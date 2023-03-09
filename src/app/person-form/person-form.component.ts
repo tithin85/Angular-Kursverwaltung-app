@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Person} from "../shared/Person";
-import {PersonStoreService} from "../shared/person-store.service";
+import {Person} from "../_shared/Person";
+import {PersonStorageService} from "../_services/person-storage.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,7 +12,7 @@ export class PersonFormComponent {
   person:Person;
   return:any
   emptyPerson:Person;
-  constructor(private service:PersonStoreService,private router:Router) {
+  constructor(private service:PersonStorageService, private router:Router) {
     this.person=service.getPersonEntity();
     this.emptyPerson={};
   }

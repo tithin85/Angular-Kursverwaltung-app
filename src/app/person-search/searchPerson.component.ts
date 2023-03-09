@@ -1,8 +1,8 @@
 // import {Component, EventEmitter, OnInit, Output} from "@angular/core";
 // @Component({
 //   selector: "app-search",
-//   templateUrl: './searchPerson.component.html',
-//   styleUrls: ['./searchPerson.component.css']
+//   templateUrl: './person-search.component.html',
+//   styleUrls: ['./person-search.component.css']
 // })
 //
 // export class SearchPersonComponent implements OnInit {

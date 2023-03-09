@@ -1,7 +1,7 @@
 
 import {Injectable, OnInit} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Person} from "./Person";
+import {Person} from "../_shared/Person";
 import {BehaviorSubject, Observable} from "rxjs";
 import {List} from 'immutable';
 
@@ -9,7 +9,7 @@ import {List} from 'immutable';
   providedIn: 'root'
 })
 
-export class PersonStoreService implements OnInit{
+export class PersonStorageService implements OnInit{
 
   private personEntity:Person;
   //personList:Observable<Person[]>;
