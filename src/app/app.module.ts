@@ -15,12 +15,12 @@ import {PersonDetailsComponent} from "./person-details/person-details.component"
 
 import {KursListComponent} from './kurs-list/kurs-list.component';
 import {KursFormComponent} from "./kurs-form/kurs-form.component";
-import {KursItemComponent} from "./kurs-item/kurs-item.component";
+import {KursItemComponent} from "../trash/kurs-item/kurs-item.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
-//import {SearchPersonComponent} from "./person-search/person-search.component";
+//import {SearchPersonComponent} from "./person-search/person-search.component"; Liegt in trash ordner
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { ZuordnungComponent } from './person-zuordnung/zuordnung.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
@@ -37,15 +37,11 @@ import { ZuordnungKursComponent } from './kurs-zuordnung/zuordnung-kurs.componen
     PersonListComponent,
     PersonDetailsComponent,
     KursListComponent,
-    KursItemComponent,
     KursDetailsComponent,
     KursFormComponent,
     ZuordnungComponent,
     PageNotFoundComponentComponent,
     ZuordnungKursComponent
-
-
-
   ],
   imports: [
     BrowserModule,
