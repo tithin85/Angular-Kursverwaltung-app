@@ -1,4 +1,4 @@
-<div id="app">
+<div id="container">
 
   <nav class="navbar navbar-expand-sm bg-light">
     <div class="container-fluid">
@@ -33,11 +33,11 @@
         <ul *ngIf="!isLoggedIn" class="nav nav-tabs me-auto">
           <li>
             <a routerLink="register" routerLinkActive="active" class="nav-link">
-              <span class="glyphicon glyphicon-user"></span> Registrieren</a>
+              <i class="fa fa-plus-square"></i> Registrieren</a>
           </li>
           <li>
-            <a routerLink="login" routerLinkActive="active" class="nav-link ">
-              <span class="glyphicon glyphicon-log-in"></span> LogIn</a>
+            <a routerLink="login" routerLinkActive="active" class="nav-link">
+              <i class="fa fa-sign-in"></i> LogIn</a>
           </li>
         </ul>
 
@@ -45,7 +45,7 @@
         <ul *ngIf="isLoggedIn" class="nav nav-tabs justify-content-end">
           <li>
             <a href="#" (click)="logout()" routerLinkActive="active" class="nav-link">
-              <span class="glyphicon glyphicon-log-out"></span> LogOut</a>
+              <i class="fa fa-sign-out"></i> LogOut</a>
           </li>
         </ul>
       </div>

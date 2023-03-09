@@ -19,6 +19,7 @@ import {KursItemComponent} from "./kurs-item/kurs-item.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 //import {SearchPersonComponent} from "./searchPerson/searchPerson.component";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { ZuordnungComponent } from './zuordnung/zuordnung.component';
@@ -42,6 +43,8 @@ import { ZuordnungKursComponent } from './zuordnung-kurs/zuordnung-kurs.componen
     ZuordnungComponent,
     PageNotFoundComponentComponent,
     ZuordnungKursComponent
+
+
 
   ],
   imports: [

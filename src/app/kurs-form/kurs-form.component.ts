@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import {FormControl, FormGroup, Validators} from '@angular/forms'
 import {KursStoreService} from "../shared/kurs-store.service";
@@ -11,18 +11,19 @@ import {Router} from "@angular/router";
   styleUrls: ['./kurs-form.component.css']
 })
 export class KursFormComponent {
-  currentDate: string;
+  // currentDate: string;
   kurs: Kurs;
   return: any;
   emptyKurs: Kurs;
 
-  options = ["Aktiv", "Geplant", "Abgesagt"]
-  ngSelect = this.options[0];
+  /*options = ["Aktiv", "Geplant", "Abgesagt"]
+  ngSelect = this.options[0];*/
 
  constructor(private  service:KursStoreService,private router:Router) {
    this.kurs = service.getKursEntity();
    this.emptyKurs = {};
-   this.currentDate = new Date().toISOString().slice(0, 10);
+   // this.currentDate = new Date().toISOString().slice(0, 10);
+
  }
   ngOnInit(){
 
@@ -31,6 +32,8 @@ export class KursFormComponent {
    if (this.service.getKursEntity().id==undefined){
    let response=this.service.addKurs(this.kurs);
    response.subscribe((data)=>this.return=data)
+     this.service.setter(this.emptyKurs);
+
   } else{
      let response=this.service.updateKurs(this.kurs);
      response.subscribe((data)=>this.return=data)
@@ -38,6 +41,7 @@ export class KursFormComponent {
      this.router.navigateByUrl("kurslist");
    }
   }
+
 
 }
 

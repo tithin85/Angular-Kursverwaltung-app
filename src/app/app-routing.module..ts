@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import { AuthGuard } from './_services/auth.guard';
+
 import {HomeComponent} from "./home/home.component";
 import {PersonFormComponent} from "./person-form/person-form.component";
 import {PersonListComponent} from "./person-list/person-list.component";
@@ -11,7 +13,6 @@ import {UserRegisterComponent} from "./user-register/user-register.component";
 import {ZuordnungComponent} from "./zuordnung/zuordnung.component";
 import {PageNotFoundComponentComponent} from "./page-not-found-component/page-not-found-component.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
-import {ZuordnungKursComponent} from "./zuordnung-kurs/zuordnung-kurs.component";
 
 // ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
