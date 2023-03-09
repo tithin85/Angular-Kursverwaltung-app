@@ -19,16 +19,16 @@ import {ZuordnungKursComponent} from "./zuordnung-kurs/zuordnung-kurs.component"
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'personform', component: PersonFormComponent },
-  { path: 'personlist', component: PersonListComponent },
-  { path: 'persondetails', component: PersonDetailsComponent },
-  { path: 'kursform', component: KursFormComponent },
-  { path: 'kurslist', component: KursListComponent },
-  { path: 'kursdetails', component: KursDetailsComponent },
+  { path: 'personform', component: PersonFormComponent, canActivate: [AuthGuard] },
+  { path: 'personlist', component: PersonListComponent, canActivate: [AuthGuard] },
+  { path: 'persondetails', component: PersonDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'kursform', component: KursFormComponent, canActivate: [AuthGuard] },
+  { path: 'kurslist', component: KursListComponent, canActivate: [AuthGuard] },
+  { path: 'kursdetails', component: KursDetailsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent },
-  {path: 'zuordnung/person/:personId', component: ZuordnungComponent},
-  {path: 'zuordnung/kurs/:kursId', component: ZuordnungKursComponent},
+  {path: 'zuordnung/person/:personId', component: ZuordnungComponent, canActivate: [AuthGuard]},
+  {path: 'zuordnung/kurs/:kursId', component: ZuordnungKursComponent, canActivate: [AuthGuard]},
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponentComponent }
@@ -36,28 +36,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  /*imports: [RouterModule.forRoot([
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'login', component: UserLoginComponent },
-    { path: 'register', component: UserRegisterComponent },
-    { path: 'personform', component: PersonFormComponent, canActivate: [() => inject(AuthService).isLoggedIn()] }
-  ]),*/
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-/*
-RouterModule.forRoot([
-  {
-    path: 'editor',
-    component: EditorComponent,
-    canDeactivate: [(cmp: EditorComponent) => !cmp.hasUnsavedChanges]
-  },
-  {
-    path: 'demo',
-    component: DemoComponent,
-    canActivate: [() => inject(AuthService).isLoggedIn()]
-  }
-])
- */
