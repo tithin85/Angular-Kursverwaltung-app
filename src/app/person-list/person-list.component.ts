@@ -14,6 +14,7 @@ import {Router} from "@angular/router";
 export class PersonListComponent {
   public personList!:Person[];
   persons:any;
+  personClicked: any;
   constructor(private storeService:PersonStorageService, private router :Router) {}
 
   public getPerson():void{

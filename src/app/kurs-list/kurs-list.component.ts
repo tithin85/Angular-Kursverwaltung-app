@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
-import {UserService} from '../_services/user.service';
-import {HttpClient} from "@angular/common/http";
 import {KursStorageService} from "../_services/kurs-storage.service";
 import {Kurs} from "../_shared/Kurs";
 import {Router} from "@angular/router";
-import {Person} from "../_shared/Person";
 
 @Component({
   selector: 'app-kurs-list',
@@ -13,10 +10,8 @@ import {Person} from "../_shared/Person";
 })
 export class KursListComponent {
   public kursList!: Kurs[];
-  kurse: any;
-  content?: string;
 
-  constructor(private storeService: KursStorageService, private userService: UserService, private router: Router) {
+  constructor(private storeService: KursStorageService, private router: Router) {
   }
 
   public getKurs(): void {
@@ -28,14 +23,6 @@ export class KursListComponent {
 
   ngOnInit() {
     this.getKurs()
-    this.userService.getPublicContent().subscribe({
-      next: data => {
-        this.content = data;
-      },
-      error: err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    });
   }
 
   delete(id?: number) {
@@ -56,13 +43,9 @@ export class KursListComponent {
   details(kurs: Kurs) {
     this.storeService.setKursDetailEntity(kurs);
     this.router.navigateByUrl("kursdetails");
-
   }
   manageFromKurs(kurs:Kurs){
     this.storeService.setKursDetailEntity(kurs);
-
     this.router.navigateByUrl("zuordnung/kurs/"+kurs.id);
-
-
   }
 }

@@ -21,6 +21,10 @@ export class KursStorageService {
     return this.http.get<Kurs[]>("http://localhost:8080/kurs/all");
   }
 
+  getAllForHome():Observable<Kurs[]> {
+    return this.http.get<Kurs[]>("http://localhost:8080/homekurslist");
+  }
+
   addKurs(kurs:Kurs):Observable<Kurs> {
     return this.http.post<Kurs>("http://localhost:8080/kurs/add",kurs);
   }

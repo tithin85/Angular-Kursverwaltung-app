@@ -5,13 +5,14 @@ import {ZuordnungService} from "../_services/zuordnung.service";
 import {PersonStorageService} from "../_services/person-storage.service";
 import {KursStorageService} from "../_services/kurs-storage.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-person-kurs-zuordnung',
-  templateUrl: './zuordnung-kurs.component.html',
-  styleUrls: ['./zuordnung-kurs.component.css']
+  templateUrl: './kurs-zuordnung.component.html',
+  styleUrls: ['./kurs-zuordnung.component.css']
 })
-export class ZuordnungKursComponent {
+export class KursZuordnungComponent {
   return:any;
   kursZuordnung:Kurs;
   public remainingPersonList?:Person[]
@@ -104,7 +105,7 @@ export class ZuordnungKursComponent {
   }
 
   back(){
-    this.router.navigateByUrl("kurslist")
+    this.location.back();
   }
 
 

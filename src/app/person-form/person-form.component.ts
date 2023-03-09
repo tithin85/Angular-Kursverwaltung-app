@@ -12,6 +12,7 @@ export class PersonFormComponent {
   person:Person;
   return:any
   emptyPerson:Person;
+  personSaved: any ;
   constructor(private service:PersonStorageService, private router:Router) {
     this.person=service.getPersonEntity();
     this.emptyPerson={};
