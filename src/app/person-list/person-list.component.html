@@ -1,16 +1,15 @@
-<div class="card bg-light mb-3">
-  <div class="card-header">Personenliste
-    <div class="card-header">
-      <!--    <div class="col-xl-4">-->
-      <div class="search-name col-sm-2">
-        <!--      <div class="search-email">-->
-        <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
-               placeholder=" Suchen ">
+<div class="card bg-light mb-3" >
+  <div class="card-header">Person List
+    <div class ="card-header">
+<!--    <div class="col-xl-4">-->
+    <div class="search-name">
+<!--      <div class="search-email">-->
+      <input  class = "form-control py-2 border rounded-pill" type = "text" name = "Suchen" [(ngModel)]="searchText" placeholder=" Suchen " >
 
-      </div>
     </div>
-    <!--  </div>-->
-    <!--  <h5 class="card-title ">Person List View</h5>-->
+    </div>
+<!--  </div>-->
+<!--  <h5 class="card-title ">Person List View</h5>-->
 
     <table class="table table-striped">
       <thead>
@@ -20,6 +19,7 @@
       <th>Name</th>
       <th>Vorname</th>
       <th>Email</th>
+      <th>Telefon</th>
       <th>Action</th>
       </thead>
       <tbody>
@@ -30,6 +30,7 @@
         <td>{{person.name}}</td>
         <td>{{person.vorname}}</td>
         <td>{{person.email}}</td>
+        <td>{{person.telefon}}</td>
         <td>
           <button class="btn btn-sm btn-info" (click)="details(person)">
             <i class="fa fa-search"></i> Details
@@ -40,15 +41,14 @@
           <button class="btn btn-sm btn-danger" (click)="delete(person.id)">
             <i class="fa fa-remove"></i>Delete
           </button>
-          <button class="btn btn-sm btn-dark " (click)="manageFromPerson(person.id)">
+          <button class="btn btn-sm btn-dark " (click)="manageFromPerson(person)">
             Manage
           </button>
         </td>
-
       </tr>
       </tbody>
     </table>
 
-  </div>
+</div>
 </div>
 

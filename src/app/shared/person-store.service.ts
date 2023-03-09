@@ -33,9 +33,9 @@ constructor(private http:HttpClient){
 }
 ngOnInit() {
 
-  // this.getAll().subscribe((response:Person[])=>{this.personEntityList=response
-  //
-  // })
+   this.getAll().subscribe((response:Person[])=>{this.personEntityList=response
+
+  })
 
 }
 
@@ -82,6 +82,12 @@ ngOnInit() {
   //   return this.http.put<Person>("http://localhost:8080/person/update/", updatedPerson)
   //
   // }
+  updatePersonEntitylist(){
+    this.getAll().subscribe((response:Person[])=>{this.personEntityList=response;
+
+    });
+
+  }
 
 
 }
