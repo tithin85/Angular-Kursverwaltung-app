@@ -7,6 +7,7 @@ import {KursStoreService} from "./kurs-store.service";
 import {List} from "immutable";
 import {Kurs} from "./Kurs";
 import {ActivatedRoute} from "@angular/router";
+import {Person} from "./Person";
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,17 @@ getTeilnahmeKurse(personId?:number):Observable<Kurs[]> {
 
 getRemainingKurs(personid?:number):Observable<Kurs[]>{
      return this.http.get<Kurs[]>("http://localhost:8080/zuordnung/remainingKurs/"+personid)
+
+}
+getRemainingPersonen(kursid?:number):Observable<Person[]>{
+  return this.http.get<Person[]>("http://localhost:8080/zuordnung/remainingPersonen/"+kursid)
+
+}
+getTeilnehmer(kursid?:number){
+    return this.http.get<Person[]>("http://localhost:8080/zuordnung/kursTeilnehmer/"+kursid)
+}
+getInteressanter(kursid?:number){
+  return this.http.get<Person[]>("http://localhost:8080/zuordnung/kursInteressanter/"+kursid)
 
 }
 deleteTeilnahmeStatus(personId?:number,kursId?:number):Observable<any>{

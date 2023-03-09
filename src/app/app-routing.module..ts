@@ -11,6 +11,7 @@ import {UserRegisterComponent} from "./user-register/user-register.component";
 import {ZuordnungComponent} from "./zuordnung/zuordnung.component";
 import {PageNotFoundComponentComponent} from "./page-not-found-component/page-not-found-component.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
+import {ZuordnungKursComponent} from "./zuordnung-kurs/zuordnung-kurs.component";
 
 // ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'kursdetails', component: KursDetailsComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UserRegisterComponent },
-  {path: 'zuordnung/:personId', component: ZuordnungComponent},
+  {path: 'zuordnung/person/:personId', component: ZuordnungComponent},
+  {path: 'zuordnung/kurs/:kursId', component: ZuordnungKursComponent},
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponentComponent }

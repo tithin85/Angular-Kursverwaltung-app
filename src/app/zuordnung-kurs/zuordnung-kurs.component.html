@@ -1,0 +1,126 @@
+<div class="container">
+  <button class="btn btn-sm btn-info" (click)="back()">
+    Back
+  </button>&nbsp;
+  <h6 *ngIf="kursZuordnung">Person Id : {{kursZuordnung.id}}</h6>
+  <h6 *ngIf="kursZuordnung"> Kurs Name : {{kursZuordnung.name}}&nbsp;&nbsp;</h6>
+  <h6 *ngIf="kursZuordnung">Start Date : {{kursZuordnung.startDatum}}</h6>
+  <br>
+  <section class="h-50 bg-light">
+    <div class="row d-flex justify-content-center align-items-center h-50">
+
+      <div class="col">
+        <div class="container" *ngIf="teilnehmerListe!=undefined&&teilnehmerListe.length>0; else keineTeilnahme">
+          <h5>
+            Teilnehmer List:</h5>
+          <table class="table table-striped table-bordered">
+            <thead>
+            <th>Id</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Email</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let person of teilnehmerListe">
+              <td>{{person.id}}</td>
+              <td>{{person.vorname}}</td>
+              <td>{{person.name}}</td>
+              <td>{{person.email}}</td>
+              <td>
+                <button class="btn btn-sm btn-warning" (click)="zuInteressesanter(person.id,kursId)">
+                  Zu Interessanter
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(person.id,kursId)">
+                  <i class="fa fa-remove"></i>Delete
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="container"
+             *ngIf="interessanterListe!=undefined&&interessanterListe.length>0; else keineInteressen ">
+          <h5>
+            Interessanter List:</h5>
+          <table class="table table-striped table-bordered">
+            <thead>
+            <th>Id</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Email</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let person of interessanterListe">
+              <td>{{person.id}}</td>
+              <td>{{person.vorname}}</td>
+              <td>{{person.name}}</td>
+              <td>{{person.email}}</td>
+              <td>
+                <button class="btn btn-sm btn-info" (click)="zuTeilnehmer(person.id,kursId)">
+                  Zu Teilnehmer
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(person.id,kursId)">
+                  <i class="fa fa-remove"></i>Delete
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <div class="col" *ngIf="remainingPersonList!=undefined&&remainingPersonList.length>0; else keineWeiterenKurse ">
+        <h5>Aktuell verfügbare Personen</h5>
+        <table class="table table-bordered">
+          <thead>
+          <th>Id</th>
+          <th>Vorname</th>
+          <th>Nachname</th>
+          <th>Email</th>
+          <th>Action</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let person of remainingPersonList">
+            <td>{{person.id}}</td>
+            <td>{{person.vorname}}</td>
+            <td>{{person.name}}</td>
+            <td>{{person.email}}</td>
+            <td>
+              <button class="btn btn-sm btn-info" (click)="zuTeilnehmer(person.id,kursId)">
+                Zu Teilnehmer
+              </button>
+              <button class="btn btn-sm btn-warning" (click)="zuInteressesanter(person.id,kursId)">
+                Zu Interessanter
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ng-template #keineTeilnahme>
+        <div class="col">
+          <h5 class="text-danger"> Teilnehmer List ist Leer</h5>
+        </div>
+      </ng-template>
+
+      <ng-template #keineInteressen>
+        <div class="col">
+          <h5 class="text-danger"> Interessanter List ist Leer.</h5>
+        </div>
+      </ng-template>
+
+      <ng-template #keineWeiterenKurse>
+        <div class="col">
+          <h5 class="text-danger">Es stehen keine weiteren Personen zur Auswahl zur Verfügung.</h5>
+        </div>
+      </ng-template>
+
+    </div>
+  </section>
+
+</div>
+

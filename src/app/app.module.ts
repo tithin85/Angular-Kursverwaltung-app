@@ -23,6 +23,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { ZuordnungComponent } from './zuordnung/zuordnung.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { ZuordnungKursComponent } from './zuordnung-kurs/zuordnung-kurs.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PageNotFoundComponentComponent } from './page-not-found-component/page-
     KursDetailsComponent,
     KursFormComponent,
     ZuordnungComponent,
-    PageNotFoundComponentComponent
+    PageNotFoundComponentComponent,
+    ZuordnungKursComponent
 
   ],
   imports: [

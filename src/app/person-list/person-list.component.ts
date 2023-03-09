@@ -51,7 +51,7 @@ export class PersonListComponent {
   manageFromPerson(person:Person){
     this.storeService.setPersonDetailEntity(person);
 
-    this.router.navigateByUrl("zuordnung/"+person.id);
+    this.router.navigateByUrl("zuordnung/person/"+person.id);
 
 
   }
