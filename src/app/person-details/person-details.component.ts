@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {Kurs} from "../_shared/Kurs";
 import {ZuordnungService} from "../_services/zuordnung.service";
-
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-person-details',
@@ -17,7 +17,7 @@ import {ZuordnungService} from "../_services/zuordnung.service";
 export class PersonDetailsComponent implements OnInit{
   personDetail:Person;
   return:any;
-  constructor(private storeService:PersonStorageService, private router:Router, private zuordnungsStore:ZuordnungService) {
+  constructor(private storeService:PersonStorageService, private router:Router, private zuordnungsStore:ZuordnungService, private location: Location) {
     this.personDetail=this.storeService.getPersonDetailEntity();
 
   }
@@ -26,9 +26,9 @@ export class PersonDetailsComponent implements OnInit{
     this.personDetail=this.storeService.getPersonDetailEntity();
   }
   back(){
-    this.router.navigateByUrl("personlist")
-
+    this.location.back();
   }
+
   fromperson(personId:number){
 
     this.router.navigateByUrl("zuordnung/person/"+personId);

@@ -5,6 +5,7 @@ import {Kurs} from "../_shared/Kurs";
 import {PersonStorageService} from "../_services/person-storage.service";
 import {KursStorageService} from "../_services/kurs-storage.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-person-zuordnung',
@@ -22,7 +23,7 @@ export class ZuordnungComponent implements OnInit{
   id:any;
   //public personEntityList:Person[];
 
-  constructor(private zuordnunsstore:ZuordnungService, private personStore:PersonStorageService, private kursStore:KursStorageService, private router:Router, private route:ActivatedRoute) {
+  constructor(private zuordnunsstore:ZuordnungService, private personStore:PersonStorageService, private kursStore:KursStorageService, private router:Router, private route:ActivatedRoute, private location: Location) {
     // this.personEntityList=[];
     // this.personStore.getAll().subscribe((response: Person[]) => {
     //     this.personEntityList = response;
@@ -102,14 +103,6 @@ export class ZuordnungComponent implements OnInit{
   }
 
   back(){
-    this.router.navigateByUrl("personlist")
+    this.location.back();
   }
-
-
-
-
-
-
-
-
 }
