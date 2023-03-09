@@ -76,23 +76,24 @@
                     <h3 class="mb-5 ">Diesen Kurs ändern</h3>
                   </ng-template>
 <!--                  {{ KursForm.value | json}}-->
-                  <div class="form-outline mb-4" div >
+                  <div class="form-outline mb-4"  >
                     <small class="text-danger" [class.d-none]="kursname.valid || kursname.untouched"> Bitte Kursnamen
                       eingeben </small>
                     <input type="text" id="form3Example8" [(ngModel)]="kurs.name" [ngModelOptions]="{standalone: true}"
                            class="form-control form-control-lg" required minlength="1" #kursname="ngModel"
-                           [class.is-invalid]="kursname.invalid && kursname.touched" class="form-control" ngModel/>
+                           [class.is-invalid]="kursname.invalid && kursname.touched" class="form-control" ngModel />
                     <label class="form-label" for="form3Example8">Kurs Name</label>
 
                   </div>
 
                   <div class="row">
-                    <div class="col-md-6 mb-4" div >
+                    <div class="col-md-6 mb-4" >
                       <div class="form-outline">
 
-                        <input type="date" id="date" [(ngModel)]="kurs.startDatum" [ngModelOptions]="{standalone: true}"
-                        class="form-control form-control-lg" />
-                        <label class="form-label" for="date">Start Datum</label>
+                          <input type="date" id="date" [(ngModel)]="kurs.startDatum" [ngModelOptions]="{standalone: true}"
+                                 class="form-control form-control-lg"/>
+                          <label class="form-label" for="date">Start Datum</label>
+
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
@@ -124,19 +125,22 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-md-4 mb-4" div >
+                    <div class="col-md-4 mb-4"  >
                       <div class="form-outline">
 
                         <input type="number" id="anzahltage" [(ngModel)]="kurs.anzahlTage"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg" />
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
+
+                        />
                         <label class="form-label" for="anzahltage">Anzahl der Tage</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" div >
+                      <div class="form-outline" >
 
                         <input type="number" id="wieoft" [(ngModel)]="kurs.wieOftinWoche"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
+                        />
                         <label class="form-label" for="wieoft">Wie oft in Woche</label>
                       </div>
                     </div>
@@ -145,16 +149,20 @@
 
                         <input type="number" id="minTeilnehmer" [(ngModel)]="kurs.minTnZahl"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                               />
+
+                        />
                         <label class="form-label" for="minTeilnehmer">Min Teilnehmer Zahl</label>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" div >
+                      <div class="form-outline"  >
+
                         <input type="number" id="maxTeilZahl" [(ngModel)]="kurs.maxTnZahl"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
+
+                        />
                         <label class="form-label" for="maxTeilZahl">Max Teilnehmer Zahl</label>
 <!--                        <div *ngIf="kurs.maxTnZahl < kurs.minTnZahl" class = "alert alert-danger">  MaxTeilnehmerzahl sollte groesser als MinTeilnehmerzahl sein</div>-->
 
@@ -162,10 +170,10 @@
                     </div>
 
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" div >
-
+                      <div class="form-outline"  >
                         <input type="number" id="gebuerenBrutto" [(ngModel)]="kurs.gebuehrBrutto"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
+                        />
                         <label class="form-label" for="gebuerenBrutto">Gebuehr Brutto</label>
                       </div>
                     </div>
@@ -173,7 +181,9 @@
                       <div class="form-outline" >
 
                         <input type="number" id="mwt" [(ngModel)]="kurs.mwstProzent"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
+
+                        />
                         <label class="form-label" for="mwt">Mehrwertsteuer Prozent</label>
                       </div>
                     </div>
@@ -193,7 +203,8 @@
                         </button>
                       </div>
                       <div class="col-md-6 mb-4">
-                        <button type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">
+                        <button type="submit" class="btn btn-success btn-lg ms-2"  (click)="addKurs();KursForm.reset()">
+<!--                        <button [disabled] = "!KursForm.valid" type="submit" class="btn btn-success btn-lg ms-2y"  >-->
                           Speichern
                         </button>
                       </div>

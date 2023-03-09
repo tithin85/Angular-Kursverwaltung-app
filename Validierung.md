@@ -1,6 +1,6 @@
 Validierung 
 
-Für Kurs </b>
+Für Kurs 
 
 Feldname        Bedingunng
 
@@ -19,6 +19,7 @@ Gebuehr         Mussfeld, größer 0
 MwSt            Mussfeld, größer 0
 
 Kursbeschreibung
+
 Kursstatus      Default ist aktiv
 
 MaxTeilnehmer größer als MinTeilnehmer
