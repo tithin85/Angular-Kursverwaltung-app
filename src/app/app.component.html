@@ -12,19 +12,19 @@
         <!-- Navigation wenn eingeloggt -->
         <ul *ngIf="isLoggedIn" class="nav nav-tabs justify-content-start">
           <li>
-            <a routerLink="personform" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">
+            <a routerLink="personform" routerLinkActive="active" class="nav-link">
               Person anlegen</a>
           </li>
           <li>
-            <a routerLink="personlist" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">
+            <a routerLink="personlist" routerLinkActive="active" class="nav-link">
               Personenliste</a>
           </li>
           <li>
-            <a routerLink="kursform" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">
+            <a routerLink="kursform" routerLinkActive="active" class="nav-link">
               Kurs anlegen</a>
           </li>
           <li>
-            <a routerLink="kurslist" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">
+            <a routerLink="kurslist" routerLinkActive="active" class="nav-link">
               Kursliste</a>
           </li>
         </ul>
@@ -32,11 +32,11 @@
         <!-- Registrieren und Login wenn ausgeloggt -->
         <ul *ngIf="!isLoggedIn" class="nav nav-tabs me-auto">
           <li>
-            <a routerLink="register" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">
+            <a routerLink="register" routerLinkActive="active" class="nav-link">
               <i class="fa fa-plus-square"></i> Registrieren</a>
           </li>
           <li>
-            <a routerLink="login" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">
+            <a routerLink="login" routerLinkActive="active" class="nav-link">
               <i class="fa fa-sign-in"></i> LogIn</a>
           </li>
         </ul>
@@ -44,7 +44,7 @@
         <!-- Logout wenn eingeloggt -->
         <ul *ngIf="isLoggedIn" class="nav nav-tabs justify-content-end">
           <li>
-            <a href="#" (click)="logout()" routerLinkActive="active" class="nav-link" ariaCurrentWhenActive="page">
+            <a href="#" (click)="logout()" routerLinkActive="active" class="nav-link">
               <i class="fa fa-sign-out"></i> LogOut</a>
           </li>
         </ul>
