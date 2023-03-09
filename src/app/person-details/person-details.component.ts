@@ -31,7 +31,7 @@ export class PersonDetailsComponent implements OnInit{
   }
   fromperson(personId:number){
 
-    this.router.navigateByUrl("zuordnung/"+personId);
+    this.router.navigateByUrl("zuordnung/person/"+personId);
 
 
   }
