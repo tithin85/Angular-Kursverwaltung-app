@@ -22,6 +22,7 @@ export class PersonFormComponent {
     if(this.service.getPersonEntity().id==undefined){
     let response=this.service.addPerson(this.person);
     response.subscribe((data)=>this.return=data)
+      this.service.setter(this.emptyPerson);
   }else{
       let response=this.service.updatePerson(this.person);
       response.subscribe((data)=>this.return=data)

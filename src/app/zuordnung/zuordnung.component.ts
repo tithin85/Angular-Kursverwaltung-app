@@ -20,21 +20,31 @@ export class ZuordnungComponent implements OnInit{
   public interessierteKursListe?:Kurs[]
   public personId?:number;
   id:any;
+  //public personEntityList:Person[];
 
   constructor(private zuordnunsstore:ZuordnungService, private personStore:PersonStoreService,private kursStore:KursStoreService,private router:Router,private route:ActivatedRoute) {
-
+    // this.personEntityList=[];
+    // this.personStore.getAll().subscribe((response: Person[]) => {
+    //     this.personEntityList = response;
+    //   }
+    // )
+    this.personId=this.personStore.getPersonDetailEntity().id;
+    this.personZuordnung=this.personStore.getPersonDetailEntity();
   }
   ngOnInit(){
-    //this.personId=this.personStore.getPersonDetailEntity().id;
-
-
-
-   this.id=this.route.snapshot.paramMap.get('personId')
-    this.personZuordnung=this.personStore.personEntityList.find(x=>x.id==this.id)
-    this.personId=this.personZuordnung?.id;
-    this.remainingKurse(this.personZuordnung?.id);
-    this.teilnahmeKurse(this.personZuordnung?.id);
-    this.interessierteKurse(this.personZuordnung?.id);
+    this.personId=this.personStore.getPersonDetailEntity().id;
+    this.personZuordnung=this.personStore.getPersonDetailEntity();
+// this.personStore.getAll().subscribe((response: Person[]) => {
+//     this.personEntityList = response;
+//   }
+// )
+//
+//
+//    this.id=this.route.snapshot.paramMap.get('personId')
+//     this.personZuordnung=this.personEntityList.find(x=>x.id==this.id)
+    this.remainingKurse(this.personId);
+    this.teilnahmeKurse(this.personId);
+    this.interessierteKurse(this.personId);
 
   }
 
