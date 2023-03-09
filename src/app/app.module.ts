@@ -12,6 +12,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
 
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
+import { HomeKurslistComponent } from './home-kurslist/home-kurslist.component';
+import { HomeKursdetailsComponent } from './home-kursdetails/home-kursdetails.component';
 
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 
@@ -24,7 +26,6 @@ import {KursListComponent} from './kurs-list/kurs-list.component';
 import {KursFormComponent} from "./kurs-form/kurs-form.component";
 import {KursDetailsComponent} from "./kurs-details/kurs-details.component";
 import { KursZuordnungComponent } from './kurs-zuordnung/kurs-zuordnung.component';
-import { FffffComponent } from './fffff/fffff.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { FffffComponent } from './fffff/fffff.component';
     UserLoginComponent,
     UserRegisterComponent,
     HomeComponent,
+    HomeKurslistComponent,
+    HomeKursdetailsComponent,
     PageNotFoundComponentComponent,
 
     PersonListComponent,
@@ -42,9 +45,7 @@ import { FffffComponent } from './fffff/fffff.component';
     KursListComponent,
     KursFormComponent,
     KursDetailsComponent,
-    KursZuordnungComponent,
-    FffffComponent
-
+    KursZuordnungComponent
   ],
   imports: [
     BrowserModule,

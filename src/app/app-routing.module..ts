@@ -3,6 +3,9 @@ import {RouterModule, Routes} from '@angular/router';
 import { AuthGuard } from './_services/auth.guard';
 
 import {HomeComponent} from "./home/home.component";
+import {HomeKurslistComponent} from "./home-kurslist/home-kurslist.component";
+import {HomeKursdetailsComponent} from "./home-kursdetails/home-kursdetails.component";
+
 import {PersonFormComponent} from "./person-form/person-form.component";
 import {PersonListComponent} from "./person-list/person-list.component";
 import {PersonDetailsComponent} from "./person-details/person-details.component";
@@ -19,6 +22,8 @@ import {KursZuordnungComponent} from "./kurs-zuordnung/kurs-zuordnung.component"
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'homekurslist', component: HomeKurslistComponent },
+  { path: 'homekursdetails', component: HomeKursdetailsComponent },
   { path: 'personform', component: PersonFormComponent, canActivate: [AuthGuard] },
   { path: 'personlist', component: PersonListComponent, canActivate: [AuthGuard] },
   { path: 'persondetails', component: PersonDetailsComponent, canActivate: [AuthGuard] },
