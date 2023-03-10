@@ -109,11 +109,7 @@ export class KursZuordnungComponent {
   }
 
 
-
-
-
-
-
+  searchText : string ="";
 
 }
 
