@@ -69,8 +69,15 @@
         </div>
       </div>
       <div class="col table-responsive" *ngIf="remainingKursList!=undefined&&remainingKursList.length>0; else keineWeiterenKurse ">
+
+
         <h5>Aktuell verfügbare Kurse für <span
           *ngIf="personZuordnung">{{personZuordnung.vorname}}&nbsp;&nbsp;{{personZuordnung.name}}</span></h5>
+        <div class="search-name col-sm-2">
+          <!--      <div class="search-email">-->
+          <input  class = "form-control py-1 border rounded-pill" type = "text" size = "40" name = "Suchen" [(ngModel)]="searchText" placeholder=" Suchen " >
+
+        </div>
         <table class="table table-bordered">
           <thead>
           <th>Id</th>
@@ -79,7 +86,7 @@
           <th>Action</th>
           </thead>
           <tbody>
-          <tr *ngFor="let kurs of remainingKursList">
+          <tr *ngFor="let kurs of remainingKursList | filter: searchText">
             <td>{{kurs.id}}</td>
             <td>{{kurs.name}}</td>
             <td>{{kurs.startDatum}}</td>

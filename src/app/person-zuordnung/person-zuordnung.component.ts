@@ -105,4 +105,7 @@ export class PersonZuordnungComponent implements OnInit{
   back(){
     this.location.back();
   }
+
+  searchText : string ="";
+
 }
