@@ -1,20 +1,38 @@
-<!--
-  <span class="positiveTestResult" *ngIf="test.result">Test ist positiv!</span>
-  <span class="negativeTestResult" *ngIf="!test.result">Test ist negativ!</span>
--->
-<div class="card" style="width: 40rem;">
+<div class="card" style="width: 35rem;">
   <div class="card-header ">
-    <h4 class="card-title">{{kursDetail.name}} &nbsp;&nbsp;<small>[#{{kursDetail.id}}]</small></h4>
+    <h4 class="card-title"><small>[#{{kursDetail.id}}]</small>&nbsp;&nbsp;&nbsp;{{kursDetail.name}}</h4>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item" *ngIf="kursDetail.kursBeschreibung!=undefined"><h5 class="card-title">{{kursDetail.kursBeschreibung}}</h5>
+    <li class="list-group-item"><h5 class="card-title">
+      <span *ngIf="kursDetail.kursBeschreibung">{{kursDetail.kursBeschreibung}}</span>
+      <span *ngIf="!kursDetail.kursBeschreibung">Es ist noch keine detaillierte Beschreibung für diesen Kurs vorhanden.</span>
+    </h5>
     </li>
-    <li class="list-group-item">Der Kurs findet vom {{kursDetail.startDatum}} bis {{kursDetail.endeDatum}} statt und hat eine Gesamtdauer von {{kursDetail.anzahlTage}} Unterrichtstagen.<br>
-       Der Unterricht findet an {{kursDetail.wieOftinWoche}} Tagen je Woche statt.<br>
-      Es gibt noch {{kursDetail.freiePlaetze}} freie Plätze, bei einer Kursgebühr von {{kursDetail.gebuehrBrutto}} EUR.
+    <li class="list-group-item">
+      Der Kurs findet vom {{formatter.formatDate(kursDetail.startDatum!)}} bis {{formatter.formatDate(kursDetail.endeDatum!)}} statt und hat eine Gesamtdauer von
+      <span *ngIf="kursDetail.anzahlTage && kursDetail.anzahlTage > 1"> {{kursDetail.anzahlTage}} Unterrichtstagen.<br></span>
+      <span *ngIf="kursDetail.anzahlTage && kursDetail.anzahlTage === 1"> einem Unterrichtstag.<br></span>
+
+       Der Unterricht findet an
+      <span *ngIf="kursDetail.wieOftinWoche && kursDetail.wieOftinWoche > 1"> {{kursDetail.wieOftinWoche}} Tagen je Woche statt.<br></span>
+      <span *ngIf="kursDetail.wieOftinWoche && kursDetail.wieOftinWoche === 1"> einem Tag je Woche statt.<br></span>
+
+      <span *ngIf="kursDetail.freiePlaetze && kursDetail.freiePlaetze > 1">Es gibt noch {{kursDetail.freiePlaetze}} freie Plätze.<br></span>
+      <span *ngIf="kursDetail.freiePlaetze && kursDetail.freiePlaetze === 1">Es gibt noch  einen freien Platz.<br></span>
+      <span *ngIf="!kursDetail.freiePlaetze || kursDetail.freiePlaetze === 0">Der Kurs ist leider ausgebucht.<br></span>
     </li>
-    <li class="list-group-item">Solange es freie Plätze gibt, können Sie sich für den Kurs anmelden.<br><br>
-    <a href="mailto:m.mustermann@domain.de?subject=Hier%20steht%20der%20Betreff&amp;body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht.">Ich bitte um weitere Infos per Email</a> </li>
+    <li class="list-group-item">
+      Die Kursgebühr beträgt {{formatter.formatNumber(kursDetail.gebuehrBrutto!)}} EUR.
+    </li>
+    <li class="list-group-item">
+      <span *ngIf="kursDetail.freiePlaetze && kursDetail.freiePlaetze > 0">Sie interessieren sich für diesen Kurs oder möchten sich anmelden?<br><br>
+      <a class="text-decoration-none" href="mailto:info@ok.org?subject=Hier%20steht%20der%20Betreff&amp;body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht.">
+        <i class="fa fa-envelope fa-2x"></i> Email schicken!</a></span>
+
+      <span *ngIf="!kursDetail.freiePlaetze || kursDetail.freiePlaetze === 0">Sie interessieren sich für diesen Kurs oder möchten auf die Warteliste?<br><br>
+      <a class="text-decoration-none" href="mailto:info@ok.org?subject={{formatter.urlEncodeString(kursDetail.name!)}}&amp;body=Hallo%20liebes%20oK%20Team,%0D%0A%0D%0Aich%20habe%20Interesse%20an%20dem%20o.g.%20Kurs.%0D%0A%0D%0AMfG">
+        <i class="fa fa-envelope fa-2x"></i> Email schicken!</a></span>
+    </li>
   </ul>
   <div class="card-footer">
     <button class="btn btn-sm btn-info" (click)="back()">

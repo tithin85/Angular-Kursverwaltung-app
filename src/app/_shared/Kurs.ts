@@ -13,5 +13,4 @@ export interface Kurs {
   endeDatum?: Date;
   freiePlaetze?: number;
   aktuelleTnZahl?:number;
-
-}
+  }

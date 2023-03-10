@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {KursStorageService} from "../_services/kurs-storage.service";
+import {FormatterService} from "../_services/formatter.service";
 import {Router} from "@angular/router";
 import { Location } from "@angular/common";
 import {Kurs} from "../_shared/Kurs";
@@ -11,8 +12,10 @@ import {Kurs} from "../_shared/Kurs";
 })
 export class HomeKursdetailsComponent  implements OnInit{
   kursDetail: Kurs;
+  betreff?: string = '';
+  body?: any = '';
   return: any;
-  constructor(private storeService: KursStorageService, private router: Router, private location: Location) {
+  constructor(private storeService: KursStorageService, private router: Router, private location: Location, public formatter: FormatterService) {
     this.kursDetail={};
   }
   ngOnInit() :void{
@@ -21,4 +24,5 @@ export class HomeKursdetailsComponent  implements OnInit{
   back(){
     this.location.back();
   }
+
 }

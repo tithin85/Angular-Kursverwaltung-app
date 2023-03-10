@@ -21,8 +21,8 @@
       <tr *ngFor="let kurs of aktuelleKursliste |filter: searchText">
         <td>{{kurs.id}}</td>
         <td>{{kurs.name}}</td>
-        <td>{{kurs.startDatum}}</td>
-        <td>{{kurs.endeDatum}}</td>
+        <td>{{formatter.formatDate(kurs.startDatum!)}}</td>
+        <td>{{formatter.formatDate(kurs.endeDatum!)}}</td>
         <td>{{kurs.freiePlaetze}}</td>
         <td>{{kurs.status}}</td>
         <td>
