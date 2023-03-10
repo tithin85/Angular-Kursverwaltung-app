@@ -30,8 +30,7 @@ export class HomeKurslistComponent {
 
   details(kurs: Kurs) {
     this.storeService.setKursDetailEntity(kurs);
-    this.router.navigateByUrl("homekursdetails");
-
+    this.router.navigateByUrl("homekursdetails/"+kurs.id);
   }
 
 }

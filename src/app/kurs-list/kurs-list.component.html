@@ -1,4 +1,4 @@
-<div class="card bg-light mb-3">
+<div class="card bg-light mb-3 table-responsive">
   <div class="card-header">Kursliste
     <div class="card-header">
       <div class="search-name col-sm-2">
@@ -14,6 +14,7 @@
       <th>Startdatum</th>
       <th>Enddatum</th>
       <th>AnzFreiePlaetze</th>
+      <th>TN Zahl</th>
       <th>Status</th>
       <th>Action</th>
       </thead>
@@ -24,6 +25,7 @@
         <td>{{kurs.startDatum}}</td>
         <td>{{kurs.endeDatum}}</td>
         <td>{{kurs.freiePlaetze}}</td>
+        <td>{{kurs.aktuelleTnZahl}}</td>
         <td>{{kurs.status}}</td>
         <td>
           <button class="btn btn-sm btn-info" (click)="details(kurs)">

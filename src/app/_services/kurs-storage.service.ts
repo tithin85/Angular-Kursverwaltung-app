@@ -17,12 +17,19 @@ export class KursStorageService {
     this.kursEntity = {};
     this.kursDetailEntity={};
   }
-  getAll():Observable<Kurs[]> {
-    return this.http.get<Kurs[]>("http://localhost:8080/kurs/all");
-  }
 
+  // Fuer alle Besucher
   getAllForHome():Observable<Kurs[]> {
     return this.http.get<Kurs[]>("http://localhost:8080/homekurslist");
+  }
+
+  getKursDetails(kursId?:number):Observable<Kurs>{
+    return this.http.get<Kurs>("http://localhost:8080/homekursdetails/"+kursId)
+  }
+
+  // Fuer eingeloggte User
+  getAll():Observable<Kurs[]> {
+    return this.http.get<Kurs[]>("http://localhost:8080/kurs/all");
   }
 
   addKurs(kurs:Kurs):Observable<Kurs> {
@@ -43,10 +50,13 @@ export class KursStorageService {
     return this.kursEntity;
   }
 
-  setKursDetailEntity(kurs:Kurs){
+  setKursDetailEntity(kurs: Kurs){
     this.kursDetailEntity=kurs;
   }
   getKursDetailEntity():Kurs{
     return this.kursDetailEntity;
+  }
+  getKursFromId(kursId?:number):Observable<Kurs>{
+    return this.http.get<Kurs>("http://localhost:8080/kurs/find/"+kursId)
   }
 }

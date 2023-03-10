@@ -44,7 +44,7 @@ export class KursListComponent {
     this.storeService.setKursDetailEntity(kurs);
     this.router.navigateByUrl("kursdetails");
   }
-  manageFromKurs(kurs:Kurs){
+  manageFromKurs(kurs: Kurs){
     this.storeService.setKursDetailEntity(kurs);
     this.router.navigateByUrl("zuordnung/kurs/"+kurs.id);
   }
