@@ -3,17 +3,22 @@
     <h3 class="card-title">Kurs Id:{{kursDetail.id}}</h3>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><h5>Kursname:</h5> &nbsp;{{kursDetail.name}}</li>
-      <li *ngIf="kursDetail.kursBeschreibung!=undefined" class="list-group-item"><h5>
+      <li class="list-group-item" *ngIf="kursDetail.kursBeschreibung!=undefined"><h5>
         Kursbeschreibung:</h5>{{kursDetail.kursBeschreibung}}</li>
       <li class="list-group-item"><h5>Startdatum:</h5> &nbsp;{{kursDetail.startDatum}}</li>
       <li class="list-group-item"><h5>Enddatum:</h5> &nbsp; {{kursDetail.endeDatum}}</li>
       <li class="list-group-item"><h5>Anzahl Kurstage:</h5> &nbsp;{{kursDetail.anzahlTage}}</li>
-      <li class="list-group-item"><h5>Wie oft in Woche findet Kurs statt:</h5> &nbsp;{{kursDetail.wieOftinWoche}}</li>
+      <li class="list-group-item"><h5>Wie oft in Woche findet der Kurs statt:</h5> &nbsp;{{kursDetail.wieOftinWoche}}</li>
       <li class="list-group-item"><h5>Wieviel freie Plätze gibt es noch:</h5> &nbsp;{{kursDetail.freiePlaetze}}</li>
-      <li class="list-group-item"><h5>Kursgebuehr in EUR:</h5> &nbsp;{{kursDetail.gebuehrBrutto}}</li>
+      <li class="list-group-item"><h5>Kursgebühr in EUR:</h5> &nbsp;{{kursDetail.gebuehrBrutto}}</li>
     </ul>
     <button class="btn btn-sm btn-info" (click)="back()">
       Back
     </button>&nbsp;
   </div>
 </div>
+
+<!--
+  <span class="positiveTestResult" *ngIf="test.result">Test ist positiv!</span>
+  <span class="negativeTestResult" *ngIf="!test.result">Test ist negativ!</span>
+-->

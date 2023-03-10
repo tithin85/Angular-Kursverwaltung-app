@@ -10,7 +10,7 @@
     <div class="row d-flex justify-content-center align-items-center h-50">
 
       <div class="col">
-        <div class="container" *ngIf="teilnahmeKursListe!=undefined&&teilnahmeKursListe.length>0; else keineTeilnahme">
+        <div class="container table-responsive" *ngIf="teilnahmeKursListe!=undefined&&teilnahmeKursListe.length>0; else keineTeilnahme">
           <h5><span *ngIf="personZuordnung">{{personZuordnung.vorname}}&nbsp;&nbsp;{{personZuordnung.name}}</span> nimmt
             an folgenden Kursen teil:</h5>
           <table class="table table-striped table-bordered">
@@ -38,7 +38,7 @@
           </table>
 
         </div>
-        <div class="container"
+        <div class="container table-responsive"
              *ngIf="interessierteKursListe!=undefined&&interessierteKursListe.length>0; else keineInteressen ">
           <h5><span *ngIf="personZuordnung">{{personZuordnung.vorname}}&nbsp;&nbsp;{{personZuordnung.name}}</span>
             interessiert sich für folgenden Kurse:</h5>
@@ -68,7 +68,7 @@
 
         </div>
       </div>
-      <div class="col" *ngIf="remainingKursList!=undefined&&remainingKursList.length>0; else keineWeiterenKurse ">
+      <div class="col table-responsive" *ngIf="remainingKursList!=undefined&&remainingKursList.length>0; else keineWeiterenKurse ">
         <h5>Aktuell verfügbare Kurse für <span
           *ngIf="personZuordnung">{{personZuordnung.vorname}}&nbsp;&nbsp;{{personZuordnung.name}}</span></h5>
         <table class="table table-bordered">
