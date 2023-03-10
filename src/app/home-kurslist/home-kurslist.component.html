@@ -1,37 +1,40 @@
-<div class="card bg-light mb-3 table-responsive">
-  <div class="card-header">Kursliste
-    <div class="card-header">
-      <div class="search-name col-sm-2">
-        <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
-               placeholder="Suchen">
+<div class="container" style="width: 95%">
+  <div class="card bg-light table-responsive">
+    <div class="card-header"><h4>Unsere aktuellen Kurse</h4>
+      <div class="card-header">
+        <div class="search-name col-sm-2">
+          <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
+                 placeholder="Suchen">
+        </div>
+      </div>
+      <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <th>#</th>
+        <th>Kursname</th>
+        <th>Beginnt am</th>
+        <th>Endet am</th>
+        <th>Freie Plätze</th>
+        <th>Status</th>
+        <th>Details</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let kurs of aktuelleKursliste |filter: searchText">
+          <td>{{kurs.id}}</td>
+          <td>{{kurs.name}}</td>
+          <td>{{formatter.formatDate(kurs.startDatum!)}}</td>
+          <td>{{formatter.formatDate(kurs.endeDatum!)}}</td>
+          <td>{{kurs.freiePlaetze}}</td>
+          <td>{{kurs.status}}</td>
+          <td>
+            <button class="btn btn-sm btn-info" (click)="details(kurs)">
+              <i class="fa fa-search"></i> Details
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
       </div>
     </div>
-
-    <table class="table table-striped">
-      <thead>
-      <th>Id</th>
-      <th>Kursname</th>
-      <th>Startdatum</th>
-      <th>Enddatum</th>
-      <th>AnzFreiePlaetze</th>
-      <th>Status</th>
-      <th>Action</th>
-      </thead>
-      <tbody>
-      <tr *ngFor="let kurs of aktuelleKursliste |filter: searchText">
-        <td>{{kurs.id}}</td>
-        <td>{{kurs.name}}</td>
-        <td>{{formatter.formatDate(kurs.startDatum!)}}</td>
-        <td>{{formatter.formatDate(kurs.endeDatum!)}}</td>
-        <td>{{kurs.freiePlaetze}}</td>
-        <td>{{kurs.status}}</td>
-        <td>
-          <button class="btn btn-sm btn-info" (click)="details(kurs)">
-            <i class="fa fa-search"></i> Details
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
   </div>
 </div>
