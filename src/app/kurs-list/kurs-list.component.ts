@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {KursStorageService} from "../_services/kurs-storage.service";
+import {FormatterService} from "../_services/formatter.service";
 import {Kurs} from "../_shared/Kurs";
 import {Router} from "@angular/router";
 
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
 export class KursListComponent {
   public kursList!: Kurs[];
 
-  constructor(private storeService: KursStorageService, private router: Router) {
+  constructor(private storeService: KursStorageService, private router: Router, public formatter: FormatterService) {
   }
 
   public getKurs(): void {

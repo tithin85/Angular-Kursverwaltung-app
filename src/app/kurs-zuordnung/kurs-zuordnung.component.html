@@ -1,12 +1,12 @@
 <div class="container">
-  <button class="btn btn-sm btn-info" (click)="back()">
+  <button class="btn btn-sm btn-info" (click)="formatter.back()">
     Back
   </button>
   <br><br>
   <h6 *ngIf="kursZuordnung">Person Id : {{kursZuordnung.id}}</h6>
   <h6 *ngIf="kursZuordnung">Kurs Name : {{kursZuordnung.name}}&nbsp;&nbsp;</h6>
   <h6 *ngIf="kursZuordnung">Start Date : {{kursZuordnung.startDatum}}</h6>
-  <h6 class="text-danger" *ngIf="kursZuordnung">Freie Plaetze : {{freiplaetze}}</h6>
+  <h6 class="text-danger" *ngIf="kursZuordnung">Freie Plätze : {{freiplaetze}}</h6>
   <br>
   <section class="h-50 bg-light">
     <div class="row d-flex justify-content-center align-items-center h-50">
@@ -21,7 +21,7 @@
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Email</th>
-            <th>Action</th>
+            <th>Aktion</th>
             </thead>
             <tbody>
             <tr *ngFor="let person of teilnehmerListe">
@@ -52,7 +52,7 @@
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Email</th>
-            <th>Action</th>
+            <th>Aktion</th>
             </thead>
             <tbody>
             <tr *ngFor="let person of interessanterListe">
@@ -88,7 +88,7 @@
           <th>Vorname</th>
           <th>Nachname</th>
           <th>Email</th>
-          <th>Action</th>
+          <th>Aktion</th>
           </thead>
           <tbody>
           <tr *ngFor="let person of remainingPersonList | filter: searchText">

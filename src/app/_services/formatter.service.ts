@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Location } from "@angular/common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormatterService {
 
-  constructor() {
+  constructor(public location: Location ) {
   }
 
   formatDate(inputDate: Date | string): string {
@@ -29,6 +30,10 @@ export class FormatterService {
       return encodeURIComponent(p1);
     });
     return encodedString;
+  }
+
+  back(){
+    this.location.back();
   }
 
 }

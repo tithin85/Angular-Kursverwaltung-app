@@ -13,17 +13,17 @@
       <th>Kursname</th>
       <th>Startdatum</th>
       <th>Enddatum</th>
-      <th>AnzFreiePlaetze</th>
-      <th>TN Zahl</th>
+      <th>Freie Plätze</th>
+      <th>Zugesagt</th>
       <th>Status</th>
-      <th>Action</th>
+      <th>Aktion</th>
       </thead>
       <tbody>
       <tr *ngFor="let kurs of kursList |filter: searchText">
         <td>{{kurs.id}}</td>
         <td>{{kurs.name}}</td>
-        <td>{{kurs.startDatum}}</td>
-        <td>{{kurs.endeDatum}}</td>
+        <td>{{formatter.formatDate(kurs.startDatum!)}}</td>
+        <td>{{formatter.formatDate(kurs.endeDatum!)}}</td>
         <td>{{kurs.freiePlaetze}}</td>
         <td>{{kurs.aktuelleTnZahl}}</td>
         <td>{{kurs.status}}</td>

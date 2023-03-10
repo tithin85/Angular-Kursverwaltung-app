@@ -1,63 +1,4 @@
-<!--<h1>Kurs anlegen</h1>-->
-<!--<p>aa</p>-->
-<!--<body>-->
-<!--<div>-->
-<!--<form id="kursForm" name="kursform" onsubmit="">-->
-<!--<section class="h-50 bg-light">-->
-<!--  <div class="container py-5 h-50">-->
-<!--    <div class="row d-flex justify-content-center align-items-center h-50">-->
-<!--      <div class="col">-->
-<!--        <div class="card card-registration ">-->
-<!--          <div class="row g-0">-->
-<!--            <div class="col-xl-6 d-none d-xl-block">-->
-
-<!--            </div>-->
-
-
-<!--              <label for="name">Kurs Name:</label>-->
-<!--              <input type="text" id="name" [(ngModel)]="kurs.name" name="name"><br>-->
-
-<!--              <label for="anzahlTage">Anzahl KursTage:</label>-->
-<!--              <input type="number" id="anzahlTage" [(ngModel)]="kurs.anzahlTage" name="anzahlTage"><br>-->
-
-<!--              <label for="wieOftinWoche">Wie oft in Woche:</label>-->
-<!--              <input type="number" id="wieOftinWoche" [(ngModel)]="kurs.wieOftinWoche" name="wieOftinWoche"><br>-->
-
-<!--              <label for="startDatum">Start Datum:</label>-->
-<!--              <input type="date" id="startDatum" [(ngModel)]="kurs.startDatum" name="startDatum"><br>-->
-
-<!--              <label for="minTnZahl">Minimum Teilnehmer:</label>-->
-<!--              <input type="number" id="minTnZahl" [(ngModel)]="kurs.minTnZahl" name="minTnZahl"><br>-->
-
-<!--              <label for="maxTnZahl">Maximum Teilnehmer:</label>-->
-<!--              <input type="number" id="maxTnZahl" [(ngModel)]="kurs.maxTnZahl" name="maxTnZahl"><br>-->
-
-<!--              <label for="gebuehrBrutto">Gebuehr Brutto:</label>-->
-<!--              <input type="number" id="gebuehrBrutto" [(ngModel)]="kurs.gebuehrBrutto" name="gebuehrBrutto"><br>-->
-
-<!--              <label for="mwstProzent">Mwst in Prozent(%):</label>-->
-<!--              <input type="number" id="mwstProzent" [(ngModel)]="kurs.mwstProzent" name="mwstProzent"><br>-->
-
-<!--              <label for="kursBeschreibung">Kurs Beschreibung</label>-->
-<!--              <input type="text" id="kursBeschreibung" [(ngModel)]="kurs.kursBeschreibung" name="kursBeschreibung"><br>-->
-
-<!--              <label for="status">Status</label>-->
-<!--              <input type="text" id="status" [(ngModel)]="kurs.status" name="status"><br>-->
-
-<!--            <button type="submit" value="Submit" (click)="addKurs()">submit</button>-->
-
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
-<!--</form>-->
-<!--</div>-->
-<!--</body>-->
-
-
-<form #KursForm >
+<form #KursForm>
   <section class="h-50 bg-light">
     <div class="container py-5 h-50">
       <div class="row d-flex justify-content-center align-items-center h-50">
@@ -65,9 +6,7 @@
           <div class="card card-registration ">
             <div class="row g-0">
               <div class="col-xl-6 d-none d-xl-block">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                     alt="Sample photo" class="img-fluid"
-                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"/>
+                <img src="../../assets/images/kurs_person_anlegen.jpg" height="800" width="533" alt="Kurs anlegen"/>
               </div>
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
@@ -75,47 +14,30 @@
                   <ng-template #updatingHeadline>
                     <h3 class="mb-5 ">Diesen Kurs ändern</h3>
                   </ng-template>
-<!--                  {{ KursForm.value | json}}-->
-                  <div class="form-outline mb-4"  >
+                  <!--                  {{ KursForm.value | json}}-->
+                  <div class="form-outline mb-4">
                     <small class="text-danger" [class.d-none]="kursname.valid || kursname.untouched"> Bitte Kursnamen
                       eingeben </small>
                     <input type="text" id="form3Example8" [(ngModel)]="kurs.name" [ngModelOptions]="{standalone: true}"
                            class="form-control form-control-lg" required minlength="1" #kursname="ngModel"
-                           [class.is-invalid]="kursname.invalid && kursname.touched" class="form-control" ngModel />
+                           [class.is-invalid]="kursname.invalid && kursname.touched" class="form-control" ngModel/>
                     <label class="form-label" for="form3Example8">Kurs Name</label>
-
                   </div>
 
                   <div class="row">
-                    <div class="col-md-6 mb-4" >
+                    <div class="col-md-6 mb-4">
                       <div class="form-outline">
-
-                          <input type="date" id="date" [(ngModel)]="kurs.startDatum" [ngModelOptions]="{standalone: true}"
-                                 class="form-control form-control-lg"/>
-                          <label class="form-label" for="date">Start Datum</label>
-
+                        <input type="date" id="date" [(ngModel)]="kurs.startDatum" [ngModelOptions]="{standalone: true}"
+                               class="form-control form-control-lg"/>
+                        <label class="form-label" for="date">Start Datum</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
-
-                     <!-- <div class="form-outline">
-                        <select class="form-control" id="selectOptions">
-                          <option
-                            *ngFor="let opt of options"
-                            [selected]="opt === ngSelect"
-                            [value]="opt"
-                          >
-                            {{ opt }}
-                          </option>
-                        </select>
-                      </div>-->
-
-
                       <div class="form-outline">
-                        <select  id="status" [(ngModel)]="kurs.status" [ngModelOptions]="{standalone: true}"
-                                 class="form-control form-control-lg" >
+                        <select id="status" [(ngModel)]="kurs.status" [ngModelOptions]="{standalone: true}"
+                                class="form-control form-control-lg" size="1">
+                          <option value="geplant" selected>geplant</option>
                           <option value="aktiv">aktiv</option>
-                          <option value="geplant">geplant</option>
                           <option value="abgesagt">abgesagt</option>
                           <option value="beendet">beendet</option>
                         </select>
@@ -126,73 +48,56 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-md-4 mb-4"  >
+                    <div class="col-md-4 mb-4">
                       <div class="form-outline">
-
                         <input type="number" id="anzahltage" [(ngModel)]="kurs.anzahlTage"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-
-                        />
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
                         <label class="form-label" for="anzahltage">Anzahl der Tage</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" >
-
+                      <div class="form-outline">
                         <input type="number" id="wieoft" [(ngModel)]="kurs.wieOftinWoche"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                        />
-                        <label class="form-label" for="wieoft">Wie oft in Woche</label>
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                        <label class="form-label" for="wieoft">Wie oft in der Woche</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" div >
-
+                      <div class="form-outline">
                         <input type="number" id="minTeilnehmer" [(ngModel)]="kurs.minTnZahl"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-
-                        />
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
                         <label class="form-label" for="minTeilnehmer">Min Teilnehmer Zahl</label>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline"  >
-
+                      <div class="form-outline">
                         <input type="number" id="maxTeilZahl" [(ngModel)]="kurs.maxTnZahl"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-
-                        />
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
                         <label class="form-label" for="maxTeilZahl">Max Teilnehmer Zahl</label>
-<!--                        <div *ngIf="kurs.maxTnZahl < kurs.minTnZahl" class = "alert alert-danger">  MaxTeilnehmerzahl sollte groesser als MinTeilnehmerzahl sein</div>-->
-
+                        <!--<div *ngIf="kurs.maxTnZahl < kurs.minTnZahl" class = "alert alert-danger">  MaxTeilnehmerzahl sollte groesser als MinTeilnehmerzahl sein</div>-->
                       </div>
                     </div>
 
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline"  >
+                      <div class="form-outline">
                         <input type="number" id="gebuerenBrutto" [(ngModel)]="kurs.gebuehrBrutto"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-                        />
-                        <label class="form-label" for="gebuerenBrutto">Gebuehr Brutto</label>
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                        <label class="form-label" for="gebuerenBrutto">Gebühr Brutto</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" >
-
+                      <div class="form-outline">
                         <input type="number" id="mwt" [(ngModel)]="kurs.mwstProzent"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"
-
-                        />
+                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
                         <label class="form-label" for="mwt">Mehrwertsteuer Prozent</label>
                       </div>
                     </div>
                   </div>
                   <div class="form-outline mb-4">
-                    <textarea id="description" [(ngModel)]="kurs.kursBeschreibung" [ngModelOptions]="{standalone: true}"
-                              class="form-control form-control-lg" rows="4"
-                    ></textarea>
+                    <textarea id="description" [(ngModel)]="kurs.kursBeschreibung"
+                              [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"></textarea>
                     <label class="form-label" for="description">Kurs Beschreibung</label>
                   </div>
 
@@ -204,8 +109,8 @@
                         </button>
                       </div>
                       <div class="col-md-6 mb-4">
-                        <button type="submit" class="btn btn-success btn-lg ms-2"  (click)="addKurs();KursForm.reset()">
-<!--                        <button [disabled] = "!KursForm.valid" type="submit" class="btn btn-success btn-lg ms-2y"  >-->
+                        <button type="submit" class="btn btn-success btn-lg ms-2" (click)="addKurs();KursForm.reset()">
+                          <!--<button [disabled] = "!KursForm.valid" type="submit" class="btn btn-success btn-lg ms-2y">-->
                           Speichern
                         </button>
                       </div>

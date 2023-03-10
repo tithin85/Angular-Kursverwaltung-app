@@ -1,5 +1,4 @@
 <form #PersonForm>
-
   <section class="h-50 bg-light">
     <div class="container py-5 h-50">
       <div class="row d-flex justify-content-center align-items-center h-50">
@@ -7,9 +6,7 @@
           <div class="card card-registration ">
             <div class="row g-0">
               <div class="col-xl-6 d-none d-xl-block">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                     alt="Sample photo" class="img-fluid"
-                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"/>
+                <img src="../../assets/images/kurs_person_anlegen.jpg" height="800" width="533" alt="Person anlegen"/>
               </div>
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
@@ -43,14 +40,14 @@
                       <div class="form-outline">
                         <input type="text" id="form3Example1m" [(ngModel)]="person.vorname"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
-                        <label class="form-label" for="form3Example1m">First name</label>
+                        <label class="form-label" for="form3Example1m">Vorname</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
                         <input type="text" id="form3Example1n" [(ngModel)]="person.name"
                                [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
-                        <label class="form-label" for="form3Example1n">Last name</label>
+                        <label class="form-label" for="form3Example1n">Nachname</label>
                       </div>
                     </div>
                   </div>
@@ -105,7 +102,6 @@
                   </div>
                   <ng-template #updatingButton>
                     <div class="d-flex justify-content-end pt-3">
-
                       <button type="submit" class="btn btn-success btn-lg ms-2"
                               (click)="personNeuUpdate();PersonForm.reset()">Update Person
                       </button>
