@@ -3,9 +3,9 @@
     Back
   </button>&nbsp;
   <h6 *ngIf="kursZuordnung">Person Id : {{kursZuordnung.id}}</h6>
-  <h6 *ngIf="kursZuordnung"> Kurs Name : {{kursZuordnung.name}}&nbsp;&nbsp;</h6>
+  <h6 *ngIf="kursZuordnung">Kurs Name : {{kursZuordnung.name}}&nbsp;&nbsp;</h6>
   <h6 *ngIf="kursZuordnung">Start Date : {{kursZuordnung.startDatum}}</h6>
-  <h6 class="text-danger" *ngIf="kursZuordnung">Freiplaetze : {{freiplaetze}}</h6>
+  <h6 class="text-danger" *ngIf="kursZuordnung">Freie Plaetze : {{freiplaetze}}</h6>
   <br>
   <section class="h-50 bg-light">
     <div class="row d-flex justify-content-center align-items-center h-50">
@@ -30,10 +30,10 @@
               <td>{{person.email}}</td>
               <td>
                 <button class="btn btn-sm btn-warning" (click)="zuInteressesanter(person.id,kursId)">
-                  Zu Interessent
+                  <i class="fa fa-arrows"></i> Zu Interessent
                 </button>
                 <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(person.id,kursId)">
-                  <i class="fa fa-remove"></i>Delete
+                  <i class="fa fa-remove"></i> Delete
                 </button>
               </td>
             </tr>
@@ -61,7 +61,7 @@
               <td>{{person.email}}</td>
               <td>
                 <button class="btn btn-sm btn-info" *ngIf="freiplaetze!=undefined&&freiplaetze>0" (click)="zuTeilnehmer(person.id,kursId)">
-                  Zu Teilnehmer
+                  <i class="fa fa-arrows"></i> Zu Teilnehmer
                 </button>
                 <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(person.id,kursId)">
                   <i class="fa fa-remove"></i> Delete
@@ -91,10 +91,10 @@
             <td>{{person.email}}</td>
             <td *ngIf="kursZuordnung">
               <button class="btn btn-sm btn-info" *ngIf="freiplaetze!=undefined&&freiplaetze>0" (click)="zuTeilnehmer(person.id,kursId)">
-                Zu Teilnehmer
+                <i class="fa fa-arrows"></i> Zu Teilnehmer
               </button>
               <button class="btn btn-sm btn-warning" (click)="zuInteressesanter(person.id,kursId)">
-                Zu Interessent
+                <i class="fa fa-arrows"></i> Zu Interessent
               </button>
             </td>
           </tr>
@@ -104,13 +104,13 @@
 
       <ng-template #keineTeilnahme>
         <div class="col">
-          <h5 class="text-danger"> Teilnehmer Liste ist Leer</h5>
+          <h5 class="text-danger">Teilnehmer Liste ist Leer</h5>
         </div>
       </ng-template>
 
       <ng-template #keineInteressen>
         <div class="col">
-          <h5 class="text-danger"> Interessenten Liste ist Leer.</h5>
+          <h5 class="text-danger">Interessenten Liste ist Leer.</h5>
         </div>
       </ng-template>
 

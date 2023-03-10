@@ -27,10 +27,10 @@
               <td>{{kurs.startDatum}}</td>
               <td>
                 <button class="btn btn-sm btn-warning" (click)="zuInteresse(personId,kurs.id)">
-                  Zu Interesse
+                  <i class="fa fa-arrows"></i> interessiert sich
                 </button>
                 <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(personId,kurs.id)">
-                  <i class="fa fa-remove"></i>Delete
+                  <i class="fa fa-remove"></i> Delete
                 </button>
               </td>
             </tr>
@@ -56,10 +56,10 @@
               <td>{{kurs.startDatum}}</td>
               <td>
                 <button class="btn btn-sm btn-info" *ngIf="kurs.freiePlaetze!=undefined&&kurs.freiePlaetze>0" (click)="zuTeilnahme(personId,kurs.id)">
-                  Zu Teilnahme
+                  <i class="fa fa-arrows"></i> nimmt teil
                 </button>
                 <button class="btn btn-sm btn-danger" (click)="deleteZuordnung(personId,kurs.id)">
-                  <i class="fa fa-remove"></i>Delete
+                  <i class="fa fa-remove"></i> Delete
                 </button>
               </td>
             </tr>
@@ -85,10 +85,10 @@
             <td>{{kurs.startDatum}}</td>
             <td>
               <button class="btn btn-sm btn-info" *ngIf="kurs.freiePlaetze!=undefined&& kurs.freiePlaetze>0" (click)="zuTeilnahme(personId,kurs.id)">
-                Zu Teilnahme
+                <i class="fa fa-arrows"></i> nimmt teil
               </button>
               <button class="btn btn-sm btn-warning" (click)="zuInteresse(personId,kurs.id)">
-                Zu Interesse
+                <i class="fa fa-arrows"></i> interessiert sich
               </button>
             </td>
           </tr>
