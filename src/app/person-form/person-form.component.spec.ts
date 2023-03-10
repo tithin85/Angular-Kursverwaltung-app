@@ -23,7 +23,7 @@ describe('PersonFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should emit a save event when the save button is clicked', () => {
+  it('should save when the save button is clicked', () => {
     spyOn(component.personSaved, 'emit');
     component.person = { id: 1, name: 'Alice' };
     const button = fixture.nativeElement.querySelector('button');
