@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+/*import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -28,4 +28,38 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('online Kursverwaltung app is running!');
   });
+});*/
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { AppComponent } from './app.component';
+describe('AppComponent ', () => {
+  let component:  AppComponent;
+  let fixture: ComponentFixture< AppComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [  AppComponent ]
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent( AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it ('should have a title and false isLoodgedIn, showAdminBoard, showModeratorBoard and username', () => {
+    expect(component.title).toEqual('online Kursverwaltung');
+    expect(component.isLoggedIn).toEqual(false);
+    expect(component.showAdminBoard).toEqual(false);
+    expect(component.showModeratorBoard).toEqual(false);
+    expect(component.username).toEqual('admin')
+
+  });
+
+  /*it('should toggle the status', () => {
+    component.toggle();
+    expect(component.status).toEqual(true);
+  });*/
 });
+
