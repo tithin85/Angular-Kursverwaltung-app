@@ -1,0 +1,7 @@
+#printToPdf {display:none;}
+
+@media print {
+  #printToPdf {
+    display: block;
+  }
+}
