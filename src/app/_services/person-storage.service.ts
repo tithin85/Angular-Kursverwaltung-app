@@ -17,9 +17,6 @@ export class PersonStorageService implements OnInit{
   private zuordnungsPerson:Person;
  public personEntityList:Person[];
 
-
-
-
 constructor(private http:HttpClient){
   //this.personList=this.getAll();
   this.personEntity={};
@@ -27,16 +24,11 @@ constructor(private http:HttpClient){
   this.zuordnungsPerson={};
   this.personEntityList=[];
    this.getAll().subscribe((response:Person[])=>{this.personEntityList=response
-
   })
-
 }
 ngOnInit() {
-
    this.getAll().subscribe((response:Person[])=>{this.personEntityList=response
-
   })
-
 }
 
   getAll():Observable<Person[]>{

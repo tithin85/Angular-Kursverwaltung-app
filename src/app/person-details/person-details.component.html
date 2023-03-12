@@ -1,121 +1,38 @@
-<!--<section class="h-50 bg-light">-->
-<!--  <div class="container py-5 h-50">-->
-<!--    <div class="row d-flex justify-content-center align-items-center h-50">-->
-<!--      <div class="col">-->
-<!--        <div class="card card-registration ">-->
-<!--          <div class="row g-0">-->
-<!--            <div class="col-xl-6 d-none d-xl-block">-->
-<!--              <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-
-<!--                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
-<!--                  <div class="navbar-nav">-->
-
-<!--                    <a class="nav-item nav-link" routerLink="personform">Teilnehmer List</a>-->
-<!--                    <a class="nav-item nav-link" routerLink="personlist">Interessenten List</a>-->
-
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </nav>-->
-
-
-<!--            </div>-->
-<!--            <div class="col-xl-6">-->
-<!--              <div class="card-body p-md-5 text-black">-->
-<!--                <h3 class="mb-5 ">Anmeldeformular</h3>-->
-<!--                <h3 class="mb-5 ">Anmeldeformular</h3>-->
-<!--                <h3 class="mb-5 ">Anmeldeformular</h3>-->
-<!--                <h3 class="mb-5 ">Anmeldeformular</h3>-->
-<!--                <h3 class="mb-5 ">Anmeldeformular</h3>-->
-<!--                <h3 class="mb-5 ">Anmeldeformular</h3>-->
-<!--                <h3 class="mb-5 ">Anmeldeformular</h3>-->
-<!--                <h3 class="mb-5 ">Anmeldeformular</h3>-->
-<!--                <router-outlet></router-outlet>-->
-
-
-
-
-
-
-
-
-
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-
-<!--  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
-<!--    <div class="navbar-nav">-->
-<!--      <a class="nav-item nav-link active" href="#">Details <span class="sr-only">(current)</span></a>-->
-<!--      <a class="nav-item nav-link" href="#">Kurs Teilnahme</a>-->
-<!--      <a class="nav-item nav-link" href="#">Kurs zuordnen</a>-->
-
-<!--    </div>-->
-<!--  </div>-->
-<!--</nav>-->
-<!--<div class="card ">-->
-<!--  <div class="card-header">-->
-<!--    Person Id = {{personDetail.id}}-->
-<!--  </div>-->
-<!--  <div class="card-body">-->
-<!--    <div class="container text-center">-->
-<!--      <div class="row">-->
-<!--        <div class="col-8">-->
-<!--          <label class="form-label" for="name">Name</label>-->
-<!--          <input id="name"[(ngModel)]="personDetail.vorname" [ngModelOptions]="{standalone: true}" class="form-control mb-3" type="text" placeholder="This is a readonly input." readonly>-->
-<!--          <label class="form-label" for="vorname">Vorname</label>-->
-<!--          <input id="vorname" class="form-control mb-3" type="text" placeholder="This is a readonly input." readonly>-->
-<!--          <label class="form-label" for="strasse">Strasse</label>-->
-<!--          <input id="strasse" class="form-control mb-3" type="text" placeholder="This is a readonly input." readonly>-->
-<!--          <label class="form-label" for="plz">Plz</label>-->
-<!--          <input id="plz" class="form-control mb-3" type="text" placeholder="This is a readonly input." readonly>-->
-<!--          <label class="form-label" for="ort">Ort</label>-->
-<!--          <input id="ort" class="form-control mb-3" type="text" placeholder="This is a readonly input." readonly>-->
-<!--          <label class="form-label" for="telefonnummer">Telefonnummer</label>-->
-<!--          <input id="telefonnummer" class="form-control mb-3" type="text" placeholder="This is a readonly input." readonly>-->
-<!--          <label class="form-label" for="email">E-mail</label>-->
-<!--          <input id="email" class="form-control mb-3" type="text" placeholder="This is a readonly input." readonly>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-
-
-<!--  </div>-->
-<!--  <div *ngIf="!personDetail.werbung" class="card-footer text-muted">-->
-<!--    <button class="btn btn-primary" (click)="setWerbung()">Set Werbung</button>-->
-<!--  </div>-->
-<!--</div>-->
-<div class="card "  style="width: 100rem;">
-  <img *ngIf="personDetail.anrede=='Divers'"  class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAyLHJ52dZEMvjl2jYjIZACbQgi30xn43p8Q&usqp=CAU" alt="Card image cap">
-  <img *ngIf="personDetail.anrede=='Herr'" class="card-img-top" src="https://cdn.pixabay.com/photo/2012/04/13/21/07/user-33638__340.png" alt="Card image cap">
-  <img *ngIf="personDetail.anrede=='Frau'" class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXSTblEVkkdJh15jlAbC3FpvuzCKb1o-pQQA&usqp=CAU" alt="Card image cap">
-  <img *ngIf="personDetail.anrede==undefined" class="card-img-top" src="https://cdn.pixabay.com/photo/2016/04/15/18/05/computer-1331579__340.png" alt="Card image cap">
-  <div class="card-body">
-    <h3 class="card-title">Person Id:{{personDetail.id}}</h3>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><h5>Name:</h5> &nbsp;{{personDetail.anrede}}&nbsp;&nbsp;{{personDetail.titel}}&nbsp;&nbsp;{{personDetail.vorname}}&nbsp;&nbsp;{{personDetail.name}}</li>
-      <li class="list-group-item"><h5>Email:</h5>{{personDetail.email}}</li>
-      <li *ngIf="personDetail.telefon!=undefined" class="list-group-item"><h5>Telefon:</h5>{{personDetail.telefon}}</li>
-    </ul>
-    <h4 class="card-title">Adress</h4>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><h5>Strasse:</h5> &nbsp;{{personDetail.strasse}}</li>
-      <li class="list-group-item"><h5>PLZ:</h5>{{personDetail.plz}}</li>
-      <li class="list-group-item"><h5>Ort:</h5>{{personDetail.ort}}</li>
-    </ul>
-    <button class="btn btn-sm btn-info"(click)="back()" >
-      <i class="fa fa-arrow-left"></i> Back</button>&nbsp;
-    <button class="btn btn-sm btn-warning" *ngIf="personDetail.id!=undefined" (click)="fromperson(personDetail.id)" >
-      Kurse zuordnen</button>
+<div class="container">
+  <div class="card" style="width: 35rem;">
+    <img *ngIf="personDetail.anrede=='Divers'" class="card-img-top"
+         src="../../assets/images/divers.png" height="250"
+         width="250" alt="Divers">
+    <img *ngIf="personDetail.anrede=='Herr'" class="card-img-top"
+         src="../../assets/images/herr.png" height="250"
+         width="250" alt="Herr">
+    <img *ngIf="personDetail.anrede=='Frau'" class="card-img-top"
+         src="../../assets/images/frau.png" height="250"
+         width="250" alt="Frau">
+    <img *ngIf="personDetail.anrede==undefined" class="card-img-top"
+         src="../../assets/images/unbekannt.png" height="250"
+         width="250" alt="Unbekannt">
+    <div class="card-body">
+      <h3 class="card-title">Person Id:{{personDetail.id}}</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><h5>Name:</h5> &nbsp;{{personDetail.anrede}}&nbsp;&nbsp;{{personDetail.titel}}&nbsp;&nbsp;{{personDetail.vorname}}&nbsp;&nbsp;{{personDetail.name}}
+        </li>
+        <li class="list-group-item"><h5>Email:</h5>{{personDetail.email}}</li>
+        <li *ngIf="personDetail.telefon!=undefined" class="list-group-item"><h5>Telefon:</h5>{{personDetail.telefon}}
+        </li>
+      </ul>
+      <h4 class="card-title">Adresse</h4>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><h5>Strasse:</h5> &nbsp;{{personDetail.strasse}}</li>
+        <li class="list-group-item"><h5>PLZ:</h5>{{personDetail.plz}}</li>
+        <li class="list-group-item"><h5>Ort:</h5>{{personDetail.ort}}</li>
+      </ul>
+      <button class="btn btn-sm btn-info" (click)="formatter.back()">
+        <i class="fa fa-arrow-left"></i> Back
+      </button>&nbsp;
+      <button class="btn btn-sm btn-warning" *ngIf="personDetail.id!=undefined" (click)="fromperson(personDetail.id)">
+        <i class="fa fa-cart-plus"></i> Kurse zuordnen
+      </button>
+    </div>
   </div>
-
-
-
 </div>

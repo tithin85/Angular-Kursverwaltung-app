@@ -1,4 +1,18 @@
 /*@import "node_modules/bootstrap/dist/css/bootstrap.css";!* You can add global styles to this file, and also import other style files *!*/
-body {
-  color: crimson;
+@media screen {
+  #printToPdf {
+    display: none;
+  }
+  #showOnScreen {
+    display: block;
+  }
+}
+
+@media print {
+  #printToPdf {
+    display: block;
+  }
+  #showOnScreen {
+    display: none;
+  }
 }

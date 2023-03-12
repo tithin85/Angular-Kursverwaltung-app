@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="btn btn-sm btn-info" (click)="back()">
+  <button class="btn btn-sm btn-info" (click)="formatter.back()">
     <i class="fa fa-arrow-left"></i> Back
   </button>&nbsp;
   <br><br>
@@ -19,7 +19,7 @@
             <th>Id</th>
             <th>Kursname</th>
             <th>Startdatum</th>
-            <th>Action</th>
+            <th>Aktion</th>
             </thead>
             <tbody>
             <tr *ngFor="let kurs of teilnahmeKursListe">
@@ -48,7 +48,7 @@
             <th>Id</th>
             <th>Kursname</th>
             <th>Startdatum</th>
-            <th>Action</th>
+            <th>Aktion</th>
             </thead>
             <tbody>
             <tr *ngFor="let kurs of interessierteKursListe">
@@ -84,7 +84,7 @@
           <th>Id</th>
           <th>Kursname</th>
           <th>Startdatum</th>
-          <th>Action</th>
+          <th>Aktion</th>
           </thead>
           <tbody>
           <tr *ngFor="let kurs of remainingKursList | filter: searchText">

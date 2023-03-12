@@ -15,6 +15,7 @@ export class PersonListComponent {
   public personList!:Person[];
   persons:any;
   personClicked: any;
+  searchText : string ="";
   constructor(private storeService:PersonStorageService, private router :Router) {}
 
   public getPerson():void{
@@ -23,10 +24,11 @@ export class PersonListComponent {
         }
       )
   }
+
   ngOnInit(){
     this.getPerson()
-
   }
+
   delete(id?:number) {
     if (id !== undefined) {
 
@@ -34,36 +36,29 @@ export class PersonListComponent {
           this.personList = response;
         }
       )
-
-
     }
   }
+
   updatePerson(person:Person){
     this.storeService.setter(person);
-    this.router.navigateByUrl("personform");
+    //this.router.navigateByUrl("personform");
+    this.router.navigateByUrl("personform").then(() => {
+      // Do something
+    });
   }
-
 
   details(person: Person) {
     this.storeService.setPersonDetailEntity(person);
-    this.router.navigateByUrl("persondetails");
-
+    //this.router.navigateByUrl("persondetails");
+    this.router.navigateByUrl("persondetails").then(() => {
+      // Do something
+    });
   }
   manageFromPerson(person:Person){
     this.storeService.setPersonDetailEntity(person);
-
-    this.router.navigateByUrl("zuordnung/person/"+person.id);
-
-
+    //this.router.navigateByUrl("zuordnung/person/"+person.id);
+    this.router.navigateByUrl("zuordnung/person/"+person.id).then(() => {
+      // Do something
+    });
   }
-
-
-  searchText : string ="";
-
- //  onSearchTextEntered(searchValue:string){
- //    this.searchText = searchValue;
- //
- //
- // }
-
 }

@@ -9,8 +9,4 @@ export interface Person{
   ort?: string;
   email?: string;
   telefon?: string;
-
-
-
-
 }
