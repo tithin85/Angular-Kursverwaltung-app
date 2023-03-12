@@ -1,6 +1,6 @@
-input.ng-valid {
- border: 2px solid green;
-}
+/*input.ng-valid {*/
+/* border: 2px solid green;*/
+/*}*/
 input.ng-touched.ng-invalid {
   border: 2px solid red;
 }

@@ -18,7 +18,7 @@
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <small class="text-danger" *ngIf="anrede.invalid && anrede.touched"> Bitte eine Anrde auswählen</small>
+                        <small class="text-danger" *ngIf="!anrede.dirty && anrede.touched"> Bitte eine Anrde auswählen</small>
                         <select  id="anrede" [(ngModel)]="person.anrede" name="anrede" required
                                class="form-control form-control-lg" #anrede="ngModel" >
                         <option value="Herr">Herr</option>

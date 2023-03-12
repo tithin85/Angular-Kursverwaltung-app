@@ -30,7 +30,7 @@
                     <label class="form-label" for="form3Example8">Kurs Name</label>
 
                   </div>
-                  <small class="text-danger" *ngIf="startDatum.touched&&!startDatum.dirty&&startDatum.invalid"> Bitte StartDatum eingeben</small>
+                  <small class="text-danger" *ngIf="startDatum.touched&&!startDatum.dirty&&startDatum.invalid&&!startDatum.pristine"> Bitte StartDatum eingeben</small>
 
 
                   <div class="row">
@@ -38,7 +38,7 @@
                       <div class="form-outline">
 
 
-                          <input type="date" id="date" required min="{{today.toISOString().split('T')[0]}}" name="startDate" [(ngModel)]="kurs.startDatum"
+                          <input type="date" id="date" required min="{{today.toISOString().split('T')[0]}}"  name="startDate" [(ngModel)]="kurs.startDatum"
                                  class="form-control form-control-lg" #startDatum="ngModel"/>
                           <label class="form-label" for="date">Start Datum</label>
 
@@ -47,17 +47,7 @@
 
                     <div class="col-md-6 mb-4">
 
-                     <!-- <div class="form-outline">
-                        <select class="form-control" id="selectOptions">
-                          <option
-                            *ngFor="let opt of options"
-                            [selected]="opt === ngSelect"
-                            [value]="opt"
-                          >
-                            {{ opt }}
-                          </option>
-                        </select>
-                      </div>-->
+
 
 
                       <div class="form-outline">
@@ -66,8 +56,8 @@
                                  name="status" class="form-control form-control-lg" #status="ngModel">
                           <option value="aktiv" name="status">aktiv</option>
                           <option value="geplant" name="status">geplant</option>
-                          <option value="abgesagt" name="status">abgesagt</option>
-                          <option value="beendet" name="status">beendet</option>
+                          <option *ngIf="kurs.id!=undefined"  value="abgesagt" name="status">abgesagt</option>
+                          <option *ngIf="kurs.id!=undefined"  value="beendet" name="status">beendet</option>
                         </select>
                         <label class="form-label" for="status">Kursstatus</label>
                       </div>
