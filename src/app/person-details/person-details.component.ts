@@ -26,7 +26,10 @@ export class PersonDetailsComponent implements OnInit{
   }
 
   fromperson(personId:number){
-    this.router.navigateByUrl("zuordnung/person/"+personId);
+    //this.router.navigateByUrl("zuordnung/person/"+personId);
+    this.router.navigateByUrl("zuordnung/person/"+personId).then(() => {
+      // Do something
+    });
   }
 
   // setWerbung(){

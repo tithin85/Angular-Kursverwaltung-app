@@ -28,7 +28,10 @@ export class PersonFormComponent {
       let response=this.service.updatePerson(this.person);
       response.subscribe((data)=>this.return=data)
       this.service.setter(this.emptyPerson);
-      this.router.navigateByUrl('personlist');
+      //this.router.navigateByUrl('personlist');
+      this.router.navigateByUrl("personlist").then(() => {
+        // Do something
+      });
     }
   }
 }

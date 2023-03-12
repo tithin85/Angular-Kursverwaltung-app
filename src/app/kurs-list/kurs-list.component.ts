@@ -36,17 +36,26 @@ export class KursListComponent {
 
   updateKurs(kurs: Kurs) {
     this.storeService.setter(kurs);
-    this.router.navigateByUrl("kursform");
+    //this.router.navigateByUrl("kursform");
+    this.router.navigateByUrl("kursform").then(() => {
+      // Do something
+    });
   }
 
   searchText: string = "";
 
   details(kurs: Kurs) {
     this.storeService.setKursDetailEntity(kurs);
-    this.router.navigateByUrl("kursdetails");
+    //this.router.navigateByUrl("kursdetails");
+    this.router.navigateByUrl("kursdetails").then(() => {
+      // Do something
+    });
   }
   manageFromKurs(kurs: Kurs){
     this.storeService.setKursDetailEntity(kurs);
-    this.router.navigateByUrl("zuordnung/kurs/"+kurs.id);
+    //this.router.navigateByUrl("zuordnung/kurs/"+kurs.id);
+    this.router.navigateByUrl("zuordnung/kurs/"+kurs.id).then(() => {
+      // Do something
+    });
   }
 }

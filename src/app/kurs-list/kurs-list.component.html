@@ -1,49 +1,50 @@
-<div class="card bg-light mb-3 table-responsive">
-  <div class="card-header">Kursliste
-    <div class="card-header">
-      <div class="search-name col-sm-2">
-        <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
-               placeholder="Suchen">
+<div class="container">
+  <div class="card bg-light mb-3 table-responsive">
+    <div class="card-header">Kursliste
+      <div class="card-header">
+        <div class="search-name col-sm-2">
+          <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
+                 placeholder="Suchen">
+        </div>
       </div>
-    </div>
 
-    <table class="table table-striped">
-      <thead>
-      <th>Id</th>
-      <th>Kursname</th>
-      <th>Startdatum</th>
-      <th>Enddatum</th>
-      <th>Freie Plätze</th>
-      <th>Zugesagt</th>
-      <th>Status</th>
-      <th>Aktion</th>
-      </thead>
-      <tbody>
-      <tr *ngFor="let kurs of kursList |filter: searchText">
-        <td>{{kurs.id}}</td>
-        <td>{{kurs.name}}</td>
-        <td>{{formatter.formatDate(kurs.startDatum!)}}</td>
-        <td>{{formatter.formatDate(kurs.endeDatum!)}}</td>
-        <td>{{kurs.freiePlaetze}}</td>
-        <td>{{kurs.aktuelleTnZahl}}</td>
-        <td>{{kurs.status}}</td>
-        <td>
-          <button class="btn btn-sm btn-info" (click)="details(kurs)">
-            <i class="fa fa-search"></i> Details
-          </button>
-          <button class="btn btn-sm btn-warning" (click)="updateKurs(kurs)">
-            <i class="fa fa-edit"></i> Edit
-          </button>
-          <button class="btn btn-sm btn-danger" (click)="delete(kurs.id)">
-            <i class="fa fa-remove"></i> Delete
-          </button>
-          <button class="btn btn-sm btn-dark " (click)="manageFromKurs(kurs)" >
-            <i class="fa fa-hand-paper-o"></i> Manage
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+      <table class="table table-striped">
+        <thead>
+        <th>Id</th>
+        <th>Kursname</th>
+        <th>Startdatum</th>
+        <th>Enddatum</th>
+        <th>Freie Plätze</th>
+        <th>Zugesagt</th>
+        <th>Status</th>
+        <th>Aktion</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let kurs of kursList |filter: searchText">
+          <td>{{kurs.id}}</td>
+          <td>{{kurs.name}}</td>
+          <td>{{formatter.formatDate(kurs.startDatum!)}}</td>
+          <td>{{formatter.formatDate(kurs.endeDatum!)}}</td>
+          <td>{{kurs.freiePlaetze}}</td>
+          <td>{{kurs.aktuelleTnZahl}}</td>
+          <td>{{kurs.status}}</td>
+          <td>
+            <button class="btn btn-sm btn-info" (click)="details(kurs)">
+              <i class="fa fa-search"></i> Details
+            </button>
+            <button class="btn btn-sm btn-warning" (click)="updateKurs(kurs)">
+              <i class="fa fa-edit"></i> Edit
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="delete(kurs.id)">
+              <i class="fa fa-remove"></i> Delete
+            </button>
+            <button class="btn btn-sm btn-dark " (click)="manageFromKurs(kurs)">
+              <i class="fa fa-hand-paper-o"></i> Manage
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-

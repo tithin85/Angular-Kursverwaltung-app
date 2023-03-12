@@ -40,15 +40,24 @@ export class PersonListComponent {
 
   updatePerson(person:Person){
     this.storeService.setter(person);
-    this.router.navigateByUrl("personform");
+    //this.router.navigateByUrl("personform");
+    this.router.navigateByUrl("personform").then(() => {
+      // Do something
+    });
   }
 
   details(person: Person) {
     this.storeService.setPersonDetailEntity(person);
-    this.router.navigateByUrl("persondetails");
+    //this.router.navigateByUrl("persondetails");
+    this.router.navigateByUrl("persondetails").then(() => {
+      // Do something
+    });
   }
   manageFromPerson(person:Person){
     this.storeService.setPersonDetailEntity(person);
-    this.router.navigateByUrl("zuordnung/person/"+person.id);
+    //this.router.navigateByUrl("zuordnung/person/"+person.id);
+    this.router.navigateByUrl("zuordnung/person/"+person.id).then(() => {
+      // Do something
+    });
   }
 }

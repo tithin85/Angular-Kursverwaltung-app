@@ -29,7 +29,10 @@ export class AuthGuard implements CanActivate {
       }
     } else {
       // Wenn der Benutzer kein Token hat, wird er auf die Anmeldeseite umgeleitet
-      this.router.navigate(['/login']);
+      //this.router.navigate(['/login']);
+      this.router.navigateByUrl('/login').then(() => {
+        // Do something
+      });
       return false;
     }
   }

@@ -36,7 +36,11 @@ export class KursFormComponent {
      let response=this.service.updateKurs(this.kurs);
      response.subscribe((data)=>this.return=data)
      this.service.setter(this.emptyKurs);
-     this.router.navigateByUrl("kurslist");
+     //this.router.navigateByUrl("kurslist");
+     this.router.navigateByUrl("kurslist").then(() => {
+       // Do something
+     });
+
    }
   }
 
