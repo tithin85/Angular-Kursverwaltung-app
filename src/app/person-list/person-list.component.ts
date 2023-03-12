@@ -5,6 +5,7 @@ import {Person} from "../_shared/Person";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 
+
 @Component({
   selector: 'app-person-list',
   templateUrl: './person-list.component.html',
