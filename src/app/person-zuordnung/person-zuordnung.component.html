@@ -1,11 +1,13 @@
 <div class="container">
-  <button class="btn btn-sm btn-info" (click)="formatter.back()">
-    <i class="fa fa-arrow-left"></i> Back
-  </button>&nbsp;
-  <br><br>
-  <h6 *ngIf="personZuordnung">Person Id : {{personZuordnung.id}}</h6>
-  <h6 *ngIf="personZuordnung">Name : {{personZuordnung.vorname}}&nbsp;&nbsp;{{personZuordnung.name}}</h6>
-  <h6 *ngIf="personZuordnung">Email : {{personZuordnung.email}}</h6>
+
+    <button class="btn btn-sm btn-info" (click)="formatter.back()">
+      <i class="fa fa-arrow-left"></i> Back
+    </button>&nbsp;
+    <br><br>
+    <h6 *ngIf="personZuordnung">Person Id : {{personZuordnung.id}}</h6>
+    <h6 *ngIf="personZuordnung">Name : {{personZuordnung.vorname}}&nbsp;&nbsp;{{personZuordnung.name}}</h6>
+    <h6 *ngIf="personZuordnung">Email : {{personZuordnung.email}}</h6>
+
   <br>
   <section class="h-50 bg-light">
     <div class="row d-flex justify-content-center align-items-center h-50">
@@ -72,6 +74,7 @@
       <div class="col table-responsive" *ngIf="remainingKursList!=undefined&&remainingKursList.length>0; else keineWeiterenKurse ">
 
 
+
         <h5>Aktuell verfügbare Kurse für <span
           *ngIf="personZuordnung">{{personZuordnung.vorname}}&nbsp;&nbsp;{{personZuordnung.name}}</span></h5>
         <div class="search-name col-sm-2">
@@ -79,7 +82,7 @@
           <input  class = "form-control py-1 border rounded-pill" type = "text" size = "40" name = "Suchen" [(ngModel)]="searchText" placeholder=" Suchen " >
 
         </div>
-        <table class="table table-bordered">
+        <table class="table table-bordered table-striped">
           <thead>
           <th>Id</th>
           <th>Kursname</th>

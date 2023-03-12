@@ -18,5 +18,8 @@ export class KursDetailsComponent implements OnInit{
   ngOnInit() :void{
     this.kursDetail=this.storeService.getKursDetailEntity();
   }
+  personHinzufuegen(kursId?:number){
+    this.router.navigateByUrl("zuordnung/kurs/"+kursId)
+  }
 
 }
