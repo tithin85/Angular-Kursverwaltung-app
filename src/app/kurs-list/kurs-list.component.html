@@ -1,10 +1,15 @@
 <div class="container">
   <div class="card bg-light mb-3 table-responsive">
-    <div class="card-header">Kursliste
-      <div class="card-header">
+    <div class="card-header"><h4>Liste aller eingetragenen Kurse</h4>
+    </div>
+      <div class="card-body d-flex justify-content-between">
         <div class="search-name col-sm-2">
           <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
                  placeholder="Suchen">
+        </div>
+        <div class="col-sm-2 d-flex justify-content-end">
+          <!--<button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>-->
+          <i class="fa fa-file-pdf-o fa-3"></i>
         </div>
       </div>
 
@@ -47,4 +52,3 @@
       </table>
     </div>
   </div>
-</div>
