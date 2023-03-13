@@ -62,7 +62,7 @@ export class PersonListComponent {
     });
   }
 
-  openPDF() {
-    this.storeService.getPdf();
+  openPdfPersonenListe() {
+    this.storeService.getPdfPersonenListe();
   }
 }

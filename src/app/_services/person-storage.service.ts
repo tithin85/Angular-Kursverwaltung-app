@@ -93,7 +93,7 @@ export class PersonStorageService implements OnInit {
 
   }
 
-  getPdf(): void {
+  getPdfPersonenListe(): void {
     this.http.get('http://localhost:8080/person/pdf-personenliste', { responseType: 'blob' }).subscribe((response: Blob) => {
       const file = new Blob([response], { type: 'application/pdf' });
       const fileURL = URL.createObjectURL(file);
