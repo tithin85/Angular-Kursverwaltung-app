@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Kurs} from "../_shared/Kurs";
 import {Observable} from "rxjs";
 
@@ -65,11 +65,29 @@ export class KursStorageService {
     return this.http.get<Kurs>("http://localhost:8080/kurs/find/" + kursId)
   }
 
+/*  Hier wird das Pdf direkt im neuen Tab geöffnet, allerdings mit einem kryptischen Namen
   getPdfKursListe(): void {
     this.http.get('http://localhost:8080/kurs/pdf-kursliste', { responseType: 'blob' }).subscribe((response: Blob) => {
       const file = new Blob([response], { type: 'application/pdf' });
       const fileURL = URL.createObjectURL(file);
       window.open(fileURL);
+    });
+  }*/
+
+  getPdfKursListe(): void {
+    this.http.get('http://localhost:8080/kurs/pdf-kursliste', { responseType: 'blob', observe: 'response' }).subscribe((response: HttpResponse<Blob>) => {
+      const file = new Blob(response.body ? [response.body] : [], { type: 'application/pdf' });
+      const fileURL = URL.createObjectURL(file);
+
+      const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+      const matches = filenameRegex.exec(<string>response.headers.get('Content-Disposition'));
+      const filename = matches != null && matches[1] ? matches[1].replace(/['"]/g, '') : 'Kursliste.pdf';
+
+      const a = document.createElement('a');
+      a.href = fileURL;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
     });
   }
 }
