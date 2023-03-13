@@ -36,3 +36,8 @@ Nimmt teil und interessiert sich button funktioniert
 
 Wenn man Delete Button gedrückt, der Kurs wird von dieser Person gelöscht und in der aktuellen Kursliste angezeigt
 
+Wenn mann auf die Edit-Button klickt, gehen wir zum Personenformular zurück, wo wir die Änderungen vornehmen können und mit Speichern-Button kann man die neu Änderung speichern.
+
+Delete-Button funktioniert
+
+Wenn Manage-Button gedrückt, sehen wir nochmal die Kursliste sehen. (wie eine kurzes Weg)
