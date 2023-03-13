@@ -13,15 +13,9 @@ import {Person} from "../_shared/Person";
   providedIn: 'root'
 })
 export class ZuordnungService {
-//remainingKursList:Kurs[]=[];
-//private _refreschrequired=new Subject<void>();
-
-
 
   constructor(private http:HttpClient, private personStore:PersonStorageService, private kursStore:KursStorageService) { }
-  // get Refreschrequired(){
-  //   return this._refreschrequired;
-  // }
+
 addAlsTeilnehmer(personId?:number,kursId?:number):Observable<Zuordnung>{
     let body={
       "personId":personId,
@@ -67,16 +61,7 @@ getInteressanter(kursid?:number){
 deleteTeilnahmeStatus(personId?:number,kursId?:number):Observable<any>{
     return this.http.delete<any>("http://localhost:8080/zuordnung/delete/"+personId+"/"+kursId);
 }
-fromPersonRemainingList(personId:number){
-  // this.getRemainingKurs(personId).subscribe((response:Kurs[])=>{
-  //   this.remainingKursList=response;
-  // })
-  // console.log(JSON.stringify(this.remainingKursList));
-}
-// getRemainingKursList():Kurs[]{
-//
-//     return this.remainingKursList;
-//   }
+
 
   getPdfAnwesenheitsListe(kursId?:number, kursname?:string): void {
     this.http.get('http://localhost:8080/zuordnung/pdf-anwesenheitsliste/'+kursId, { responseType: 'blob', observe: 'response' }).subscribe((response: HttpResponse<Blob>) => {
@@ -94,5 +79,7 @@ fromPersonRemainingList(personId:number){
       a.click();
     });
   }
+
+
 
 }

@@ -4,6 +4,8 @@ import {PersonStorageService} from "../_services/person-storage.service";
 import {Person} from "../_shared/Person";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {ZuordnungService} from "../_services/zuordnung.service";
+import {Kurs} from "../_shared/Kurs";
 
 
 @Component({
@@ -16,7 +18,7 @@ export class PersonListComponent {
   persons:any;
   personClicked: any;
   searchText : string ="";
-  constructor(private storeService:PersonStorageService, private router :Router) {}
+  constructor(private storeService:PersonStorageService, private router :Router,private zuStore:ZuordnungService) {}
 
   public getPerson():void{
       this.storeService.getAll().subscribe((response: Person[]) => {
@@ -29,14 +31,21 @@ export class PersonListComponent {
     this.getPerson()
   }
 
-  delete(id?:number) {
-    if (id !== undefined) {
-
-      this.storeService.deletePerson(id).subscribe((response: Person[]) => {
-          this.personList = response;
+  delete(person:Person) {
+    this.zuStore.getTeilnahmeKurse(person.id).subscribe((response:Kurs[])=>{
+      if(response.length==0){
+        if(confirm('Sicher, dass Sie diesen Person '+person.name+' löschen wollen?')){
+          this.storeService.deletePerson(person.id).subscribe((response: Person[]) => {
+              this.personList = response;
+            }
+          )
         }
-      )
-    }
+
+      }else{
+        alert("Dieser Person ist ein Teilnehmer und darf nicht gelöscht werden.")
+      }
+    })
+
   }
 
   updatePerson(person:Person){

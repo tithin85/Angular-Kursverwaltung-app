@@ -4,6 +4,7 @@ import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Person} from "../_shared/Person";
 import {BehaviorSubject, Observable} from "rxjs";
 import {List} from 'immutable';
+import {Kurs} from "../_shared/Kurs";
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class PersonStorageService implements OnInit {
 
   }
 
-  deletePerson(personId: number): Observable<Person[]> {
+  deletePerson(personId?: number): Observable<Person[]> {
     return this.http.delete<Person[]>("http://localhost:8080/person/delete/" +
       personId);
   }
@@ -78,13 +79,7 @@ export class PersonStorageService implements OnInit {
     return this.http.get<Person>("http://localhost:8080/person/find/" + number);
   }
 
-  //
-  // updatePerson(updatedPerson: Person): Observable<Person> {
-  //   // const url = `http://localhost:8080/person/${id}`; // Replace with your API endpoint
-  //
-  //   return this.http.put<Person>("http://localhost:8080/person/update/", updatedPerson)
-  //
-  // }
+
   updatePersonEntitylist() {
     this.getAll().subscribe((response: Person[]) => {
       this.personEntityList = response;
@@ -114,5 +109,6 @@ export class PersonStorageService implements OnInit {
       a.click();
     });
   }
+
 }
 

@@ -56,6 +56,7 @@ export class PersonZuordnungComponent implements OnInit{
         this.remainingKursList=response;
       })
 
+
     }
     teilnahmeKurse(personId?:number){
       this.zuordnunsstore.getTeilnahmeKurse(personId).subscribe((response:Kurs[])=>{

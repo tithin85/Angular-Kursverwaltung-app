@@ -22,7 +22,10 @@ export class PersonFormComponent {
   personNeuUpdate(){
     if(this.service.getPersonEntity().id==undefined){
     let response=this.service.addPerson(this.person);
-    response.subscribe((data)=>this.return=data)
+    response.subscribe((data)=>{
+      this.return=data
+      alert('Neu Person mit Id '+this.return.id+' erzuegt erfolgreich')
+    })
       this.service.setter(this.emptyPerson);
   }else{
       let response=this.service.updatePerson(this.person);
