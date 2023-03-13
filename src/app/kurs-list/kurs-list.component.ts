@@ -25,7 +25,6 @@ export class KursListComponent {
 
   ngOnInit() {
     this.getKurs()
-
   }
 
   delete(kurs:Kurs) {
@@ -33,21 +32,14 @@ export class KursListComponent {
 
        if(this.storeService.getKursEntity().aktuelleTnZahl==0){
          if(confirm('Sicher, dass Sie diesen Kurs '+kurs.name+' löschen wollen?')) {
-
-
            this.storeService.deleteKurs(this.storeService.getKursEntity().id).subscribe((response: Kurs[]) => {
              this.kursList = response;
            })
          }
-
        }else{
          alert("Dieser Kurs hat schon Teilnehmer und darf nicht gelöscht werden.")
        }
-
-
     }
-
-
 
   updateKurs(kurs: Kurs) {
     this.storeService.setter(kurs);

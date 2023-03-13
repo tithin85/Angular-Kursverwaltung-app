@@ -78,11 +78,7 @@ export class KursStorageService {
     this.http.get('http://localhost:8080/kurs/pdf-kursliste', { responseType: 'blob', observe: 'response' }).subscribe((response: HttpResponse<Blob>) => {
       const file = new Blob(response.body ? [response.body] : [], { type: 'application/pdf' });
       const fileURL = URL.createObjectURL(file);
-
-      const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
-      const matches = filenameRegex.exec(<string>response.headers.get('Content-Disposition'));
-      const filename = matches != null && matches[1] ? matches[1].replace(/['"]/g, '') : 'Kursliste.pdf';
-
+      const filename = 'Kursliste.pdf';
       const a = document.createElement('a');
       a.href = fileURL;
       a.download = filename;

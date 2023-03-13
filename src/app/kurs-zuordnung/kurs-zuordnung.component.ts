@@ -22,6 +22,8 @@ export class KursZuordnungComponent {
   id:any;
   //public personEntityList:Person[];
   freiplaetze?:number;
+  kursname?:string;
+  searchText : string ="";
 
   constructor(private zuordnunsstore:ZuordnungService, private kursStore:KursStorageService,
               private router:Router, private route:ActivatedRoute, public formatter:FormatterService) {
@@ -37,6 +39,7 @@ export class KursZuordnungComponent {
     this.teilnehmer(this.kursId);
     this.interessanter(this.kursId);
     this.getfreiplatz(this.kursId);
+    this.kursname=this.kursStore.getKursDetailEntity().name;
   }
 
   remainingPersonen(kursId?:number){
@@ -92,7 +95,9 @@ export class KursZuordnungComponent {
     });
   }
 
-  searchText : string ="";
+  openPdfAnwesenheitsListe(kursId?:number) {
+    this.zuordnunsstore.getPdfAnwesenheitsListe(kursId, this.kursname);
+  }
 
 }
 

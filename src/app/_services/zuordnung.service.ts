@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject, tap} from "rxjs";
 import {Zuordnung} from "../_shared/zuordnung";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import {PersonStorageService} from "./person-storage.service";
 import {KursStorageService} from "./kurs-storage.service";
 import {List} from "immutable";
@@ -78,6 +78,21 @@ fromPersonRemainingList(personId:number){
 //     return this.remainingKursList;
 //   }
 
-
+  getPdfAnwesenheitsListe(kursId?:number, kursname?:string): void {
+    this.http.get('http://localhost:8080/zuordnung/pdf-anwesenheitsliste/'+kursId, { responseType: 'blob', observe: 'response' }).subscribe((response: HttpResponse<Blob>) => {
+      const file = new Blob(response.body ? [response.body] : [], { type: 'application/pdf' });
+      const fileURL = URL.createObjectURL(file);
+      kursname = kursname!.replace(/ /g, "_");
+      const heute = new Date();
+      const options = { day: "2-digit", month: "2-digit", year: "numeric" } as const;
+      const datum = heute.toLocaleDateString("de-DE", options);
+      const filename = 'Anwesenheitsliste_' + kursname + '_' + datum +'.pdf';
+      const a = document.createElement('a');
+      a.href = fileURL;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+    });
+  }
 
 }

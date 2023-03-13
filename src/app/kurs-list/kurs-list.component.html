@@ -7,9 +7,10 @@
           <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
                  placeholder="Suchen">
         </div>
-        <div class="col-sm-2 d-flex justify-content-end">
-          <a (click)="openPdfKursListe()" target="_blank" title="Zum Download der Liste aller Kurse bitte hier klicken!"><i class="fa fa-file-pdf-o fa-2x"></i></a>
-
+        <div class="col-sm-2 justify-content-end">
+          <a (click)="openPdfKursListe()" target="_blank" title="Zum Download der Liste aller Kurse bitte hier klicken!"
+             class="btn btn-secondary cursor-pointer">Kursliste&nbsp;&nbsp;
+            <i class="fa fa-file-pdf-o fa-2x"></i></a>
         </div>
       </div>
 
