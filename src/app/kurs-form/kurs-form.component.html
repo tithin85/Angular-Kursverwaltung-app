@@ -1,7 +1,4 @@
-
-
-
-<form  #KursForm="ngForm"  (ngSubmit)="addKurs();KursForm.resetForm()">
+<form #KursForm="ngForm" (ngSubmit)="addKurs();KursForm.resetForm()">
   <section class="h-50 bg-light">
     <div class="container py-5 h-50">
       <div class="row d-flex justify-content-center align-items-center h-50">
@@ -17,121 +14,108 @@
                   <ng-template #updatingHeadline>
                     <h3 class="mb-5 ">Diesen Kurs ändern</h3>
                   </ng-template>
-<!--                  {{ KursForm.value | json}}-->
-                  <div class="form-outline mb-4"  >
-
-                    <small class="text-danger" *ngIf="kursname.invalid && kursname.touched"> Bitte einen Kursname eingeben</small>
-
-
-                    <input type="text" id="form3Example8"  name="name" [(ngModel)]="kurs.name"
-                           class="form-control form-control-lg" required   #kursname="ngModel"
-                             />
-
+                  <!--                  {{ KursForm.value | json}}-->
+                  <div class="form-outline mb-4">
+                    <small class="text-danger" *ngIf="kursname.invalid && kursname.touched"> Bitte einen Kursname
+                      eingeben</small>
+                    <input type="text" id="form3Example8" name="name" [(ngModel)]="kurs.name"
+                           class="form-control form-control-lg" required #kursname="ngModel"
+                    />
                     <label class="form-label" for="form3Example8">Kurs Name</label>
-
                   </div>
-                  <small class="text-danger" *ngIf="startDatum.touched&&!startDatum.dirty&&startDatum.invalid&&!startDatum.pristine"> Bitte StartDatum eingeben</small>
-
 
                   <div class="row">
-                    <div class="col-md-6 mb-4" >
+                    <div class="col-md-6 mb-4">
                       <div class="form-outline">
-
-
-                          <input type="date" id="date" required min="{{today.toISOString().split('T')[0]}}"  name="startDate" [(ngModel)]="kurs.startDatum"
-                                 class="form-control form-control-lg" #startDatum="ngModel"/>
-                          <label class="form-label" for="date">Start Datum</label>
-
+                        <small class="text-danger"
+                               *ngIf="startDatum.touched&&!startDatum.dirty&&startDatum.invalid">
+                          Bitte StartDatum eingeben</small>
+                        <input type="date" id="date" required min="{{today.toISOString().split('T')[0]}}"
+                               name="startDate" [(ngModel)]="kurs.startDatum"
+                               class="form-control form-control-lg" #startDatum="ngModel"/>
+                        <label class="form-label" for="date">Start Datum</label>
                       </div>
                     </div>
-
                     <div class="col-md-6 mb-4">
 
-
-
-
                       <div class="form-outline">
-                        <small class="text-danger align-content-lg-end" *ngIf="status.touched && !status.dirty"> Bitte Status Wählen</small>
-                        <select  id="status" required [(ngModel)]="kurs.status"
-                                 name="status" class="form-control form-control-lg" #status="ngModel">
+                        <small class="text-danger align-content-lg-end" *ngIf="status.touched && !status.dirty"> Bitte
+                          Status wählen</small>
+                        <select id="status" required [(ngModel)]="kurs.status"
+                                name="status" class="form-control form-control-lg" #status="ngModel">
                           <option value="aktiv" name="status">aktiv</option>
                           <option value="geplant" name="status">geplant</option>
-                          <option *ngIf="kurs.id!=undefined"  value="abgesagt" name="status">abgesagt</option>
-                          <option *ngIf="kurs.id!=undefined"  value="beendet" name="status">beendet</option>
+                          <option *ngIf="kurs.id!=undefined" value="abgesagt" name="status">abgesagt</option>
+                          <option *ngIf="kurs.id!=undefined" value="beendet" name="status">beendet</option>
                         </select>
                         <label class="form-label" for="status">Kursstatus</label>
                       </div>
-
                     </div>
                   </div>
 
                   <div class="row">
-                    <div class="col-md-4 mb-4"  >
+                    <div class="col-md-4 mb-4">
                       <div class="form-outline">
-                        <small class="text-danger align-content-lg-end" *ngIf="anzahlTage.touched && anzahlTage.invalid"> Bitte Anzahl der Tage eingeben(ganze Zahl, Min 1 Tag)</small>
-
-                        <input type="number" required min="1" pattern="[0-9]{1,}" id="anzahltage" [(ngModel)]="kurs.anzahlTage"
+                        <small class="text-danger align-content-lg-end"
+                               *ngIf="anzahlTage.touched && anzahlTage.invalid"> Bitte Anzahl der Tage eingeben (Ganze
+                          Zahl, Min 1 Tag)</small>
+                        <input type="number" required min="1" pattern="[0-9]{1,}" id="anzahltage"
+                               [(ngModel)]="kurs.anzahlTage"
                                name="anzahlTage" class="form-control form-control-lg" #anzahlTage="ngModel"/>
-
-
                         <label class="form-label" for="anzahltage">Anzahl der Tage</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" >
-                        <small class="text-danger align-content-lg-end" *ngIf="wieOft.touched && wieOft.invalid"> Bitte Anzahl der Tage eingeben(ganze Zahl,Max=5 Tagen)</small>
-
-                        <input type="number" required min="1" max="5" pattern="[0-9]{1,}"  id="wieoft" [(ngModel)]="kurs.wieOftinWoche"
-                               name="wieoft" #wieoft="ngModel" class="form-control form-control-lg"#wieOft="ngModel"/>
-
+                      <div class="form-outline">
+                        <small class="text-danger align-content-lg-end" *ngIf="wieOft.touched && wieOft.invalid"> Bitte
+                          Anzahl der Tage eingeben (Ganze Zahl,Min=1,Max=5 Tage)</small>
+                        <input type="number" required min="1" max="5" pattern="[0-9]{1,}" id="wieoft"
+                               [(ngModel)]="kurs.wieOftinWoche"
+                               name="wieoft" #wieoft="ngModel" class="form-control form-control-lg" #wieOft="ngModel"/>
                         <label class="form-label" for="wieoft">Wie oft in Woche</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" >
-                        <small class="text-danger align-content-lg-end" *ngIf="minTeilnehmer.touched && minTeilnehmer.invalid"> Bitte Minimum Teilnehmer zahl eingeben(ganze Zahl,Min ein Teilnehmer)</small>
-
-                        <input type="number" id="minTeilnehmer" required min="1" pattern="[0-9]{1,}" [(ngModel)]="kurs.minTnZahl"
-                            name="minteilnehmer"    class="form-control form-control-lg" #minTeilnehmer="ngModel"/>
-
-
+                      <div class="form-outline">
+                        <small class="text-danger align-content-lg-end"
+                               *ngIf="minTeilnehmer.touched && minTeilnehmer.invalid"> Bitte MinimumTeilnehmerZahl
+                          eingeben (Ganze Zahl,Min ein Teilnehmer)</small>
+                        <input type="number" id="minTeilnehmer" required min="1" pattern="[0-9]{1,}"
+                               [(ngModel)]="kurs.minTnZahl"
+                               name="minteilnehmer" class="form-control form-control-lg" #minTeilnehmer="ngModel"/>
                         <label class="form-label" for="minTeilnehmer">Min Teilnehmer Zahl</label>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline"  >
-                        <small class="text-danger align-content-lg-end" *ngIf="maxTeilZahl.touched && maxTeilZahl.invalid"> Größer oder gleich als Minimum Teilnehmerzahl(ganze Zahl,Minimum eins)</small>
-
-                        <input type="number" id="maxTeilZahl" required min="{{minTeilnehmer.value}}" pattern="[0-9]{1,}" [(ngModel)]="kurs.maxTnZahl"
+                      <div class="form-outline">
+                        <small class="text-danger align-content-lg-end"
+                               *ngIf="maxTeilZahl.touched && maxTeilZahl.invalid"> Größer oder gleich als
+                          MinimumTeilnehmerZahl(Ganze Zahl,Minimum 1)</small>
+                        <input type="number" id="maxTeilZahl" required min="{{minTeilnehmer.value}}" pattern="[0-9]{1,}"
+                               [(ngModel)]="kurs.maxTnZahl"
                                name="maxTnZahl" class="form-control form-control-lg" #maxTeilZahl="ngModel"/>
-
-
                         <label class="form-label" for="maxTeilZahl">Max Teilnehmer Zahl</label>
-<!--                        <div *ngIf="kurs.maxTnZahl < kurs.minTnZahl" class = "alert alert-danger">  MaxTeilnehmerzahl sollte groesser als MinTeilnehmerzahl sein</div>-->
-
+                        <!--                        <div *ngIf="kurs.maxTnZahl < kurs.minTnZahl" class = "alert alert-danger">  MaxTeilnehmerzahl sollte groesser als MinTeilnehmerzahl sein</div>-->
                       </div>
                     </div>
 
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline"  >
-                        <small class="text-danger align-content-lg-end" *ngIf="brutto.touched && brutto.invalid"> Bitte GebuerBrutto eingeben(ganz oder kommazahl)</small>
+                      <div class="form-outline">
+                        <small class="text-danger align-content-lg-end" *ngIf="brutto.touched && brutto.invalid"> Bitte
+                          GebuerBrutto eingeben(Ganz- oder Kommazahl)</small>
                         <input type="number" min="0" required id="gebuerenBrutto" [(ngModel)]="kurs.gebuehrBrutto"
                                name="brutto" class="form-control form-control-lg" #brutto="ngModel"/>
-"
-
                         <label class="form-label" for="gebuerenBrutto">Gebuehr Brutto</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                      <div class="form-outline" >
-                        <small class="text-danger align-content-lg-end" *ngIf="protzent.touched && protzent.invalid"> Bitte mwst Protzent eingeben(ganz oder kommazahl)</small>
-
-                        <input type="number" min="0" max="100" required  id="mwt" [(ngModel)]="kurs.mwstProzent"
-                               name="protzent" class="form-control form-control-lg" #protzent="ngModel"/>
-
-
+                      <div class="form-outline">
+                        <small class="text-danger align-content-lg-end" *ngIf="prozent.touched && prozent.invalid">
+                          Bitte Mwst Prozent eingeben(Ganz- oder Kommazahl)</small>
+                        <input type="number" min="0" max="100" required id="mwt" [(ngModel)]="kurs.mwstProzent"
+                               name="protzent" class="form-control form-control-lg" #prozent="ngModel"/>
                         <label class="form-label" for="mwt">Mehrwertsteuer Prozent</label>
                       </div>
                     </div>
@@ -146,13 +130,14 @@
                   <div *ngIf="kurs.id == undefined; else updatingButton" class="d-flex justify-content-end pt-3">
                     <div class="row">
                       <div class="col-md-6 mb-4">
-                        <button type="button" (click)="KursForm.resetForm(kursname.value)" class="btn btn-danger btn-lg sm-2">
+                        <button type="button" (click)="KursForm.resetForm(kursname.value)"
+                                class="btn btn-danger btn-lg sm-2">
                           Zurücksetzen
                         </button>
                       </div>
                       <div class="col-md-6 mb-4">
-                        <button type="submit" class="btn btn-success btn-lg ms-2" [disabled]="KursForm.invalid"  >
-<!--                        <button [disabled] = "!KursForm.valid" type="submit" class="btn btn-success btn-lg ms-2y"  >-->
+                        <button type="submit" class="btn btn-success btn-lg ms-2" [disabled]="KursForm.invalid">
+                          <!-- <button [disabled] = "!KursForm.valid" type="submit" class="btn btn-success btn-lg ms-2y"  >-->
                           Speichern
                         </button>
                       </div>
@@ -160,7 +145,7 @@
                   </div>
                   <ng-template #updatingButton>
                     <div class="d-flex justify-content-end pt-3">
-                      <button type="submit" class="btn btn-success btn-lg ms-2" [disabled]="KursForm.invalid" >
+                      <button type="submit" class="btn btn-success btn-lg ms-2" [disabled]="KursForm.invalid">
                         Update Kurs
                       </button>
                     </div>
