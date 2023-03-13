@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import { AuthGuard } from './_services/auth.guard';
+import {AuthGuard} from './_services/auth.guard';
 
 import {UserLoginComponent} from "./user-login/user-login.component";
 import {UserRegisterComponent} from "./user-register/user-register.component";
@@ -22,30 +22,31 @@ import {KursZuordnungComponent} from "./kurs-zuordnung/kurs-zuordnung.component"
 
 // ACHTUNG! Bitte den Path-Eintrag alles KLEIN schreiben
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'homekurslist', component: HomeKurslistComponent },
-  { path: 'homekursdetails/:kursId', component: HomeKursdetailsComponent },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'homekurslist', component: HomeKurslistComponent},
+  {path: 'homekursdetails/:kursId', component: HomeKursdetailsComponent},
 
-  { path: 'login', component: UserLoginComponent },
-  { path: 'register', component: UserRegisterComponent },
+  {path: 'login', component: UserLoginComponent},
+  {path: 'register', component: UserRegisterComponent},
 
-  { path: 'personform', component: PersonFormComponent, canActivate: [AuthGuard] },
-  { path: 'personlist', component: PersonListComponent, canActivate: [AuthGuard] },
-  { path: 'persondetails', component: PersonDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'zuordnung/person/:personId', component: PersonZuordnungComponent, canActivate: [AuthGuard] },
+  {path: 'personform', component: PersonFormComponent, canActivate: [AuthGuard]},
+  {path: 'personlist', component: PersonListComponent, canActivate: [AuthGuard]},
+  {path: 'persondetails', component: PersonDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'zuordnung/person/:personId', component: PersonZuordnungComponent, canActivate: [AuthGuard]},
 
-  { path: 'kursform', component: KursFormComponent, canActivate: [AuthGuard] },
-  { path: 'kurslist', component: KursListComponent, canActivate: [AuthGuard] },
-  { path: 'kursdetails', component: KursDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'zuordnung/kurs/:kursId', component: KursZuordnungComponent, canActivate: [AuthGuard] },
+  {path: 'kursform', component: KursFormComponent, canActivate: [AuthGuard]},
+  {path: 'kurslist', component: KursListComponent, canActivate: [AuthGuard]},
+  {path: 'kursdetails', component: KursDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'zuordnung/kurs/:kursId', component: KursZuordnungComponent, canActivate: [AuthGuard]},
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponentComponent }
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '**', component: PageNotFoundComponentComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
