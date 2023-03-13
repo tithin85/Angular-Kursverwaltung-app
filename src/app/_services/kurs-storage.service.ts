@@ -65,4 +65,11 @@ export class KursStorageService {
     return this.http.get<Kurs>("http://localhost:8080/kurs/find/" + kursId)
   }
 
+  getPdfKursListe(): void {
+    this.http.get('http://localhost:8080/kurs/pdf-kursliste', { responseType: 'blob' }).subscribe((response: Blob) => {
+      const file = new Blob([response], { type: 'application/pdf' });
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+    });
+  }
 }

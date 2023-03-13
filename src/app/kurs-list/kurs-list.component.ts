@@ -74,4 +74,7 @@ export class KursListComponent {
     });
   }
 
+  openPdfKursListe() {
+    this.storeService.getPdfKursListe();
+  }
 }
