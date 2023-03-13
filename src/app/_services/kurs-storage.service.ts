@@ -37,7 +37,7 @@ export class KursStorageService {
     return this.http.post<Kurs>("http://localhost:8080/kurs/add", kurs);
   }
 
-  deleteKurs(kursId: number): Observable<Kurs[]> {
+  deleteKurs(kursId?: number): Observable<Kurs[]> {
     return this.http.delete<Kurs[]>("http://localhost:8080/kurs/delete/" + kursId)
   }
 
