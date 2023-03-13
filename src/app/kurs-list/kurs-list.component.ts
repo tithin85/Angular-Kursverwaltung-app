@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {KursStorageService} from "../_services/kurs-storage.service";
+import {FormatterService} from "../_services/formatter.service";
 import {Kurs} from "../_shared/Kurs";
 import {Router} from "@angular/router";
 
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
 export class KursListComponent {
   public kursList!: Kurs[];
 
-  constructor(private storeService: KursStorageService, private router: Router) {
+  constructor(private storeService: KursStorageService, private router: Router, public formatter: FormatterService) {
   }
 
   public getKurs(): void {
@@ -35,17 +36,26 @@ export class KursListComponent {
 
   updateKurs(kurs: Kurs) {
     this.storeService.setter(kurs);
-    this.router.navigateByUrl("kursform");
+    //this.router.navigateByUrl("kursform");
+    this.router.navigateByUrl("kursform").then(() => {
+      // Do something
+    });
   }
 
   searchText: string = "";
 
   details(kurs: Kurs) {
     this.storeService.setKursDetailEntity(kurs);
-    this.router.navigateByUrl("kursdetails");
+    //this.router.navigateByUrl("kursdetails");
+    this.router.navigateByUrl("kursdetails").then(() => {
+      // Do something
+    });
   }
   manageFromKurs(kurs: Kurs){
     this.storeService.setKursDetailEntity(kurs);
-    this.router.navigateByUrl("zuordnung/kurs/"+kurs.id);
+    //this.router.navigateByUrl("zuordnung/kurs/"+kurs.id);
+    this.router.navigateByUrl("zuordnung/kurs/"+kurs.id).then(() => {
+      // Do something
+    });
   }
 }

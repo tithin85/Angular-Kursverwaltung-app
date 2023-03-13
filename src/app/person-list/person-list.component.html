@@ -1,34 +1,36 @@
+<div id="showOnScreen" class="container">
 <div class="card bg-light mb-3 table-responsive">
-  <div class="card-header">Person List
-    <div class ="card-header">
-<!--    <div class="col-xl-4">-->
-    <div class="search-name col-sm-2">
-<!--      <div class="search-email">-->
-      <input  class = "form-control py-2 border rounded-pill" type = "text" name = "Suchen" [(ngModel)]="searchText" placeholder=" Suchen " >
-
+  <div class="card-header"><h4>Liste aller gespeicherten Personen</h4>
+  </div>
+    <div class="card-body d-flex justify-content-between">
+      <div class="search-name col-sm-2">
+        <input class="form-control py-2 border rounded-pill" type="text" name="Suchen" [(ngModel)]="searchText"
+               placeholder="Suchen">
+      </div>
+      <div class="col-sm-2 d-flex justify-content-end">
+        <!--<button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>-->
+        <i class="fa fa-file-pdf-o fa-3"></i>
+      </div>
     </div>
-    </div>
-<!--  </div>-->
-<!--  <h5 class="card-title ">Person List View</h5>-->
 
     <table class="table table-striped">
       <thead>
       <th>Id</th>
       <th>Anrede</th>
       <th>Titel</th>
-      <th>Name</th>
       <th>Vorname</th>
+      <th>Name</th>
       <th>Email</th>
       <th>Telefon</th>
-      <th>Action</th>
+      <th>Aktion</th>
       </thead>
       <tbody>
       <tr *ngFor="let person of personList | filter: searchText">
         <td>{{person.id}}</td>
         <td>{{person.anrede}}</td>
         <td>{{person.titel}}</td>
-        <td>{{person.name}}</td>
         <td>{{person.vorname}}</td>
+        <td>{{person.name}}</td>
         <td>{{person.email}}</td>
         <td>{{person.telefon}}</td>
         <td>
@@ -49,6 +51,41 @@
       </tbody>
     </table>
 
+  </div>
 </div>
-</div>
+<div id="printToPdf" #printToPdf>
+  <table class="table table-striped">
+    <thead>
+    <th>Id</th>
+    <th>Anrede</th>
+    <th>Titel</th>
+    <th>Vorname</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Telefon</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of personList">
+      <td>{{person.id}}</td>
+      <td>{{person.anrede}}</td>
+      <td>{{person.titel}}</td>
+      <td>{{person.vorname}}</td>
+      <td>{{person.name}}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.telefon}}</td>
+    </tr>
+    </tbody>
+  </table>
 
+</div>
+<!--
+person.getAnrede() + " " +
+                person.getTitel() + " " +
+                person.getVorname() + " " +
+                person.getName() + neueZeile +
+                person.getPlz() + " " +
+                person.getOrt() + " " +
+                person.getStrasse() + neueZeile +
+                person.getEmail() + tabulator +
+                person.getTelefon();
+-->

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {KursStorageService} from "../_services/kurs-storage.service";
+import {FormatterService} from "../_services/formatter.service";
 import {Kurs} from "../_shared/Kurs";
 import {Router} from "@angular/router";
 
@@ -14,7 +15,7 @@ export class HomeKurslistComponent {
 
   public searchText: string = "";
 
-  constructor(private storeService: KursStorageService, private router: Router) {
+  constructor(private storeService: KursStorageService, private router: Router, public formatter: FormatterService) {
   }
 
   ngOnInit() {
@@ -30,7 +31,10 @@ export class HomeKurslistComponent {
 
   details(kurs: Kurs) {
     this.storeService.setKursDetailEntity(kurs);
-    this.router.navigateByUrl("homekursdetails/"+kurs.id);
+    //this.router.navigateByUrl("homekursdetails/"+kurs.id);
+    this.router.navigateByUrl("homekursdetails/"+kurs.id).then(() => {
+      // Do something
+    });
   }
 
 }

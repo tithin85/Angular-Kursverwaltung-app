@@ -1,24 +1,31 @@
-<div class="card " style="width: 100rem;">
-  <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/09/24/08/31/pixel-cells-3699334__480.png "
-       alt="Card image cap">
-  <div class="card-body">
-    <h3 class="card-title">Kurs Id:{{kursDetail.id}}</h3>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><h5>Kursname:</h5> &nbsp;{{kursDetail.name}}</li>
-      <li *ngIf="kursDetail.kursBeschreibung!=undefined" class="list-group-item"><h5>
-        Kursbeschreibung:</h5>{{kursDetail.kursBeschreibung}}</li>
-      <li class="list-group-item"><h5>Startdatum:</h5> &nbsp;{{kursDetail.startDatum}}</li>
-      <li class="list-group-item"><h5>Enddatum:</h5> &nbsp; {{kursDetail.endeDatum}}</li>
-      <li class="list-group-item"><h5>Anzahl Kurstage:</h5> &nbsp;{{kursDetail.anzahlTage}}</li>
-      <li class="list-group-item"><h5>Wie oft in Woche findet Kurs statt:</h5> &nbsp;{{kursDetail.wieOftinWoche}}</li>
-      <li class="list-group-item"><h5>Wieviel freie Plätze gibt es noch:</h5> &nbsp;{{kursDetail.freiePlaetze}}</li>
-      <li class="list-group-item"><h5>Kursgebuehr in EUR:</h5> &nbsp;{{kursDetail.gebuehrBrutto}}</li>
-    </ul>
-    <button class="btn btn-sm btn-info" (click)="back()">
-      <i class="fa fa-arrow-left"></i> Back
-    </button>&nbsp;
-    <button class="btn btn-sm btn-warning">
-      Personen hinzufügen
-    </button>
+<div class="container">
+  <div class="card" style="width: 35rem;">
+    <img class="card-img-top"
+    src="../../assets/images/kurs.png" height="250"
+    width="250" alt="Kursdetails">
+    <div class="card-body">
+      <h3 class="card-title">Kurs Id:{{kursDetail.id}}</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><h5>Kursname:</h5> &nbsp;{{kursDetail.name}}</li>
+        <li *ngIf="kursDetail.kursBeschreibung!=undefined" class="list-group-item"><h5>
+          Kursbeschreibung:</h5>{{kursDetail.kursBeschreibung}}</li>
+        <li class="list-group-item"><h5>Der Kurs beginnt am:</h5> &nbsp;{{formatter.formatDate(kursDetail.startDatum!)}}
+        </li>
+        <li class="list-group-item"><h5>Der Kurs endet am:</h5> &nbsp; {{formatter.formatDate(kursDetail.endeDatum!)}}
+        </li>
+        <li class="list-group-item"><h5>Anzahl der Kurstage:</h5> &nbsp;{{kursDetail.anzahlTage}}</li>
+        <li class="list-group-item"><h5>Wie oft in der Woche findet der Kurs statt:</h5>
+          &nbsp;{{kursDetail.wieOftinWoche}}</li>
+        <li class="list-group-item"><h5>Wie viele freie Plätze gibt es noch:</h5> &nbsp;{{kursDetail.freiePlaetze}}</li>
+        <li class="list-group-item"><h5>Kursgebühr in EUR:</h5>
+          &nbsp;{{formatter.formatNumber(kursDetail.gebuehrBrutto!)}}</li>
+      </ul>
+      <button class="btn btn-sm btn-info" (click)="formatter.back()">
+        <i class="fa fa-arrow-left"></i> Back
+      </button>&nbsp;
+      <button class="btn btn-sm btn-warning" (click)="personHinzufuegen(kursDetail.id)">
+        <i class="fa fa-user-plus"></i> Personen hinzufügen
+      </button>
+    </div>
   </div>
 </div>

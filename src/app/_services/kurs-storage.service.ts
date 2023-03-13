@@ -9,54 +9,60 @@ import {Observable} from "rxjs";
 })
 
 export class KursStorageService {
-  private kursEntity:Kurs;
-  kursList:Observable<Kurs[]>;
-  private kursDetailEntity:Kurs
+  private kursEntity: Kurs;
+  kursList: Observable<Kurs[]>;
+  private kursDetailEntity: Kurs
+
   constructor(private http: HttpClient) {
-    this.kursList= this.getAll();
+    this.kursList = this.getAll();
     this.kursEntity = {};
-    this.kursDetailEntity={};
+    this.kursDetailEntity = {};
   }
 
   // Fuer alle Besucher
-  getAllForHome():Observable<Kurs[]> {
+  getAllForHome(): Observable<Kurs[]> {
     return this.http.get<Kurs[]>("http://localhost:8080/homekurslist");
   }
 
-  getKursDetails(kursId?:number):Observable<Kurs>{
-    return this.http.get<Kurs>("http://localhost:8080/homekursdetails/"+kursId)
+  getKursDetails(kursId?: number): Observable<Kurs> {
+    return this.http.get<Kurs>("http://localhost:8080/homekursdetails/" + kursId)
   }
 
   // Fuer eingeloggte User
-  getAll():Observable<Kurs[]> {
+  getAll(): Observable<Kurs[]> {
     return this.http.get<Kurs[]>("http://localhost:8080/kurs/all");
   }
 
-  addKurs(kurs:Kurs):Observable<Kurs> {
-    return this.http.post<Kurs>("http://localhost:8080/kurs/add",kurs);
+  addKurs(kurs: Kurs): Observable<Kurs> {
+    return this.http.post<Kurs>("http://localhost:8080/kurs/add", kurs);
   }
-  deleteKurs(kursId: number):Observable<Kurs[]>
-  {
-    return this.http.delete<Kurs[]>("http://localhost:8080/kurs/delete/" +kursId)
+
+  deleteKurs(kursId: number): Observable<Kurs[]> {
+    return this.http.delete<Kurs[]>("http://localhost:8080/kurs/delete/" + kursId)
   }
-  updateKurs(kurs:Kurs):Observable<Kurs[]>{
-    return this.http.put<Kurs[]>("http://localhost:8080/kurs/update",kurs);
+
+  updateKurs(kurs: Kurs): Observable<Kurs[]> {
+    return this.http.put<Kurs[]>("http://localhost:8080/kurs/update", kurs);
   }
-  setter(kurs:Kurs)
-  {
-    this.kursEntity=kurs;
+
+  setter(kurs: Kurs) {
+    this.kursEntity = kurs;
   }
-  getKursEntity():Kurs{
+
+  getKursEntity(): Kurs {
     return this.kursEntity;
   }
 
-  setKursDetailEntity(kurs: Kurs){
-    this.kursDetailEntity=kurs;
+  setKursDetailEntity(kurs: Kurs) {
+    this.kursDetailEntity = kurs;
   }
-  getKursDetailEntity():Kurs{
+
+  getKursDetailEntity(): Kurs {
     return this.kursDetailEntity;
   }
-  getKursFromId(kursId?:number):Observable<Kurs>{
-    return this.http.get<Kurs>("http://localhost:8080/kurs/find/"+kursId)
+
+  getKursFromId(kursId?: number): Observable<Kurs> {
+    return this.http.get<Kurs>("http://localhost:8080/kurs/find/" + kursId)
   }
+
 }

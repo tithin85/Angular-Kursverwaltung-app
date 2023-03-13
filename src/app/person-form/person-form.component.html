@@ -1,4 +1,4 @@
-<form #PersonForm>
+<form #PersonForm="ngForm" (ngSubmit)="personNeuUpdate();PersonForm.resetForm()">
 
   <section class="h-50 bg-light">
     <div class="container py-5 h-50">
@@ -7,9 +7,7 @@
           <div class="card card-registration ">
             <div class="row g-0">
               <div class="col-xl-6 d-none d-xl-block">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                     alt="Sample photo" class="img-fluid"
-                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"/>
+                <img src="../../assets/images/kurs_person_anlegen.jpg" height="800" width="533" alt="Person anlegen"/>
               </div>
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
@@ -20,8 +18,9 @@
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <select  id="anrede" [(ngModel)]="person.anrede" [ngModelOptions]="{standalone: true}"
-                               class="form-control form-control-lg" >
+                        <small class="text-danger" *ngIf="!anrede.dirty && anrede.touched"> Bitte eine Anrde auswählen</small>
+                        <select  id="anrede" [(ngModel)]="person.anrede" name="anrede" required
+                               class="form-control form-control-lg" #anrede="ngModel" >
                         <option value="Herr">Herr</option>
                         <option value="Frau">Frau</option>
                         <option value="Divers">Divers</option>
@@ -31,8 +30,8 @@
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="titel" [(ngModel)]="person.titel" [ngModelOptions]="{standalone: true}"
-                               class="form-control form-control-lg"/>
+                        <input type="text" id="titel" [(ngModel)]="person.titel" name="titel"
+                               class="form-control form-control-lg" #titel="ngModel"/>
                         <label class="form-label" for="titel">Titel</label>
                       </div>
                     </div>
@@ -41,37 +40,41 @@
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example1m" [(ngModel)]="person.vorname"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
-                        <label class="form-label" for="form3Example1m">First name</label>
+                        <small class="text-danger" *ngIf="vorname.invalid && vorname.touched"> Vorname muss mindestens Zwei Buchstaben enthalten aber nur Buchstaben</small>
+                        <input type="text" id="form3Example1m" required minlength="2" pattern="[a-z A-Z]{2,}" [(ngModel)]="person.vorname"
+                               class="form-control form-control-lg" name="vorname" #vorname="ngModel"/>
+                        <label class="form-label" for="form3Example1m">Vorname</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example1n" [(ngModel)]="person.name"
-                               [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
-                        <label class="form-label" for="form3Example1n">Last name</label>
+                        <small class="text-danger" *ngIf="name.invalid && name.touched"> Nachname muss mindestens Zwei Buchstaben enthalten aber nur Buchstaben</small>
+                        <input type="text" id="form3Example1n" required minlength="2" pattern="[a-z A-Z]{2,}" [(ngModel)]="person.name" class="form-control form-control-lg" name="name" #name="ngModel"/>
+                        <label class="form-label" for="form3Example1n">Nachname</label>
                       </div>
                     </div>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="form3Example8" [(ngModel)]="person.strasse"
-                           [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                    <small class="text-danger" *ngIf="strasse.invalid && strasse.touched"> Strasse muss mindestens threi Bustaben und mindestens ein Nummer enthalten</small>
+                    <input type="text" id="form3Example8" required minlength="4" pattern="[a-z A-Z]{3,}.*[0-9]{1,}" [(ngModel)]="person.strasse"
+                           #strasse="ngModel" name="strasse" class="form-control form-control-lg"/>
                     <label class="form-label" for="form3Example8">Strasse + Hausnummer</label>
                   </div>
 
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="plz" [(ngModel)]="person.plz" [ngModelOptions]="{standalone: true}"
+                        <small class="text-danger" *ngIf="plz.invalid && plz.touched"> Postletzahl muss fünf digit enthalten</small>
+                        <input type="text" id="plz" required minlength="5" pattern="[0-9]{5}" [(ngModel)]="person.plz" #plz="ngModel" name="plz"
                                class="form-control form-control-lg"/>
                         <label class="form-label" for="plz">PLZ</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="ort" [(ngModel)]="person.ort" [ngModelOptions]="{standalone: true}"
+                        <small class="text-danger" *ngIf="ort.invalid && ort.touched"> Ort muss mindestens drei Buchstaben enthalten</small>
+                        <input type="text" id="ort" minlength="3" required pattern="[a-zA-Z]{3,}.*"[(ngModel)]="person.ort" #ort="ngModel" name="ort"
                                class="form-control form-control-lg"/>
                         <label class="form-label" for="ort">Ort</label>
                       </div>
@@ -79,25 +82,27 @@
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="form3Example97" [(ngModel)]="person.email"
-                           [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                    <small class="text-danger" *ngIf="email.invalid && email.touched"> Richtiges Email enigeben</small>
+                    <input type="text" id="form3Example97"  required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$" [(ngModel)]="person.email"
+                           #email="ngModel" name="email" class="form-control form-control-lg"/>
                     <label class="form-label" for="form3Example97">Email-Adresse</label>
                   </div>
                   <div class="form-outline mb-4">
-                    <input type="text" id="telefon" [(ngModel)]="person.telefon"
-                           [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"/>
+                    <small class="text-danger" *ngIf="telefon.invalid && telefon.dirty"> Telefon nummer mindestens zehn nummer(ohne sonderzeichen und leerstellen) enthalten</small>
+                    <input type="text" id="telefon" minlength="10" pattern="[0-9]{10,}" [(ngModel)]="person.telefon"
+                           #telefon="ngModel" name="telefon" class="form-control form-control-lg"/>
                     <label class="form-label" for="telefon">Telefon</label>
                   </div>
 
                   <div *ngIf="person.id==undefined;else updatingButton" class="d-flex justify-content-end pt-3">
                     <div class="row">
                       <div class="col-md-6 mb-4">
-                        <button type="button" (click)="PersonForm.reset()" class="btn btn-danger btn-lg sm-2">
+                        <button type="button" (click)="PersonForm.resetForm()" class="btn btn-danger btn-lg sm-2">
                           Zurücksetzen
                         </button>
                       </div>
                       <div class="col-md-6 mb-4">
-                        <button type="submit" class="btn btn-success btn-lg ms-2" (click)="personNeuUpdate();PersonForm.reset()">
+                        <button type="submit" class="btn btn-success btn-lg ms-2" [disabled]="PersonForm.invalid" >
                           Speichern
                         </button>
                       </div>
@@ -106,8 +111,8 @@
                   <ng-template #updatingButton>
                     <div class="d-flex justify-content-end pt-3">
 
-                      <button type="submit" class="btn btn-success btn-lg ms-2"
-                              (click)="personNeuUpdate();PersonForm.reset()">Update Person
+                      <button type="submit" class="btn btn-success btn-lg ms-2" [disabled]="PersonForm.invalid">
+                              Update Person
                       </button>
                     </div>
                   </ng-template>

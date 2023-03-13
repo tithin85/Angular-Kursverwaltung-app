@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import {FormControl, FormGroup, Validators} from '@angular/forms'
+import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms'
 import {KursStorageService} from "../_services/kurs-storage.service";
 import {Kurs} from "../_shared/Kurs";
 import {Router} from "@angular/router";
@@ -15,14 +15,12 @@ export class KursFormComponent {
   kurs: Kurs;
   return: any;
   emptyKurs: Kurs;
-
-  /*options = ["Aktiv", "Geplant", "Abgesagt"]
-  ngSelect = this.options[0];*/
+  public today: Date = new Date();
 
  constructor(private  service:KursStorageService, private router:Router) {
    this.kurs = service.getKursEntity();
    this.emptyKurs = {};
- //  this.currentDate = new Date().toISOString().slice(0, 10);
+
 
  }
   ngOnInit(){
@@ -31,7 +29,14 @@ export class KursFormComponent {
   addKurs(){
    if (this.service.getKursEntity().id==undefined){
    let response=this.service.addKurs(this.kurs);
-   response.subscribe((data)=>this.return=data)
+   response.subscribe((data)=>{
+     this.return=data
+     if(this.return.id!=undefined){
+       alert("kurs successfully created mit id "+this.return.id)
+
+     }
+
+   })
      this.service.setter(this.emptyKurs);
 
   } else{
