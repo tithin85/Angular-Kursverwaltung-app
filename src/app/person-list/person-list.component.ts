@@ -61,4 +61,8 @@ export class PersonListComponent {
       // Do something
     });
   }
+
+  openPDF() {
+    this.storeService.getPdf();
+  }
 }

@@ -5,7 +5,7 @@
   <br><br>
   <h6 *ngIf="kursZuordnung">Kurs Id : {{kursZuordnung.id}}</h6>
   <h6 *ngIf="kursZuordnung">Kurs Name : {{kursZuordnung.name}}&nbsp;&nbsp;</h6>
-  <h6 *ngIf="kursZuordnung">Start Date : {{kursZuordnung.startDatum}}</h6>
+  <h6 *ngIf="kursZuordnung">Start Date : {{formatter.formatDate(kursZuordnung.startDatum!)}}</h6>
   <h6 class="text-danger" *ngIf="kursZuordnung">Freie Plätze : {{freiplaetze}}</h6>
   <br>
   <section class="h-50 bg-light">

@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: 'kursform', component: KursFormComponent, canActivate: [AuthGuard] },
   { path: 'kurslist', component: KursListComponent, canActivate: [AuthGuard] },
   { path: 'kursdetails', component: KursDetailsComponent, canActivate: [AuthGuard] },
-    { path: 'zuordnung/kurs/:kursId', component: KursZuordnungComponent, canActivate: [AuthGuard] },
+  { path: 'zuordnung/kurs/:kursId', component: KursZuordnungComponent, canActivate: [AuthGuard] },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponentComponent }

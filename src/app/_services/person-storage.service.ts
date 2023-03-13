@@ -9,62 +9,73 @@ import {List} from 'immutable';
   providedIn: 'root'
 })
 
-export class PersonStorageService implements OnInit{
+export class PersonStorageService implements OnInit {
 
-  private personEntity:Person;
+  private personEntity: Person;
   //personList:Observable<Person[]>;
-  private personDetailEntity?:Person;
-  private zuordnungsPerson:Person;
- public personEntityList:Person[];
+  private personDetailEntity?: Person;
+  private zuordnungsPerson: Person;
+  public personEntityList: Person[];
 
-constructor(private http:HttpClient){
-  //this.personList=this.getAll();
-  this.personEntity={};
-  //this.personDetailEntity={};
-  this.zuordnungsPerson={};
-  this.personEntityList=[];
-   this.getAll().subscribe((response:Person[])=>{this.personEntityList=response
-  })
-}
-ngOnInit() {
-   this.getAll().subscribe((response:Person[])=>{this.personEntityList=response
-  })
-}
+  constructor(private http: HttpClient) {
+    //this.personList=this.getAll();
+    this.personEntity = {};
+    //this.personDetailEntity={};
+    this.zuordnungsPerson = {};
+    this.personEntityList = [];
+    this.getAll().subscribe((response: Person[]) => {
+      this.personEntityList = response
+    })
+  }
 
-  getAll():Observable<Person[]>{
+  ngOnInit() {
+    this.getAll().subscribe((response: Person[]) => {
+      this.personEntityList = response
+    })
+  }
+
+  getAll(): Observable<Person[]> {
     return this.http.get<Person[]>("http://localhost:8080/person/all");
   }
-  addPerson(person:Person):Observable<Person>{
-  return this.http.post<Person>("http://localhost:8080/person/add",person)
+
+  addPerson(person: Person): Observable<Person> {
+    return this.http.post<Person>("http://localhost:8080/person/add", person)
 
   }
-  deletePerson(personId:number):Observable<Person[]>{
-   return this.http.delete<Person[]>("http://localhost:8080/person/delete/" +
-     personId);
+
+  deletePerson(personId: number): Observable<Person[]> {
+    return this.http.delete<Person[]>("http://localhost:8080/person/delete/" +
+      personId);
   }
-  updatePerson(person:Person):Observable<Person[]>{
-  return this.http.put<Person[]>("http://localhost:8080/person/update",person);
+
+  updatePerson(person: Person): Observable<Person[]> {
+    return this.http.put<Person[]>("http://localhost:8080/person/update", person);
   }
-  setter(person:Person){
-  this.personEntity=person;
+
+  setter(person: Person) {
+    this.personEntity = person;
   }
-  getPersonEntity():Person{
-  return this.personEntity;
+
+  getPersonEntity(): Person {
+    return this.personEntity;
   }
-  setPersonDetailEntity(peraon:Person){
-  this.personDetailEntity=peraon;
+
+  setPersonDetailEntity(peraon: Person) {
+    this.personDetailEntity = peraon;
   }
-  getPersonDetailEntity():Person{
-  if(this.personDetailEntity!=undefined){
-    return this.personDetailEntity;
+
+  getPersonDetailEntity(): Person {
+    if (this.personDetailEntity != undefined) {
+      return this.personDetailEntity;
+
+    }
+    return {};
 
   }
-  return {};
 
-  }
-  getPersonById(number:number):Observable<Person>{
-  //let num=Number.parseInt(number);
-  return this.http.get<Person>("http://localhost:8080/person/find/"+number);
+  getPersonById(number: number): Observable<Person> {
+    //let num=Number.parseInt(number);
+    return this.http.get<Person>("http://localhost:8080/person/find/" + number);
   }
 
   //
@@ -74,13 +85,20 @@ ngOnInit() {
   //   return this.http.put<Person>("http://localhost:8080/person/update/", updatedPerson)
   //
   // }
-  updatePersonEntitylist(){
-    this.getAll().subscribe((response:Person[])=>{this.personEntityList=response;
+  updatePersonEntitylist() {
+    this.getAll().subscribe((response: Person[]) => {
+      this.personEntityList = response;
 
     });
 
   }
 
-
+  getPdf(): void {
+    this.http.get('http://localhost:8080/person/pdf-personenliste', { responseType: 'blob' }).subscribe((response: Blob) => {
+      const file = new Blob([response], { type: 'application/pdf' });
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+    });
+  }
 }
 
