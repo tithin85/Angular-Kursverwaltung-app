@@ -33,4 +33,4 @@ ToDo:
 ## PersonenListe 
 - bei Manage fehlerhafte Zuordnung
 
-Stand 11.03.23
+Stand 13.03.23
