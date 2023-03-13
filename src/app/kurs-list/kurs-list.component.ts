@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class KursListComponent {
   public kursList!: Kurs[];
+  public teilnehmer?:number;
 
   constructor(private storeService: KursStorageService, private router: Router, public formatter: FormatterService) {
   }
@@ -24,15 +25,29 @@ export class KursListComponent {
 
   ngOnInit() {
     this.getKurs()
+
   }
 
-  delete(id?: number) {
-    if (id !== undefined) {
-      this.storeService.deleteKurs(id).subscribe((response: Kurs[]) => {
-        this.kursList = response;
-      })
+  delete(kurs:Kurs) {
+     this.storeService.setter(kurs)
+
+       if(this.storeService.getKursEntity().aktuelleTnZahl==0){
+         if(confirm('Sicher, dass Sie diesen Kurs '+kurs.name+' löschen wollen?')) {
+
+
+           this.storeService.deleteKurs(this.storeService.getKursEntity().id).subscribe((response: Kurs[]) => {
+             this.kursList = response;
+           })
+         }
+
+       }else{
+         alert("Dieser Kurs hat schon Teilnehmer und darf nicht gelöscht werden.")
+       }
+
+
     }
-  }
+
+
 
   updateKurs(kurs: Kurs) {
     this.storeService.setter(kurs);
@@ -58,4 +73,5 @@ export class KursListComponent {
       // Do something
     });
   }
+
 }
