@@ -4,6 +4,7 @@ import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms'
 import {KursStorageService} from "../_services/kurs-storage.service";
 import {Kurs} from "../_shared/Kurs";
 import {Router} from "@angular/router";
+import {Person} from "../_shared/Person";
 
 @Component({
   selector: 'app-kurs-form',
@@ -16,6 +17,7 @@ export class KursFormComponent {
   return: any;
   emptyKurs: Kurs;
   public today: Date = new Date();
+  return2:any;
 
  constructor(private  service:KursStorageService, private router:Router) {
    this.kurs = service.getKursEntity();
@@ -41,9 +43,15 @@ export class KursFormComponent {
 
   } else{
      let response=this.service.updateKurs(this.kurs);
-     response.subscribe((data)=>this.return=data)
+     response.subscribe((data:Kurs)=>this.return=data)
      this.service.setter(this.emptyKurs);
-     this.router.navigateByUrl("kurslist");
+     this.router.navigateByUrl("kurslist").then(() => {
+       this.service.getAll().subscribe((response:Kurs[]) => {
+           this.return2 = response;
+         }
+       )
+       // Do something
+     });;
    }
   }
 

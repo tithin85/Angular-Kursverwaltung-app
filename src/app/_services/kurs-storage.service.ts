@@ -41,8 +41,8 @@ export class KursStorageService {
     return this.http.delete<Kurs[]>("http://localhost:8080/kurs/delete/" + kursId)
   }
 
-  updateKurs(kurs: Kurs): Observable<Kurs[]> {
-    return this.http.put<Kurs[]>("http://localhost:8080/kurs/update", kurs);
+  updateKurs(kurs: Kurs): Observable<Kurs> {
+    return this.http.put<Kurs>("http://localhost:8080/kurs/update", kurs);
   }
 
   setter(kurs: Kurs) {

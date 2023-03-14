@@ -13,6 +13,7 @@ export class PersonFormComponent {
   return:any
   emptyPerson:Person;
   personSaved: any ;
+  return2:any;
   constructor(private service:PersonStorageService, private router:Router) {
     this.person=service.getPersonEntity();
     this.emptyPerson={};
@@ -29,10 +30,14 @@ export class PersonFormComponent {
       this.service.setter(this.emptyPerson);
   }else{
       let response=this.service.updatePerson(this.person);
-      response.subscribe((data)=>this.return=data)
+      response.subscribe((data:Person)=>this.return=data)
       this.service.setter(this.emptyPerson);
       //this.router.navigateByUrl('personlist');
       this.router.navigateByUrl("personlist").then(() => {
+        this.service.getAll().subscribe((response: Person[]) => {
+            this.return2 = response;
+          }
+        )
         // Do something
       });
     }

@@ -49,8 +49,8 @@ export class PersonStorageService implements OnInit {
       personId);
   }
 
-  updatePerson(person: Person): Observable<Person[]> {
-    return this.http.put<Person[]>("http://localhost:8080/person/update", person);
+  updatePerson(person: Person): Observable<Person> {
+    return this.http.put<Person>("http://localhost:8080/person/update", person);
   }
 
   setter(person: Person) {
