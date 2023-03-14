@@ -20,9 +20,9 @@ export class AppComponent {
   constructor(private tokenStorageService: TokenStorageService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<number>('/api/auth/count').subscribe(count => {
+    this.http.get<number>('http://localhost:8080/api/auth/count').subscribe(count => {
       console.log('Count: ' + count);
-      this.showLink = count <= 1;
+      this.showLink = count < 1;
 
     });
     this.isLoggedIn = !!this.tokenStorageService.getToken();
