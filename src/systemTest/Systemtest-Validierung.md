@@ -57,7 +57,6 @@ ToDo:
 
 ## KursListe 
 - Suchen ok<p>
-- Sortieren nach Tabellenspalten nicht ok<p>
 - Startdatum, Enddatum, FreiePlaetze, Zugesagt, Status ok
 - Action Detail: Back, Personen hinzufügen ok: zuTeilnehmer, zuInteressent, Delete, back ok<p>
   Kursname, Start- und Enddatum, AnzahlKursTage, WieOftinderWoche, FreierPlaetze, Kursgebühre ok
@@ -67,6 +66,9 @@ ToDo:
 - Action Manage: nur für zukünftige Kurse ok <p>
   Startdatum, FreiePlaetze, Suche ok <p>
   zuTeilnehmer, zuInteressent, Delete, back ok<p>
+
+ToDo:
+- Sortieren nach Tabellenspalten nicht ok<p>
 - Kurse müssen bei Aufruf der Kursliste gecheckt werden nach Datum. Ist das Anfangsdatum in der Vergangenheit und das Enddatum in der Zukunft, muss der Status automatisch auf Aktiv gesetzt werden. ist das Enddatum in der vergangenheit, muss der Status auf Beendet gesetzt werden.
 - Wenn man auf edit-seite ist, muß eine warnung kommen, ob man speichern oder abbrechen möchte. Beim jetzigen stand, bleibt die edit-seite mit inhalt bestehen, auch wenn man auf neu-anlegen klickt.
   
