@@ -41,7 +41,7 @@
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
                         <small class="text-danger" *ngIf="vorname.invalid && vorname.touched"> Vorname muss mindestens Zwei Buchstaben enthalten aber nur Buchstaben</small>
-                        <input type="text" id="form3Example1m" required minlength="2" pattern="[a-zA-ZäÄüÜßöÖ]{2,}" [(ngModel)]="person.vorname"
+                        <input type="text" id="form3Example1m" required minlength="2" pattern="[a-zA-ZäÄüÜßöÖ]{2,}[a-z A-ZäÄüÜßöÖ]*" [(ngModel)]="person.vorname"
                                class="form-control form-control-lg" name="vorname" #vorname="ngModel"/>
                         <label class="form-label" for="form3Example1m">Vorname</label>
                       </div>
@@ -49,7 +49,7 @@
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
                         <small class="text-danger" *ngIf="name.invalid && name.touched"> Nachname muss mindestens Zwei Buchstaben enthalten aber nur Buchstaben</small>
-                        <input type="text" id="form3Example1n" required minlength="2" pattern="[a-zA-ZäÄüÜßöÖ]{2,}" [(ngModel)]="person.name" class="form-control form-control-lg" name="name" #name="ngModel"/>
+                        <input type="text" id="form3Example1n" required minlength="2" pattern="[a-zA-ZäÄüÜßöÖ]{2,}[a-z A-ZäÄüÜßöÖ]*" [(ngModel)]="person.name" class="form-control form-control-lg" name="name" #name="ngModel"/>
                         <label class="form-label" for="form3Example1n">Nachname</label>
                       </div>
                     </div>
