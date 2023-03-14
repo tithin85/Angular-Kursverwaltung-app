@@ -34,7 +34,7 @@ export class PersonListComponent {
   delete(person:Person) {
     this.zuStore.getTeilnahmeKurse(person.id).subscribe((response:Kurs[])=>{
       if(response.length==0){
-        if(confirm('Sicher, dass Sie diesen Person '+person.name+' löschen wollen?')){
+        if(confirm('Sicher, dass Sie diese Person '+person.name+' löschen wollen?')){
           this.storeService.deletePerson(person.id).subscribe((response: Person[]) => {
               this.personList = response;
             }
@@ -42,7 +42,7 @@ export class PersonListComponent {
         }
 
       }else{
-        alert("Dieser Person ist ein Teilnehmer und darf nicht gelöscht werden.")
+        alert("Diese Person ist ein Teilnehmer und darf nicht gelöscht werden.")
       }
     })
 

@@ -16,7 +16,7 @@
                   </ng-template>
                   <!--                  {{ KursForm.value | json}}-->
                   <div class="form-outline mb-4">
-                    <small class="text-danger" *ngIf="kursname.invalid && kursname.touched"> Bitte einen Kursname
+                    <small class="text-danger" *ngIf="kursname.invalid && kursname.touched"> Bitte einen Kursnamen
                       eingeben</small>
                     <input type="text" id="form3Example8" name="name" [(ngModel)]="kurs.name"
                            class="form-control form-control-lg" required #kursname="ngModel"
@@ -62,7 +62,7 @@
                         <input type="number" required min="1" pattern="[0-9]{1,}" id="anzahltage"
                                [(ngModel)]="kurs.anzahlTage"
                                name="anzahlTage" class="form-control form-control-lg" #anzahlTage="ngModel"/>
-                        <label class="form-label" for="anzahltage">Anzahl der Tage</label>
+                        <label class="form-label" for="anzahltage">Anzahl der Kurstage</label>
                       </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -115,7 +115,7 @@
                         <small class="text-danger align-content-lg-end" *ngIf="prozent.touched && prozent.invalid">
                           Bitte Mwst Prozent eingeben(Ganz- oder Kommazahl)</small>
                         <input type="number" min="0" max="100" required id="mwt" [(ngModel)]="kurs.mwstProzent"
-                               name="protzent" class="form-control form-control-lg" #prozent="ngModel"/>
+                               name="prozent" class="form-control form-control-lg" #prozent="ngModel"/>
                         <label class="form-label" for="mwt">Mehrwertsteuer Prozent</label>
                       </div>
                     </div>

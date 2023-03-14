@@ -24,7 +24,7 @@ export class PersonFormComponent {
     let response=this.service.addPerson(this.person);
     response.subscribe((data)=>{
       this.return=data
-      alert('Neu Person mit Id '+this.return.id+' erzuegt erfolgreich')
+      alert('Neu Person mit der Id '+this.return.id+' erfolgreichwurde erfolgreich erzeugt.')
     })
       this.service.setter(this.emptyPerson);
   }else{
