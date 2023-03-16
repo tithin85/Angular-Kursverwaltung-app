@@ -32,7 +32,7 @@
                           Bitte StartDatum eingeben</small>
                         <input type="date" id="date" required min="{{today.toISOString().split('T')[0]}}"
                                name="startDate" [(ngModel)]="kurs.startDatum"
-                               class="form-control form-control-lg" #startDatum="ngModel"/>
+                               class="form-control form-control-lg" #startDatum="ngModel" onkeypress="return false"/>
                         <label class="form-label" for="date">Start Datum</label>
                       </div>
                     </div>
